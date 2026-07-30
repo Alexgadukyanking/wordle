@@ -38,6 +38,10 @@ const KEY_ROWS = [
 ];
 
 const STORAGE_KEY = "five-word-state-v1";
+const BACKGROUND_DB_NAME = "five-customization-v1";
+const BACKGROUND_STORE_NAME = "backgrounds";
+const BACKGROUND_RECORD_KEY = "page-background";
+const MAX_BACKGROUND_BYTES = 10 * 1024 * 1024;
 const board = document.querySelector("#board");
 const keyboard = document.querySelector("#keyboard");
 const message = document.querySelector("#message");
@@ -58,6 +62,9 @@ const hintLastLetter = document.querySelector("#hint-last-letter");
 const hintDouble = document.querySelector("#hint-double");
 const hintVowels = document.querySelector("#hint-vowels");
 const hintPartOfSpeech = document.querySelector("#hint-part-of-speech");
+const backgroundFileInput = document.querySelector("#background-file-input");
+const backgroundRemoveButton = document.querySelector("#background-remove-button");
+const backgroundStatus = document.querySelector("#background-status");
 
 let answer;
 let guesses;
@@ -68,6 +75,7 @@ let audioContext;
 let cameraStream;
 let lastVictoryReactionIndex = -1;
 let hintLookupToken = 0;
+let backgroundObjectUrl = "";
 
 const ADJECTIVE_WORDS = new Set(
   "ACUTE AWARE BASIC BLACK BLIND BROAD BROWN CIVIL CLEAN CLEAR EAGER EARLY ELITE EMPTY EQUAL EXACT FALSE FINAL FIXED FRESH FUNNY GRAND GREAT GREEN GROSS HAPPY HEAVY IDEAL INNER LARGE LEGAL LOCAL LOOSE LUCKY MAJOR MINOR MORAL OTHER PLAIN PRIME PROUD QUICK QUIET RAPID READY RIGHT ROUGH ROYAL RURAL SHARP SHORT SMALL SMART SOLID SORRY SWEET THICK TIGHT TIRED TOUGH UPPER URBAN USUAL VALID VITAL WHITE WHOLE WRONG YOUNG".split(" ")
@@ -76,6 +84,92 @@ const ADJECTIVE_WORDS = new Set(
 const VERB_WORDS = new Set(
   "ADMIT ADOPT AGREE ALLOW APPLY ARGUE ARISE AVOID BEGIN BREAK BRING BUILD CARRY CATCH CHASE CHECK CLAIM CLICK COVER CRASH DRINK DRIVE ENJOY ENTER EXIST FIGHT FOCUS FORCE GUARD GUESS GUIDE LEARN LEAVE MATCH MOUNT OCCUR OFFER PAINT PROVE RAISE REACH REFER SERVE SHARE SHINE SHOOT SLEEP SOLVE SPEAK SPEND SPLIT STAND START STICK STUDY TEACH THINK THROW TOUCH TRAIN TREAT TRUST VISIT WATCH WRITE YIELD".split(" ")
 );
+
+function openBackgroundDatabase() {
+  return new Promise((resolve, reject) => {
+    if (!("indexedDB" in window)) {
+      reject(new Error("Background storage is not supported by this browser."));
+      return;
+    }
+
+    const request = indexedDB.open(BACKGROUND_DB_NAME, 1);
+    request.onupgradeneeded = () => {
+      if (!request.result.objectStoreNames.contains(BACKGROUND_STORE_NAME)) {
+        request.result.createObjectStore(BACKGROUND_STORE_NAME);
+      }
+    };
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function readSavedBackground() {
+  const database = await openBackgroundDatabase();
+  return new Promise((resolve, reject) => {
+    const transaction = database.transaction(BACKGROUND_STORE_NAME, "readonly");
+    const request = transaction.objectStore(BACKGROUND_STORE_NAME).get(BACKGROUND_RECORD_KEY);
+    request.onsuccess = () => resolve(request.result || null);
+    request.onerror = () => reject(request.error);
+    transaction.oncomplete = () => database.close();
+  });
+}
+
+async function saveBackground(blob) {
+  const database = await openBackgroundDatabase();
+  return new Promise((resolve, reject) => {
+    const transaction = database.transaction(BACKGROUND_STORE_NAME, "readwrite");
+    transaction.objectStore(BACKGROUND_STORE_NAME).put(blob, BACKGROUND_RECORD_KEY);
+    transaction.oncomplete = () => {
+      database.close();
+      resolve();
+    };
+    transaction.onerror = () => {
+      database.close();
+      reject(transaction.error);
+    };
+  });
+}
+
+async function deleteSavedBackground() {
+  const database = await openBackgroundDatabase();
+  return new Promise((resolve, reject) => {
+    const transaction = database.transaction(BACKGROUND_STORE_NAME, "readwrite");
+    transaction.objectStore(BACKGROUND_STORE_NAME).delete(BACKGROUND_RECORD_KEY);
+    transaction.oncomplete = () => {
+      database.close();
+      resolve();
+    };
+    transaction.onerror = () => {
+      database.close();
+      reject(transaction.error);
+    };
+  });
+}
+
+function applyBackground(blob) {
+  if (backgroundObjectUrl) URL.revokeObjectURL(backgroundObjectUrl);
+  backgroundObjectUrl = URL.createObjectURL(blob);
+  document.body.style.backgroundImage = `url("${backgroundObjectUrl}")`;
+  backgroundRemoveButton.disabled = false;
+  backgroundStatus.textContent = "Custom background active";
+}
+
+function clearBackground() {
+  if (backgroundObjectUrl) URL.revokeObjectURL(backgroundObjectUrl);
+  backgroundObjectUrl = "";
+  document.body.style.backgroundImage = "none";
+  backgroundRemoveButton.disabled = true;
+  backgroundStatus.textContent = "No custom background";
+}
+
+async function initializeBackground() {
+  try {
+    const savedBackground = await readSavedBackground();
+    if (savedBackground instanceof Blob) applyBackground(savedBackground);
+  } catch {
+    backgroundStatus.textContent = "Background storage unavailable";
+  }
+}
 
 function playLetterSound() {
   const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -597,6 +691,43 @@ hardcoreButton.addEventListener("click", () => {
 document.querySelector("#current-year").textContent = new Date().getFullYear();
 document.querySelector("#victory-reset-button").addEventListener("click", () => startGame(true));
 document.querySelector("#victory-admire-button").addEventListener("click", () => victoryDialog.close());
+backgroundFileInput.addEventListener("change", async () => {
+  const [file] = backgroundFileInput.files;
+  if (!file) return;
+
+  if (!file.type.startsWith("image/")) {
+    backgroundStatus.textContent = "Please choose an image file";
+    backgroundFileInput.value = "";
+    return;
+  }
+
+  if (file.size > MAX_BACKGROUND_BYTES) {
+    backgroundStatus.textContent = "Image must be 10 MB or smaller";
+    backgroundFileInput.value = "";
+    return;
+  }
+
+  backgroundStatus.textContent = "Saving background…";
+  try {
+    await saveBackground(file);
+    applyBackground(file);
+  } catch {
+    backgroundStatus.textContent = "Could not save this background";
+  } finally {
+    backgroundFileInput.value = "";
+  }
+});
+backgroundRemoveButton.addEventListener("click", async () => {
+  backgroundRemoveButton.disabled = true;
+  backgroundStatus.textContent = "Removing background…";
+  try {
+    await deleteSavedBackground();
+    clearBackground();
+  } catch {
+    backgroundRemoveButton.disabled = false;
+    backgroundStatus.textContent = "Could not remove this background";
+  }
+});
 cameraButton.addEventListener("click", () => {
   if (cameraStream) {
     stopCamera();
@@ -606,6 +737,7 @@ cameraButton.addEventListener("click", () => {
 });
 window.addEventListener("pagehide", () => {
   cameraStream?.getTracks().forEach((track) => track.stop());
+  if (backgroundObjectUrl) URL.revokeObjectURL(backgroundObjectUrl);
 });
 
 function initializeGame() {
@@ -617,6 +749,7 @@ function initializeGame() {
   startGame();
   startCamera();
   loadVictoryReactions();
+  initializeBackground();
 }
 
 initializeGame();

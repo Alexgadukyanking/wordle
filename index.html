@@ -27,6 +27,28 @@
 
     <main>
       <p class="subtitle">Guess the five-letter word</p>
+      <section class="background-control" aria-label="Custom page background">
+        <label class="background-upload-button" for="background-file-input">
+          Choose background
+        </label>
+        <input
+          id="background-file-input"
+          type="file"
+          accept="image/*"
+          hidden
+        />
+        <button
+          id="background-remove-button"
+          class="background-remove-button"
+          type="button"
+          disabled
+        >
+          Remove background
+        </button>
+        <span id="background-status" role="status" aria-live="polite">
+          No custom background
+        </span>
+      </section>
       <div class="mode-control">
         <button
           id="hardcore-button"

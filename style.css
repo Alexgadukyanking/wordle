@@ -18,7 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   background-color: var(--paper);
-  background-image: url("assets/game-background.png");
+  background-image: none;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -123,6 +123,54 @@ main {
   color: #746d64;
   font-family: Georgia, "Times New Roman", serif;
   font-style: italic;
+}
+
+.background-control {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 0 0 8px;
+}
+
+.background-upload-button,
+.background-remove-button {
+  border: 1px solid #b8afa3;
+  border-radius: 999px;
+  background: #eee8de;
+  color: #5b544d;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.background-upload-button:hover,
+.background-remove-button:hover:not(:disabled) {
+  border-color: var(--correct);
+  color: var(--correct);
+}
+
+.background-upload-button:focus-within,
+.background-remove-button:focus-visible {
+  outline: 3px solid #0072b244;
+  outline-offset: 2px;
+}
+
+.background-remove-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+#background-status {
+  color: #746d64;
+  font-size: 10px;
+  font-weight: 700;
 }
 
 .mode-control {
