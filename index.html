@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A polished five-letter word guessing game."
+    />
+    <title>Five — A Daily Word Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <button class="icon-button" id="help-button" aria-label="How to play">?</button>
+      <div class="brand" aria-label="Five">
+        <span class="wordmark-icon" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i>
+        </span>
+        <div class="brand-copy">
+          <h1>FIVE</h1>
+          <span>THE WORD GAME</span>
+        </div>
+      </div>
+      <button class="reset-button" id="reset-button" aria-label="Reset game">Reset</button>
+    </header>
+
+    <main>
+      <p class="subtitle">Guess the five-letter word</p>
+      <div class="mode-control">
+        <button
+          id="hardcore-button"
+          class="hardcore-button"
+          type="button"
+          aria-pressed="false"
+        >
+          <span aria-hidden="true">◆</span>
+          <span id="hardcore-label">Hardcore: Off</span>
+        </button>
+        <small id="hardcore-note">Revealed clues become mandatory</small>
+        <div class="possible-counter" aria-live="polite">
+          <strong id="possible-count">—</strong>
+          <span>possible</span>
+        </div>
+      </div>
+      <div id="message" role="status" aria-live="polite"></div>
+      <div class="game-stage">
+        <aside class="camera-card" aria-label="Player camera">
+          <div class="camera-frame">
+            <video id="camera-video" autoplay muted playsinline></video>
+            <div id="camera-placeholder">
+              <img
+                src="assets/karl-marx.jpg"
+                alt="Portrait of Karl Marx"
+              />
+            </div>
+            <div class="clown-filter" aria-hidden="true">
+              <img class="clown-wig-image" src="assets/clown-wig.png" alt="" />
+              <img class="clown-nose-image" src="assets/clown-nose.png" alt="" />
+            </div>
+            <span class="live-reaction-banner">Live Player Reaction</span>
+          </div>
+          <button id="camera-button" type="button">Enable camera</button>
+          <p id="camera-status" role="status" aria-live="polite">Camera is off</p>
+        </aside>
+        <section id="board" aria-label="Guessing board"></section>
+        <aside class="hints-panel" aria-label="Optional word hints">
+          <div class="hints-heading">
+            <span>Hints</span>
+            <small>Tap to reveal</small>
+          </div>
+          <details>
+            <summary>First letter?</summary>
+            <p id="hint-first-letter"></p>
+          </details>
+          <details>
+            <summary>Last letter?</summary>
+            <p id="hint-last-letter"></p>
+          </details>
+          <details>
+            <summary>Double letters?</summary>
+            <p id="hint-double"></p>
+          </details>
+          <details>
+            <summary>How many vowels?</summary>
+            <p id="hint-vowels"></p>
+          </details>
+          <details>
+            <summary>Adjective, noun, or verb?</summary>
+            <p id="hint-part-of-speech"></p>
+          </details>
+        </aside>
+      </div>
+      <div class="play-tools">
+        <section id="keyboard" aria-label="On-screen keyboard"></section>
+      </div>
+    </main>
+
+    <dialog id="help-dialog">
+      <button class="close-button" aria-label="Close help">×</button>
+      <h2>How to play</h2>
+      <p>Guess the five-letter word in six tries.</p>
+      <p>
+        <span class="example correct">T</span> is in the right place,
+        <span class="example present">I</span> is in the word but in another place,
+        and <span class="example absent">Z</span> is not in the word.
+      </p>
+      <p class="small">Every answer is a common English word.</p>
+      <p class="small">Only words in the five-letter word database are accepted.</p>
+      <p class="small">The counter shows how many database words still match every clue.</p>
+      <p class="small">
+        Hardcore Mode requires every revealed clue to be obeyed in later guesses.
+      </p>
+    </dialog>
+
+    <dialog id="victory-dialog" class="victory-dialog" aria-labelledby="victory-title">
+      <div class="victory-card">
+        <p class="victory-kicker">Puzzle complete</p>
+        <h2 id="victory-title">You got it!</h2>
+        <img id="victory-image" src="" alt="" />
+        <p id="victory-word" class="victory-word"></p>
+        <div class="victory-actions">
+          <button id="victory-reset-button" class="victory-reset" type="button">Reset</button>
+          <button id="victory-admire-button" class="victory-admire" type="button">Admire the puzzle</button>
+        </div>
+      </div>
+    </dialog>
+
+    <footer>
+      <section class="market-ticker" aria-label="Live prices for ten leading companies">
+        <div class="market-heading">
+          <span><i></i> Market leaders</span>
+          <small>Live prices · market data may be delayed</small>
+        </div>
+        <tv-ticker-tape
+          symbols="NASDAQ:NVDA,NASDAQ:MSFT,NASDAQ:AAPL,NASDAQ:GOOGL,NASDAQ:AMZN,NASDAQ:META,NASDAQ:AVGO,NASDAQ:TSLA,NYSE:TSM,NYSE:BRK.B"
+          item-size="compact"
+        >
+          <div class="ticker-loading">Loading live market prices…</div>
+        </tv-ticker-tape>
+      </section>
+      <div class="footer-content">
+        <p>© <span id="current-year"></span> Five. All rights reserved.</p>
+        <p class="footer-note">Made for curious minds and clever guesses.</p>
+      </div>
+    </footer>
+
+    <script
+      type="module"
+      src="https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js"
+    ></script>
+    <script src="words.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
