@@ -3,12 +3,24 @@
   "name": "wordle",
   "main": "src/worker.mjs",
   "compatibility_date": "2026-07-31",
+  "vars": {
+    "ENVIRONMENT": "production"
+  },
   "assets": {
-    "directory": ".",
+    "directory": "./dist",
     "binding": "ASSETS",
     "run_worker_first": [
       "/api",
       "/api/*"
     ]
+  },
+  "env": {
+    "dev": {
+      "name": "wordle-dev",
+      "workers_dev": true,
+      "vars": {
+        "ENVIRONMENT": "dev"
+      }
+    }
   }
 }

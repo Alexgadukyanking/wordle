@@ -1,0 +1,107 @@
+.dev-panel {
+  position: fixed;
+  top: 76px;
+  right: 12px;
+  z-index: 1000;
+  width: min(300px, calc(100vw - 24px));
+  border: 2px solid #8f2424;
+  border-radius: 10px;
+  background: #fff6dc;
+  color: #201d1a;
+  box-shadow: 0 12px 36px #201d1a33;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dev-panel summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  background: #8f2424;
+  color: #fff;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  list-style: none;
+  text-transform: uppercase;
+}
+
+.dev-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.dev-panel summary small {
+  color: #ffd36d;
+  font-size: 9px;
+}
+
+.dev-panel-content {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+}
+
+.dev-panel-warning {
+  margin: 0;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.dev-panel-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.dev-panel-actions button {
+  min-height: 36px;
+  border: 1px solid #8f2424;
+  border-radius: 6px;
+  background: #fffdf6;
+  color: #612020;
+  padding: 7px;
+  font: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.dev-panel-actions button:last-child {
+  grid-column: 1 / -1;
+  background: #8f2424;
+  color: #fff;
+}
+
+.dev-panel-actions button:focus-visible,
+.dev-panel summary:focus-visible {
+  outline: 3px solid #d19a3c;
+  outline-offset: 2px;
+}
+
+.dev-panel-output {
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.dev-panel-state {
+  max-height: 210px;
+  margin: 0;
+  overflow: auto;
+  border-radius: 6px;
+  background: #201d1a;
+  color: #f8f4ec;
+  padding: 10px;
+  font-size: 10px;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 760px) {
+  .dev-panel {
+    position: static;
+    width: calc(100% - 20px);
+    margin: 10px auto 0;
+  }
+}

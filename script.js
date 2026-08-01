@@ -753,3 +753,18 @@ function initializeGame() {
 }
 
 initializeGame();
+
+if (__DEV_BUILD__) {
+  import("./src/dev/debug-panel.js").then(({ mountDebugPanel }) => {
+    mountDebugPanel({
+      getState: () => ({
+        answer,
+        guesses: [...guesses],
+        current,
+        finished,
+        hardcoreMode
+      }),
+      resetGame: () => startGame(true)
+    });
+  });
+}

@@ -1,0 +1,22 @@
+{
+  "name": "five-word-game",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --mode dev",
+    "dev:worker": "npm run build:dev && wrangler dev --env dev",
+    "build": "npm run build:prod",
+    "build:dev": "vite build --mode dev",
+    "build:prod": "vite build --mode production",
+    "verify:dev": "npm run build:dev && node scripts/verify-build.mjs dev",
+    "verify:prod": "npm run build:prod && node scripts/verify-build.mjs production",
+    "preview": "vite preview",
+    "deploy:dev": "npm run verify:dev && wrangler deploy --env dev",
+    "deploy:prod": "npm run verify:prod && wrangler deploy --env=\"\""
+  },
+  "devDependencies": {
+    "vite": "^8.2.0",
+    "wrangler": "^4.118.0"
+  }
+}
