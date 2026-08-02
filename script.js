@@ -52,9 +52,6 @@ const accountCloseButton = document.querySelector("#account-close-button");
 const accountSignedOut = document.querySelector("#account-signed-out");
 const accountSignedIn = document.querySelector("#account-signed-in");
 const accountUsername = document.querySelector("#account-username");
-const accountGames = document.querySelector("#account-games");
-const accountWins = document.querySelector("#account-wins");
-const accountWinRate = document.querySelector("#account-win-rate");
 const accountGamesNoHints = document.querySelector("#account-games-no-hints");
 const accountWinsNoHints = document.querySelector("#account-wins-no-hints");
 const accountWinRateNoHints = document.querySelector("#account-win-rate-no-hints");
@@ -306,9 +303,6 @@ function updateAccountUI() {
     winRateNoHints: 0,
     guessDistribution: [0, 0, 0, 0, 0, 0]
   };
-  accountGames.textContent = statistics.games.toLocaleString();
-  accountWins.textContent = statistics.wins.toLocaleString();
-  accountWinRate.textContent = `${statistics.winRate}%`;
   accountGamesNoHints.textContent = statistics.gamesNoHints.toLocaleString();
   accountWinsNoHints.textContent = statistics.winsNoHints.toLocaleString();
   accountWinRateNoHints.textContent = `${statistics.winRateNoHints}%`;
@@ -379,7 +373,7 @@ async function revealHint(details) {
   if (value.dataset.loadedFor === gameId) return;
   if (hintsUsed === 0) {
     const confirmed = window.confirm(
-      "Using a hint means this game will not count toward your no-hint games, wins, or guess statistics. Reveal this hint?"
+      "Games that used hints will not count towards distribution. Reveal this hint?"
     );
     if (!confirmed) {
       details.open = false;

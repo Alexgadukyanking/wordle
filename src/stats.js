@@ -9,9 +9,6 @@ function setText(selector, value) {
 
 function renderStatistics(user, statistics) {
   setText("#stats-username", `@${user.username}`);
-  setText("#stats-games", statistics.games.toLocaleString());
-  setText("#stats-wins", statistics.wins.toLocaleString());
-  setText("#stats-win-rate", `${statistics.winRate}%`);
   setText("#stats-games-no-hints", statistics.gamesNoHints.toLocaleString());
   setText("#stats-wins-no-hints", statistics.winsNoHints.toLocaleString());
   setText("#stats-win-rate-no-hints", `${statistics.winRateNoHints}%`);

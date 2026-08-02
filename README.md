@@ -46,16 +46,17 @@ Usernames are case-insensitively unique and must contain 3–24 ASCII letters,
 numbers, or underscores. Authentication is optional, and games created while
 signed in are linked to that user for future per-user statistics.
 
-Regular statistics count every completed signed-in game, including games that
-used hints. No-hint statistics are derived separately server-side from D1. A game counts in
+Player-facing statistics include no-hint games only. A game counts in
 `gamesNoHints` only after it ends in a win or loss without any recorded hint.
+All-game totals remain available internally in the development account dashboard
+for debugging, but they are not presented as a second player record.
 Resetting an active game records that game as a loss once a guess or hint has
 been submitted. An untouched game with zero guesses and zero hints is instead
 abandoned and excluded from statistics. The browser shows the loss warning only
 when the reset will count.
 Qualifying wins count in `winsNoHints` and in exactly one 1–6 guess bucket.
-Opening the first hint displays a warning; confirming it permanently excludes
-that game from these statistics. Hinted games remain in raw development game
+Opening the first hint warns that games using hints do not count toward guess
+distribution; confirming it permanently excludes that game. Hinted games remain in raw development game
 history so they can still be inspected and debugged.
 
 Signed-in players can view both categories at `/stats`. The page reads the

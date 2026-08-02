@@ -95,7 +95,7 @@
             <span>Hints</span>
             <small>Tap to reveal</small>
           </div>
-          <p class="hints-statistics-note">Using any hint excludes this game from statistics.</p>
+          <p class="hints-statistics-note">Games that used hints will not count towards distribution.</p>
           <details data-hint-type="first-letter">
             <summary>First letter?</summary>
             <p id="hint-first-letter"></p>
@@ -187,23 +187,8 @@
       <section id="account-signed-in" hidden>
         <p class="account-kicker">Signed in</p>
         <h2 id="account-username"></h2>
-        <p>Your completed games are tracked here. The no-hint category excludes every game where a hint was revealed.</p>
-        <h3 class="account-statistics-title">Regular statistics</h3>
-        <div class="account-statistics" aria-label="Regular statistics">
-          <article>
-            <span>Games</span>
-            <strong id="account-games">0</strong>
-          </article>
-          <article>
-            <span>Wins</span>
-            <strong id="account-wins">0</strong>
-          </article>
-          <article>
-            <span>Win rate</span>
-            <strong id="account-win-rate">0%</strong>
-          </article>
-        </div>
-        <h3 class="account-statistics-title">No-hint statistics</h3>
+        <p>Only completed games played without hints count toward these statistics.</p>
+        <h3 class="account-statistics-title">Statistics</h3>
         <div class="account-statistics" aria-label="No-hint statistics">
           <article>
             <span>Games</span>
@@ -219,6 +204,7 @@
           </article>
         </div>
         <h3 class="guess-distribution-title">Wins by number of guesses</h3>
+        <p>Games that used hints will not count towards distribution.</p>
         <ol id="account-guess-distribution" class="guess-distribution"></ol>
         <a class="statistics-link" href="/stats">Open full statistics</a>
         <details class="account-controls">
