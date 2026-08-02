@@ -13,6 +13,8 @@
     "verify:dev": "npm run build:dev && node scripts/verify-build.mjs dev",
     "verify:prod": "npm run build:prod && node scripts/verify-build.mjs production",
     "preview": "vite preview",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm test && npm run verify:prod && npm run verify:dev",
     "db:migrate:dev": "wrangler d1 migrations apply DB --local --env dev",
     "db:migrate:dev:remote": "wrangler d1 migrations apply DB --remote --env dev",
     "db:migrate:prod": "wrangler d1 migrations apply DB --remote --env=\"\"",

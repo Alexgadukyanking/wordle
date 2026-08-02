@@ -64,6 +64,9 @@ const loginForm = document.querySelector("#login-form");
 const registerForm = document.querySelector("#register-form");
 const authMessage = document.querySelector("#auth-message");
 const logoutButton = document.querySelector("#logout-button");
+const logoutAllButton = document.querySelector("#logout-all-button");
+const changePasswordForm = document.querySelector("#change-password-form");
+const deleteAccountForm = document.querySelector("#delete-account-form");
 const hardcoreButton = document.querySelector("#hardcore-button");
 const hardcoreLabel = document.querySelector("#hardcore-label");
 const hardcoreNote = document.querySelector("#hardcore-note");
@@ -85,6 +88,7 @@ const backgroundRemoveButton = document.querySelector("#background-remove-button
 const backgroundStatus = document.querySelector("#background-status");
 
 let gameId = "";
+let gameAccessToken = "";
 let guesses = [];
 let guessResults = [];
 let current = "";
@@ -263,6 +267,16 @@ async function requestJson(url, options = {}) {
   return payload;
 }
 
+function requestGameJson(url, options = {}) {
+  return requestJson(url, {
+    ...options,
+    headers: {
+      ...(gameAccessToken ? { "x-game-token": gameAccessToken } : {}),
+      ...options.headers
+    }
+  });
+}
+
 function showAuthView(view) {
   const showLogin = view === "login";
   loginTab.setAttribute("aria-selected", String(showLogin));
@@ -335,11 +349,21 @@ async function submitAccountForm(form, endpoint) {
     currentStatistics = payload.statistics;
     form.reset();
     updateAccountUI();
+    authMessage.textContent = endpoint === "register"
+      ? "Account created."
+      : "Logged in.";
   } catch (error) {
     authMessage.textContent = error.message;
   } finally {
     submitButton.disabled = false;
   }
+}
+
+function showSignedOutAccount() {
+  currentUser = null;
+  currentStatistics = null;
+  updateAccountUI();
+  showAuthView("login");
 }
 
 async function revealHint(details) {
@@ -362,7 +386,7 @@ async function revealHint(details) {
   }
   value.textContent = "Loading…";
   try {
-    const payload = await requestJson(
+    const payload = await requestGameJson(
       `/api/games/${encodeURIComponent(gameId)}/hints/${details.dataset.hintType}`
     );
     value.textContent = payload.value;
@@ -469,7 +493,7 @@ function buildKeyboard() {
 function saveGame() {
   localStorage.setItem(
     STORAGE_KEY,
-    JSON.stringify({ gameId, current, hardcoreMode })
+    JSON.stringify({ gameId, gameAccessToken, current, hardcoreMode })
   );
 }
 
@@ -500,6 +524,7 @@ function loadGame() {
     if (
       typeof saved?.gameId === "string" &&
       saved.gameId.length > 0 &&
+      typeof saved.gameAccessToken === "string" &&
       typeof saved.current === "string" &&
       /^[A-Z]{0,5}$/.test(saved.current)
     ) {
@@ -525,10 +550,11 @@ function applyServerGame(game) {
 }
 
 async function createServerGame(previousGameId = "") {
-  const payload = await requestJson("/api/games", {
+  const payload = await requestGameJson("/api/games", {
     method: "POST",
     body: JSON.stringify({ hardcoreMode, previousGameId })
   });
+  gameAccessToken = payload.gameAccessToken;
   applyServerGame(payload.game);
 }
 
@@ -561,12 +587,14 @@ async function startGame(reset = false) {
       const saved = loadGame();
       if (saved) {
         current = saved.current;
+        gameAccessToken = saved.gameAccessToken;
         try {
-          const payload = await requestJson(`/api/games/${encodeURIComponent(saved.gameId)}`);
+          const payload = await requestGameJson(`/api/games/${encodeURIComponent(saved.gameId)}`);
           applyServerGame(payload.game);
         } catch (error) {
-          if (error.status !== 404) throw error;
+          if (![403, 404].includes(error.status)) throw error;
           current = "";
+          gameAccessToken = "";
           hardcoreMode = Boolean(saved.hardcoreMode);
           await createServerGame();
         }
@@ -770,7 +798,7 @@ async function submitGuess() {
     const guessEndpoint = __DEV_BUILD__ && allowAnyGuess
       ? `/api/dev/games/${encodeURIComponent(gameId)}/guesses`
       : `/api/games/${encodeURIComponent(gameId)}/guesses`;
-    const payload = await requestJson(
+    const payload = await requestGameJson(
       guessEndpoint,
       { method: "POST", body: JSON.stringify({ guess: submittedGuess }) }
     );
@@ -857,14 +885,67 @@ logoutButton.addEventListener("click", async () => {
   logoutButton.disabled = true;
   try {
     await requestJson("/api/auth/logout", { method: "POST" });
-    currentUser = null;
-    currentStatistics = null;
-    updateAccountUI();
-    showAuthView("login");
+    showSignedOutAccount();
   } catch (error) {
     authMessage.textContent = error.message;
   } finally {
     logoutButton.disabled = false;
+  }
+});
+logoutAllButton.addEventListener("click", async () => {
+  logoutAllButton.disabled = true;
+  authMessage.textContent = "Logging out every device…";
+  try {
+    await requestJson("/api/auth/logout-all", { method: "POST" });
+    showSignedOutAccount();
+    authMessage.textContent = "Every session has been logged out.";
+  } catch (error) {
+    authMessage.textContent = error.message;
+  } finally {
+    logoutAllButton.disabled = false;
+  }
+});
+changePasswordForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const submitButton = changePasswordForm.querySelector('button[type="submit"]');
+  const values = Object.fromEntries(new FormData(changePasswordForm));
+  if (values.newPassword !== values.newPasswordConfirmation) {
+    authMessage.textContent = "New passwords do not match";
+    return;
+  }
+  submitButton.disabled = true;
+  authMessage.textContent = "Changing password…";
+  try {
+    await requestJson("/api/auth/password", {
+      method: "PUT",
+      body: JSON.stringify(values)
+    });
+    changePasswordForm.reset();
+    authMessage.textContent = "Password changed. Other devices were logged out.";
+  } catch (error) {
+    authMessage.textContent = error.message;
+  } finally {
+    submitButton.disabled = false;
+  }
+});
+deleteAccountForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  if (!window.confirm("Permanently delete this account, its games, and its statistics?")) return;
+  const submitButton = deleteAccountForm.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  authMessage.textContent = "Deleting account…";
+  try {
+    await requestJson("/api/auth/account", {
+      method: "DELETE",
+      body: JSON.stringify(Object.fromEntries(new FormData(deleteAccountForm)))
+    });
+    deleteAccountForm.reset();
+    showSignedOutAccount();
+    authMessage.textContent = "Account deleted.";
+  } catch (error) {
+    authMessage.textContent = error.message;
+  } finally {
+    submitButton.disabled = false;
   }
 });
 document.querySelector("#reset-button").addEventListener("click", () => {
@@ -884,7 +965,7 @@ hardcoreButton.addEventListener("click", async () => {
   requestPending = true;
   hardcoreButton.disabled = true;
   try {
-    const payload = await requestJson(
+    const payload = await requestGameJson(
       `/api/games/${encodeURIComponent(gameId)}/mode`,
       {
         method: "PUT",
@@ -981,7 +1062,7 @@ if (__DEV_BUILD__) {
         allowAnyGuess
       }),
       revealAnswer: async () => {
-        const payload = await requestJson(
+        const payload = await requestGameJson(
           `/api/dev/games/${encodeURIComponent(gameId)}`
         );
         return payload.game.answer;

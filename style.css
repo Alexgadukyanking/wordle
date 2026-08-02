@@ -698,6 +698,37 @@ dialog h2 {
   cursor: wait;
 }
 
+.account-controls {
+  margin-top: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 0.8rem;
+}
+
+.account-controls summary {
+  cursor: pointer;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.account-controls .account-form {
+  margin-top: 1rem;
+}
+
+.account-controls h3,
+.account-controls p {
+  margin: 0 0 0.65rem;
+}
+
+.account-danger {
+  border-top: 1px solid var(--line);
+  padding-top: 1rem;
+}
+
+.account-danger button {
+  background: #8b1e1e;
+}
+
 .auth-message {
   min-height: 18px;
   display: block;

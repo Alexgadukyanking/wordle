@@ -5,7 +5,8 @@ A browser-based five-letter word game hosted on Cloudflare Workers.
 ## Project structure
 
 - `index.html`, `style.css`, `script.js`, and `public/assets/` are the frontend.
-- `data/words.json` is the canonical word list bundled into the frontend and Worker.
+- `data/words.json` contains accepted guesses; `data/answers.json` is the smaller,
+  curated pool from which the Worker chooses answers.
 - `src/worker.mjs` is the server-authoritative Cloudflare Worker API.
 - `migrations/` contains the D1 database schema history.
 - `src/dev/` contains development-only browser tools.
@@ -15,8 +16,11 @@ A browser-based five-letter word game hosted on Cloudflare Workers.
 ## Server-authoritative games
 
 The Worker selects and stores each answer in D1. The browser receives a random
-game ID, submitted guesses, and their evaluated tile results. While a game is
-active, the normal game API never returns the answer.
+game ID, a separate unguessable game access token, submitted guesses, and their
+evaluated tile results. The token is stored only in that browser and sent in the
+`X-Game-Token` header; knowing another game's ID is not enough to read or modify
+it. Signed-in owners can also access their games. While a game is active, the
+normal game API never returns the answer.
 
 The Worker also owns:
 
@@ -32,6 +36,10 @@ Accounts use a unique username and password only; no Google login is present.
 Registration requires entering the same password twice. There is deliberately no
 password-strength rule, but passwords are never stored as plaintext: the Worker
 uses PBKDF2-HMAC-SHA256 with a unique salt and an HTTP-only session cookie.
+Login is limited to five failed attempts per username and source address per 15
+minutes; registration is limited to ten attempts per source address. Signed-in
+players can change their password, log out every device, or permanently delete
+their account and game history.
 
 Usernames are case-insensitively unique and must contain 3–24 ASCII letters,
 numbers, or underscores. Authentication is optional, and games created while
@@ -53,12 +61,13 @@ Signed-in players can view both categories at `/stats`. The page reads the
 HTTP-only account session through `GET /api/auth/me`; signed-out visitors are
 prompted to log in from the game page.
 
-Development builds include a read-only local account dashboard at
+Development builds include a read-only account dashboard at
 `http://localhost:8787/dev/accounts.html`. It lists safe account metadata,
 session counts, all-game totals, no-hint totals, guess distributions, and recent
-game history. Authentication secrets
-are never returned by its dev-only APIs. The account-data APIs also reject
-non-loopback requests, so they cannot be used through a remotely deployed URL.
+game history. Authentication secrets are never returned by its dev-only APIs.
+Localhost is trusted for development. A remote development deployment requires a
+valid Cloudflare Access JWT whose issuer and audience match `TEAM_DOMAIN` and
+`POLICY_AUD`; otherwise the admin APIs reject it. Production returns `404`.
 
 The browser owns presentation, keyboard input, the non-authoritative possible-
 word counter, and local visual customization.
@@ -69,6 +78,9 @@ word counter, and local visual customization.
 - `POST /api/auth/register`
 - `POST /api/auth/login`
 - `POST /api/auth/logout`
+- `POST /api/auth/logout-all`
+- `PUT /api/auth/password`
+- `DELETE /api/auth/account`
 - `GET /api/auth/me`
 - `GET /api/games/:id`
 - `PUT /api/games/:id/mode`
@@ -109,6 +121,17 @@ npm run verify:prod
 Production verification fails if a debug filename, selector, or UI marker is
 found in the generated artifact.
 
+Run the complete local and CI verification with:
+
+```sh
+npm run check
+```
+
+The test suite covers duplicate-letter scoring, hardcore constraints, answer-
+pool integrity, anonymous game authorization, every D1 migration, and regular
+versus no-hint statistics. GitHub Actions runs the tests and verifies both build
+variants on pushes and pull requests.
+
 ## Deployment prerequisites
 
 Development and production use separate Workers and D1 databases:
@@ -134,8 +157,26 @@ npm run db:migrate:prod
 
 Deploy the isolated development Worker with `npm run deploy:dev` and production
 with `npm run deploy:prod`. Protect any remotely deployed development Worker
-with Cloudflare Access: its dev-only reveal endpoint intentionally discloses
-the answer for debugging.
+with Cloudflare Access: its dev-only reveal endpoint intentionally discloses the
+answer for debugging. In Cloudflare Zero Trust, create a self-hosted application
+for the development hostname, allow only the admin identities, and copy its
+Application Audience (`AUD`) tag. Configure these Worker values for the dev
+environment:
+
+```text
+TEAM_DOMAIN=https://your-team.cloudflareaccess.com
+POLICY_AUD=the-access-application-audience-tag
+```
+
+The Worker validates the `Cf-Access-Jwt-Assertion` signature, issuer, audience,
+expiry, and not-before time. Keep the full-database reset local-only even after
+Access is configured.
+
+To use a custom development hostname, add a Worker custom domain such as
+`dev.wordle.example.com` to `wordle-dev`, then use that exact hostname for the
+Access application. The zone must already exist in the same Cloudflare account.
+The provided `workers.dev` hostname is Cloudflare's default Worker address; the
+word `dev` there does not mean it is your development build.
 
 Do not point the development binding at the production D1 database. Configure
 Cloudflare branch builds so `main` deploys production and the development branch

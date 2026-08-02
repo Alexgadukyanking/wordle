@@ -1,17 +1,48 @@
-import WORDS from "../data/words.json";
+import WORDS from "../data/words.json" with { type: "json" };
+import ANSWERS from "../data/answers.json" with { type: "json" };
 
+const SECURITY_HEADERS = {
+  "content-security-policy": [
+    "default-src 'self'",
+    "base-uri 'self'",
+    "form-action 'self'",
+    "frame-ancestors 'none'",
+    "script-src 'self' https://widgets.tradingview-widget.com",
+    "style-src 'self' 'unsafe-inline'",
+    "img-src 'self' data: blob: https://i.imgflip.com https://*.tradingview.com",
+    "connect-src 'self' https://api.imgflip.com https://*.tradingview.com wss://*.tradingview.com",
+    "frame-src https://*.tradingview.com",
+    "font-src 'self' data: https://*.tradingview.com",
+    "media-src 'self' blob:",
+    "worker-src 'self' blob:"
+  ].join("; "),
+  "permissions-policy": "camera=(self), microphone=(), geolocation=()",
+  "cross-origin-opener-policy": "same-origin",
+  "cross-origin-resource-policy": "same-origin",
+  "referrer-policy": "strict-origin-when-cross-origin",
+  "strict-transport-security": "max-age=31536000; includeSubDomains",
+  "x-permitted-cross-domain-policies": "none",
+  "x-frame-options": "DENY"
+};
 const JSON_HEADERS = {
   "content-type": "application/json; charset=utf-8",
   "cache-control": "no-store",
-  "x-content-type-options": "nosniff"
+  "x-content-type-options": "nosniff",
+  ...SECURITY_HEADERS
 };
 const WORD_SET = new Set(WORDS);
+const ANSWER_SET = new Set(ANSWERS);
 const MAX_ATTEMPTS = 6;
 const PASSWORD_ITERATIONS = 600000;
 const MAX_PASSWORD_BYTES = 1024;
 const SESSION_COOKIE = "five_session";
 const SESSION_SECONDS = 7 * 24 * 60 * 60;
+const LOGIN_ATTEMPT_LIMIT = 5;
+const REGISTER_ATTEMPT_LIMIT = 10;
+const AUTH_RATE_WINDOW_MINUTES = 15;
+const ACCESS_JWKS_CACHE_MS = 5 * 60 * 1000;
 const textEncoder = new TextEncoder();
+let accessJwksCache = { url: "", expiresAt: 0, keys: [] };
 const HINT_TYPES = new Set([
   "first-letter",
   "last-letter",
@@ -31,6 +62,17 @@ function json(data, status = 200, extraHeaders = {}) {
   Object.entries(extraHeaders).forEach(([name, value]) => headers.set(name, value));
   return new Response(JSON.stringify(data), {
     status,
+    headers
+  });
+}
+
+function withSecurityHeaders(response) {
+  const headers = new Headers(response.headers);
+  Object.entries(SECURITY_HEADERS).forEach(([name, value]) => headers.set(name, value));
+  headers.set("x-content-type-options", "nosniff");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
     headers
   });
 }
@@ -71,6 +113,55 @@ function randomToken(byteLength = 32) {
 
 async function sha256(value) {
   return new Uint8Array(await crypto.subtle.digest("SHA-256", textEncoder.encode(value)));
+}
+
+function requestAddress(request) {
+  return request.headers.get("cf-connecting-ip") || "local-development";
+}
+
+async function rateLimitIdentity(request, value = "") {
+  const digest = await sha256(`${requestAddress(request)}\0${value}`);
+  return bytesToBase64Url(digest);
+}
+
+async function enforceAuthRateLimit(db, action, identityHash, limit) {
+  const current = await db.prepare(
+    `SELECT attempts
+     FROM auth_rate_limits
+     WHERE action = ? AND identity_hash = ?
+       AND window_started_at > datetime('now', ?)`
+  ).bind(action, identityHash, `-${AUTH_RATE_WINDOW_MINUTES} minutes`).first();
+  if (Number(current?.attempts || 0) >= limit) {
+    throw new ApiError(429, "Too many attempts. Try again later");
+  }
+}
+
+async function recordAuthAttempt(db, action, identityHash) {
+  await db.prepare(
+    `INSERT INTO auth_rate_limits
+      (action, identity_hash, attempts, window_started_at)
+     VALUES (?, ?, 1, CURRENT_TIMESTAMP)
+     ON CONFLICT(action, identity_hash) DO UPDATE SET
+       attempts = CASE
+         WHEN window_started_at <= datetime('now', ?)
+         THEN 1 ELSE attempts + 1
+       END,
+       window_started_at = CASE
+         WHEN window_started_at <= datetime('now', ?)
+         THEN CURRENT_TIMESTAMP ELSE window_started_at
+       END`
+  ).bind(
+    action,
+    identityHash,
+    `-${AUTH_RATE_WINDOW_MINUTES} minutes`,
+    `-${AUTH_RATE_WINDOW_MINUTES} minutes`
+  ).run();
+}
+
+async function clearAuthAttempts(db, action, identityHash) {
+  await db.prepare(
+    "DELETE FROM auth_rate_limits WHERE action = ? AND identity_hash = ?"
+  ).bind(action, identityHash).run();
 }
 
 async function derivePassword(password, salt, iterations = PASSWORD_ITERATIONS) {
@@ -122,6 +213,85 @@ function normalizeUsername(username) {
 function isLocalRequest(request) {
   return new Set(["localhost", "127.0.0.1", "::1"])
     .has(new URL(request.url).hostname);
+}
+
+function normalizedTeamDomain(value) {
+  const domain = String(value || "").trim().replace(/\/$/, "");
+  if (!domain) return "";
+  return domain.startsWith("https://") ? domain : `https://${domain}`;
+}
+
+function decodeJwtPart(value) {
+  return JSON.parse(new TextDecoder().decode(base64UrlToBytes(value)));
+}
+
+async function accessJwks(teamDomain) {
+  const url = `${teamDomain}/cdn-cgi/access/certs`;
+  if (accessJwksCache.url === url && accessJwksCache.expiresAt > Date.now()) {
+    return accessJwksCache.keys;
+  }
+  const response = await fetch(url);
+  if (!response.ok) throw new ApiError(503, "Admin authentication is unavailable");
+  const body = await response.json();
+  const keys = Array.isArray(body?.keys) ? body.keys : [];
+  accessJwksCache = { url, keys, expiresAt: Date.now() + ACCESS_JWKS_CACHE_MS };
+  return keys;
+}
+
+async function verifyAccessJwt(token, teamDomain, policyAudience) {
+  const parts = token.split(".");
+  if (parts.length !== 3) return false;
+  let header;
+  let payload;
+  try {
+    header = decodeJwtPart(parts[0]);
+    payload = decodeJwtPart(parts[1]);
+  } catch {
+    return false;
+  }
+  if (header.alg !== "RS256" || typeof header.kid !== "string") return false;
+  const jwk = (await accessJwks(teamDomain)).find((key) => key.kid === header.kid);
+  if (!jwk) return false;
+  const key = await crypto.subtle.importKey(
+    "jwk",
+    jwk,
+    { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+    false,
+    ["verify"]
+  );
+  const validSignature = await crypto.subtle.verify(
+    "RSASSA-PKCS1-v1_5",
+    key,
+    base64UrlToBytes(parts[2]),
+    textEncoder.encode(`${parts[0]}.${parts[1]}`)
+  );
+  const now = Math.floor(Date.now() / 1000);
+  const audiences = Array.isArray(payload.aud) ? payload.aud : [payload.aud];
+  return validSignature
+    && payload.iss === teamDomain
+    && audiences.includes(policyAudience)
+    && Number(payload.exp || 0) > now
+    && Number(payload.nbf || 0) <= now;
+}
+
+async function requireDevAdmin(request, env) {
+  if (env.ENVIRONMENT !== "dev") throw new ApiError(404, "Not found");
+  if (isLocalRequest(request)) return;
+  const teamDomain = normalizedTeamDomain(env.TEAM_DOMAIN);
+  const policyAudience = String(env.POLICY_AUD || "").trim();
+  if (!teamDomain || !policyAudience) {
+    throw new ApiError(503, "Remote admin access is not configured");
+  }
+  const token = request.headers.get("cf-access-jwt-assertion") || "";
+  let authorized = false;
+  try {
+    authorized = Boolean(token) && await verifyAccessJwt(token, teamDomain, policyAudience);
+  } catch (error) {
+    if (error instanceof ApiError) throw error;
+  }
+  if (!authorized) {
+    throw new ApiError(403, "Admin access denied");
+  }
 }
 
 function validateUsername(username) {
@@ -204,6 +374,27 @@ async function authenticatedUser(request, env) {
   ).bind(tokenHash).first();
 }
 
+async function requireUser(request, env) {
+  const user = await authenticatedUser(request, env);
+  if (!user) throw new ApiError(401, "Log in to continue");
+  return user;
+}
+
+async function verifyUserPassword(db, userId, password) {
+  validatePassword(password);
+  const credentials = await db.prepare(
+    `SELECT password_hash, password_salt, password_iterations
+     FROM users WHERE id = ?`
+  ).bind(userId).first();
+  if (!credentials) return false;
+  const candidate = await derivePassword(
+    password,
+    base64UrlToBytes(credentials.password_salt),
+    credentials.password_iterations
+  );
+  return timingSafeEqual(candidate, base64UrlToBytes(credentials.password_hash));
+}
+
 async function register(request, env) {
   const body = await readJson(request);
   const username = typeof body?.username === "string" ? body.username.trim() : "";
@@ -214,6 +405,14 @@ async function register(request, env) {
   }
   validatePassword(password, body?.passwordConfirmation);
   const normalized = normalizeUsername(username);
+  const registrationIdentity = await rateLimitIdentity(request);
+  await enforceAuthRateLimit(
+    env.DB,
+    "register",
+    registrationIdentity,
+    REGISTER_ATTEMPT_LIMIT
+  );
+  await recordAuthAttempt(env.DB, "register", registrationIdentity);
   const existing = await env.DB.prepare(
     "SELECT id FROM users WHERE username_normalized = ?"
   ).bind(normalized).first();
@@ -266,11 +465,14 @@ async function login(request, env) {
     throw new ApiError(400, "Username and password are required");
   }
   validatePassword(password);
+  const normalized = normalizeUsername(username);
+  const loginIdentity = await rateLimitIdentity(request, normalized);
+  await enforceAuthRateLimit(env.DB, "login", loginIdentity, LOGIN_ATTEMPT_LIMIT);
   const user = await env.DB.prepare(
     `SELECT id, username, username_normalized, password_hash, password_salt,
             password_iterations, created_at
      FROM users WHERE username_normalized = ?`
-  ).bind(normalizeUsername(username)).first();
+  ).bind(normalized).first();
 
   const salt = user
     ? base64UrlToBytes(user.password_salt)
@@ -281,9 +483,11 @@ async function login(request, env) {
     ? base64UrlToBytes(user.password_hash)
     : new Uint8Array(candidate.byteLength);
   if (!user || !timingSafeEqual(candidate, expected)) {
+    await recordAuthAttempt(env.DB, "login", loginIdentity);
     throw new ApiError(401, "Invalid username or password");
   }
 
+  await clearAuthAttempts(env.DB, "login", loginIdentity);
   const token = await createAuthSession(env.DB, user.id);
   return json(
     {
@@ -309,6 +513,68 @@ async function logout(request, env) {
   );
 }
 
+async function logoutAll(request, env) {
+  const user = await requireUser(request, env);
+  await env.DB.prepare("DELETE FROM auth_sessions WHERE user_id = ?")
+    .bind(user.id).run();
+  return json(
+    { ok: true },
+    200,
+    { "set-cookie": sessionCookie(request, "", 0) }
+  );
+}
+
+async function changePassword(request, env) {
+  const user = await requireUser(request, env);
+  const body = await readJson(request);
+  if (!await verifyUserPassword(env.DB, user.id, body?.currentPassword)) {
+    throw new ApiError(401, "Current password is incorrect");
+  }
+  if (typeof body?.newPasswordConfirmation !== "string") {
+    throw new ApiError(400, "Write the new password twice");
+  }
+  validatePassword(body?.newPassword, body.newPasswordConfirmation);
+  const salt = new Uint8Array(16);
+  crypto.getRandomValues(salt);
+  const passwordHash = await derivePassword(body.newPassword, salt);
+  await env.DB.batch([
+    env.DB.prepare(
+      `UPDATE users
+       SET password_hash = ?, password_salt = ?, password_iterations = ?
+       WHERE id = ?`
+    ).bind(
+      bytesToBase64Url(passwordHash),
+      bytesToBase64Url(salt),
+      PASSWORD_ITERATIONS,
+      user.id
+    ),
+    env.DB.prepare("DELETE FROM auth_sessions WHERE user_id = ?").bind(user.id)
+  ]);
+  const token = await createAuthSession(env.DB, user.id);
+  return json(
+    { ok: true },
+    200,
+    { "set-cookie": sessionCookie(request, token) }
+  );
+}
+
+async function deleteAccount(request, env) {
+  const user = await requireUser(request, env);
+  const body = await readJson(request);
+  if (!await verifyUserPassword(env.DB, user.id, body?.password)) {
+    throw new ApiError(401, "Password is incorrect");
+  }
+  await env.DB.batch([
+    env.DB.prepare("DELETE FROM game_sessions WHERE user_id = ?").bind(user.id),
+    env.DB.prepare("DELETE FROM users WHERE id = ?").bind(user.id)
+  ]);
+  return json(
+    { ok: true },
+    200,
+    { "set-cookie": sessionCookie(request, "", 0) }
+  );
+}
+
 async function getCurrentUser(request, env) {
   const user = await authenticatedUser(request, env);
   return json({
@@ -322,7 +588,7 @@ async function getCurrentUser(request, env) {
 function chooseAnswer() {
   const random = new Uint32Array(1);
   crypto.getRandomValues(random);
-  return WORDS[random[0] % WORDS.length];
+  return ANSWERS[random[0] % ANSWERS.length];
 }
 
 function scoreAgainst(guess, target) {
@@ -411,11 +677,33 @@ function validateHardcoreGuess(guess, guesses) {
 
 async function findGame(db, gameId) {
   return db.prepare(
-    `SELECT id, answer, hardcore_mode, status, created_at, completed_at,
+    `SELECT id, answer, hardcore_mode, status, user_id, access_token_hash,
+            created_at, completed_at,
             (SELECT COUNT(*) FROM game_hints
              WHERE game_hints.game_id = game_sessions.id) AS hints_used
      FROM game_sessions WHERE id = ?`
   ).bind(gameId).first();
+}
+
+async function requireGameAccess(request, env, game) {
+  const user = await authenticatedUser(request, env);
+  if (game.user_id && user?.id === game.user_id) return;
+
+  const token = request.headers.get("x-game-token") || "";
+  if (token && game.access_token_hash) {
+    const candidateHash = await sha256(token);
+    const expectedHash = base64UrlToBytes(game.access_token_hash);
+    if (timingSafeEqual(candidateHash, expectedHash)) return;
+  }
+
+  throw new ApiError(403, "Game access denied");
+}
+
+async function findAuthorizedGame(request, env, gameId) {
+  const game = await findGame(env.DB, gameId);
+  if (!game) throw new ApiError(404, "Game not found");
+  await requireGameAccess(request, env, game);
+  return game;
 }
 
 async function findGuesses(db, gameId) {
@@ -450,6 +738,8 @@ async function createGame(request, env) {
   const body = await readJson(request);
   const user = await authenticatedUser(request, env);
   const gameId = crypto.randomUUID();
+  const accessToken = randomToken();
+  const accessTokenHash = bytesToBase64Url(await sha256(accessToken));
   const hardcoreMode = Boolean(body?.hardcoreMode);
   const previousGameId = typeof body?.previousGameId === "string"
     ? body.previousGameId
@@ -457,6 +747,8 @@ async function createGame(request, env) {
 
   const statements = [];
   if (previousGameId) {
+    const previousGame = await findGame(env.DB, previousGameId);
+    if (previousGame) await requireGameAccess(request, env, previousGame);
     statements.push(env.DB.prepare(
       `UPDATE game_sessions
        SET status = CASE
@@ -470,17 +762,24 @@ async function createGame(request, env) {
     ).bind(previousGameId));
   }
   statements.push(env.DB.prepare(
-    "INSERT INTO game_sessions (id, answer, hardcore_mode, user_id) VALUES (?, ?, ?, ?)"
-  ).bind(gameId, chooseAnswer(), Number(hardcoreMode), user?.id || null));
+    `INSERT INTO game_sessions
+      (id, answer, hardcore_mode, user_id, access_token_hash)
+     VALUES (?, ?, ?, ?, ?)`
+  ).bind(
+    gameId,
+    chooseAnswer(),
+    Number(hardcoreMode),
+    user?.id || null,
+    accessTokenHash
+  ));
   await env.DB.batch(statements);
 
   const game = await findGame(env.DB, gameId);
-  return json({ game: publicGame(game, []) }, 201);
+  return json({ game: publicGame(game, []), gameAccessToken: accessToken }, 201);
 }
 
-async function getGame(env, gameId) {
-  const game = await findGame(env.DB, gameId);
-  if (!game) throw new ApiError(404, "Game not found");
+async function getGame(request, env, gameId) {
+  const game = await findAuthorizedGame(request, env, gameId);
   return json({ game: publicGame(game, await findGuesses(env.DB, gameId)) });
 }
 
@@ -489,8 +788,7 @@ async function updateMode(request, env, gameId) {
   if (typeof body?.hardcoreMode !== "boolean") {
     throw new ApiError(400, "hardcoreMode must be a boolean");
   }
-  const game = await findGame(env.DB, gameId);
-  if (!game) throw new ApiError(404, "Game not found");
+  const game = await findAuthorizedGame(request, env, gameId);
   if (game.status !== "active") throw new ApiError(409, "Game has already ended");
   const guesses = await findGuesses(env.DB, gameId);
   if (guesses.length > 0) throw new ApiError(409, "Mode is locked after the first guess");
@@ -508,8 +806,7 @@ async function submitGuess(request, env, gameId, allowAnyWord = false) {
   if (!/^[A-Z]{5}$/.test(guess)) throw new ApiError(400, "Guess must be five letters");
   if (!allowAnyWord && !WORD_SET.has(guess)) throw new ApiError(422, "Not in word list");
 
-  const game = await findGame(env.DB, gameId);
-  if (!game) throw new ApiError(404, "Game not found");
+  const game = await findAuthorizedGame(request, env, gameId);
   if (game.status !== "active") throw new ApiError(409, "Game has already ended");
   const guesses = await findGuesses(env.DB, gameId);
   if (guesses.length >= MAX_ATTEMPTS) throw new ApiError(409, "No attempts remaining");
@@ -573,10 +870,9 @@ async function computeHint(type, answer) {
   return partOfSpeech(answer);
 }
 
-async function getHint(env, gameId, hintType) {
+async function getHint(request, env, gameId, hintType) {
   if (!HINT_TYPES.has(hintType)) throw new ApiError(404, "Hint type not found");
-  const game = await findGame(env.DB, gameId);
-  if (!game) throw new ApiError(404, "Game not found");
+  const game = await findAuthorizedGame(request, env, gameId);
   if (game.status !== "active") throw new ApiError(409, "Game has already ended");
 
   const stored = await env.DB.prepare(
@@ -604,8 +900,8 @@ async function getHint(env, gameId, hintType) {
   });
 }
 
-async function getDevGame(env, gameId) {
-  if (env.ENVIRONMENT !== "dev") throw new ApiError(404, "Not found");
+async function getDevGame(request, env, gameId) {
+  await requireDevAdmin(request, env);
   const game = await findGame(env.DB, gameId);
   if (!game) throw new ApiError(404, "Game not found");
   return json({
@@ -625,6 +921,7 @@ async function resetDevDatabase(request, env) {
   }
 
   await env.DB.batch([
+    env.DB.prepare("DELETE FROM auth_rate_limits"),
     env.DB.prepare("DELETE FROM auth_sessions"),
     env.DB.prepare("DELETE FROM game_hints"),
     env.DB.prepare("DELETE FROM game_guesses"),
@@ -636,9 +933,7 @@ async function resetDevDatabase(request, env) {
 }
 
 async function getDevUsers(request, env) {
-  if (env.ENVIRONMENT !== "dev" || !isLocalRequest(request)) {
-    throw new ApiError(404, "Not found");
-  }
+  await requireDevAdmin(request, env);
   const { results = [] } = await env.DB.prepare(
     `SELECT
        users.id,
@@ -688,9 +983,7 @@ async function getDevUsers(request, env) {
 }
 
 async function getDevUser(request, env, userId) {
-  if (env.ENVIRONMENT !== "dev" || !isLocalRequest(request)) {
-    throw new ApiError(404, "Not found");
-  }
+  await requireDevAdmin(request, env);
   const user = await env.DB.prepare(
     `SELECT users.id, users.username, users.created_at,
        account_stats.games AS completed_games,
@@ -764,6 +1057,15 @@ async function routeApi(request, env, pathname) {
   if (request.method === "POST" && pathname === "/api/auth/logout") {
     return logout(request, env);
   }
+  if (request.method === "POST" && pathname === "/api/auth/logout-all") {
+    return logoutAll(request, env);
+  }
+  if (request.method === "PUT" && pathname === "/api/auth/password") {
+    return changePassword(request, env);
+  }
+  if (request.method === "DELETE" && pathname === "/api/auth/account") {
+    return deleteAccount(request, env);
+  }
   if (request.method === "GET" && pathname === "/api/auth/me") {
     return getCurrentUser(request, env);
   }
@@ -772,7 +1074,7 @@ async function routeApi(request, env, pathname) {
   }
 
   let match = pathname.match(/^\/api\/games\/([^/]+)$/);
-  if (match && request.method === "GET") return getGame(env, match[1]);
+  if (match && request.method === "GET") return getGame(request, env, match[1]);
 
   match = pathname.match(/^\/api\/games\/([^/]+)\/mode$/);
   if (match && request.method === "PUT") return updateMode(request, env, match[1]);
@@ -781,13 +1083,14 @@ async function routeApi(request, env, pathname) {
   if (match && request.method === "POST") return submitGuess(request, env, match[1]);
 
   match = pathname.match(/^\/api\/games\/([^/]+)\/hints\/([^/]+)$/);
-  if (match && request.method === "GET") return getHint(env, match[1], match[2]);
+  if (match && request.method === "GET") return getHint(request, env, match[1], match[2]);
 
   match = pathname.match(/^\/api\/dev\/games\/([^/]+)$/);
-  if (match && request.method === "GET") return getDevGame(env, match[1]);
+  if (match && request.method === "GET") return getDevGame(request, env, match[1]);
 
   match = pathname.match(/^\/api\/dev\/games\/([^/]+)\/guesses$/);
-  if (match && request.method === "POST" && env.ENVIRONMENT === "dev") {
+  if (match && request.method === "POST") {
+    await requireDevAdmin(request, env);
     return submitGuess(request, env, match[1], true);
   }
 
@@ -812,13 +1115,16 @@ export default {
     if (request.method === "GET" && url.pathname === "/api") {
       return json({
         name: "Wordle API",
-        version: 4,
+        version: 5,
         status: "ready",
         environment: env.ENVIRONMENT,
         endpoints: [
           "POST /api/auth/register",
           "POST /api/auth/login",
           "POST /api/auth/logout",
+          "POST /api/auth/logout-all",
+          "PUT /api/auth/password",
+          "DELETE /api/auth/account",
           "GET /api/auth/me",
           "POST /api/games",
           "GET /api/games/:id",
@@ -833,7 +1139,7 @@ export default {
       return json({
         ok: true,
         service: "wordle-api",
-        version: 4,
+        version: 5,
         environment: env.ENVIRONMENT,
         database: Boolean(env.DB),
         timestamp: new Date().toISOString()
@@ -850,6 +1156,16 @@ export default {
       }
     }
 
-    return env.ASSETS.fetch(request);
+    return withSecurityHeaders(await env.ASSETS.fetch(request));
   }
+};
+
+export {
+  ANSWER_SET,
+  WORD_SET,
+  chooseAnswer,
+  publicStatistics,
+  requireGameAccess,
+  scoreAgainst,
+  validateHardcoreGuess
 };

@@ -221,6 +221,27 @@
         <h3 class="guess-distribution-title">Wins by number of guesses</h3>
         <ol id="account-guess-distribution" class="guess-distribution"></ol>
         <a class="statistics-link" href="/stats">Open full statistics</a>
+        <details class="account-controls">
+          <summary>Account security</summary>
+          <form id="change-password-form" class="account-form">
+            <h3>Change password</h3>
+            <label for="current-password">Current password</label>
+            <input id="current-password" name="currentPassword" type="password" autocomplete="current-password" required />
+            <label for="new-password">New password</label>
+            <input id="new-password" name="newPassword" type="password" autocomplete="new-password" required />
+            <label for="new-password-confirmation">Write new password again</label>
+            <input id="new-password-confirmation" name="newPasswordConfirmation" type="password" autocomplete="new-password" required />
+            <button type="submit">Change password</button>
+          </form>
+          <button id="logout-all-button" class="logout-button" type="button">Log out on every device</button>
+          <form id="delete-account-form" class="account-form account-danger">
+            <h3>Delete account</h3>
+            <p>This permanently deletes the account and all of its games and statistics.</p>
+            <label for="delete-account-password">Password</label>
+            <input id="delete-account-password" name="password" type="password" autocomplete="current-password" required />
+            <button type="submit">Delete account</button>
+          </form>
+        </details>
         <button id="logout-button" class="logout-button" type="button">Log out</button>
       </section>
       <output id="auth-message" class="auth-message" aria-live="polite"></output>
