@@ -18,6 +18,13 @@ test("the curated answer pool is non-empty, unique, and accepted as guesses", ()
     assert.match(answer, /^[A-Z]{5}$/);
     assert.ok(WORD_SET.has(answer), `${answer} is missing from the accepted word list`);
   }
+  for (const answer of ["BLING", "DETOX", "INDIE", "INBOX", "PESTO", "RAMEN", "WIMPY"]) {
+    assert.ok(ANSWER_SET.has(answer), `${answer} should be available as an answer`);
+  }
+  for (const guess of ["BLOGS", "CARBS", "MEMES"]) {
+    assert.ok(WORD_SET.has(guess), `${guess} should be accepted as a guess`);
+    assert.ok(!ANSWER_SET.has(guess), `${guess} should not be selected as an answer`);
+  }
   assert.ok(ANSWER_SET.has(chooseAnswer()));
 });
 
