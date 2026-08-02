@@ -6,7 +6,8 @@ A browser-based five-letter word game hosted on Cloudflare Workers.
 
 - `index.html`, `style.css`, `script.js`, and `public/assets/` are the frontend.
 - `data/words.json` contains accepted guesses; `data/answers.json` contains the
-  curated roughly 1,500-word pool from which the Worker chooses answers. Both are loaded
+  curated answer pool from which the Worker chooses answers. The pool has a
+  1,500-word minimum and currently contains 2,315 words. Both files are loaded
   only by the Worker and are not shipped in the browser build.
 - `src/worker.mjs` is the server-authoritative Cloudflare Worker API.
 - `migrations/` contains the D1 database schema history.
