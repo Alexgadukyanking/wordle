@@ -22,7 +22,11 @@
           <span>THE WORD GAME</span>
         </div>
       </div>
-      <button class="reset-button" id="reset-button" aria-label="Reset game">Reset</button>
+      <div class="header-actions">
+        <button class="account-button" id="account-button" type="button">Account</button>
+        <a class="reset-button stats-nav-link" href="/stats">Stats</a>
+        <button class="reset-button" id="reset-button" aria-label="Reset game">Reset</button>
+      </div>
     </header>
 
     <main>
@@ -91,23 +95,24 @@
             <span>Hints</span>
             <small>Tap to reveal</small>
           </div>
-          <details>
+          <p class="hints-statistics-note">Using any hint excludes this game from statistics.</p>
+          <details data-hint-type="first-letter">
             <summary>First letter?</summary>
             <p id="hint-first-letter"></p>
           </details>
-          <details>
+          <details data-hint-type="last-letter">
             <summary>Last letter?</summary>
             <p id="hint-last-letter"></p>
           </details>
-          <details>
+          <details data-hint-type="double-letters">
             <summary>Double letters?</summary>
             <p id="hint-double"></p>
           </details>
-          <details>
+          <details data-hint-type="vowel-count">
             <summary>How many vowels?</summary>
             <p id="hint-vowels"></p>
           </details>
-          <details>
+          <details data-hint-type="part-of-speech">
             <summary>Adjective, noun, or verb?</summary>
             <p id="hint-part-of-speech"></p>
           </details>
@@ -133,6 +138,92 @@
       <p class="small">
         Hardcore Mode requires every revealed clue to be obeyed in later guesses.
       </p>
+    </dialog>
+
+    <dialog id="account-dialog" class="account-dialog" aria-labelledby="account-title">
+      <button class="close-button" id="account-close-button" aria-label="Close account">×</button>
+      <section id="account-signed-out">
+        <h2 id="account-title">Player account</h2>
+        <p class="account-intro">Use a unique username and password. Google login is not used.</p>
+        <div class="account-tabs" role="tablist" aria-label="Account action">
+          <button id="login-tab" type="button" role="tab" aria-selected="true">Log in</button>
+          <button id="register-tab" type="button" role="tab" aria-selected="false">Create account</button>
+        </div>
+
+        <form id="login-form" class="account-form" data-auth-panel="login">
+          <label for="login-username">Username</label>
+          <input id="login-username" name="username" type="text" autocomplete="username" required />
+          <label for="login-password">Password</label>
+          <input id="login-password" name="password" type="password" autocomplete="current-password" required />
+          <button type="submit">Log in</button>
+        </form>
+
+        <form id="register-form" class="account-form" data-auth-panel="register" hidden>
+          <label for="register-username">Unique username</label>
+          <input
+            id="register-username"
+            name="username"
+            type="text"
+            autocomplete="username"
+            pattern="[A-Za-z0-9_]{3,24}"
+            title="3–24 letters, numbers, or underscores"
+            required
+          />
+          <label for="register-password">Password</label>
+          <input id="register-password" name="password" type="password" autocomplete="new-password" required />
+          <label for="register-password-confirmation">Write password again</label>
+          <input
+            id="register-password-confirmation"
+            name="passwordConfirmation"
+            type="password"
+            autocomplete="new-password"
+            required
+          />
+          <small>No password-strength requirement is applied.</small>
+          <button type="submit">Create account</button>
+        </form>
+      </section>
+
+      <section id="account-signed-in" hidden>
+        <p class="account-kicker">Signed in</p>
+        <h2 id="account-username"></h2>
+        <p>Your completed games are tracked here. The no-hint category excludes every game where a hint was revealed.</p>
+        <h3 class="account-statistics-title">Regular statistics</h3>
+        <div class="account-statistics" aria-label="Regular statistics">
+          <article>
+            <span>Games</span>
+            <strong id="account-games">0</strong>
+          </article>
+          <article>
+            <span>Wins</span>
+            <strong id="account-wins">0</strong>
+          </article>
+          <article>
+            <span>Win rate</span>
+            <strong id="account-win-rate">0%</strong>
+          </article>
+        </div>
+        <h3 class="account-statistics-title">No-hint statistics</h3>
+        <div class="account-statistics" aria-label="No-hint statistics">
+          <article>
+            <span>Games</span>
+            <strong id="account-games-no-hints">0</strong>
+          </article>
+          <article>
+            <span>Wins</span>
+            <strong id="account-wins-no-hints">0</strong>
+          </article>
+          <article>
+            <span>Win rate</span>
+            <strong id="account-win-rate-no-hints">0%</strong>
+          </article>
+        </div>
+        <h3 class="guess-distribution-title">Wins by number of guesses</h3>
+        <ol id="account-guess-distribution" class="guess-distribution"></ol>
+        <a class="statistics-link" href="/stats">Open full statistics</a>
+        <button id="logout-button" class="logout-button" type="button">Log out</button>
+      </section>
+      <output id="auth-message" class="auth-message" aria-live="polite"></output>
     </dialog>
 
     <dialog id="victory-dialog" class="victory-dialog" aria-labelledby="victory-title">
@@ -171,7 +262,6 @@
       type="module"
       src="https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js"
     ></script>
-    <script src="/words.js"></script>
     <script type="module" src="/script.js"></script>
   </body>
 </html>

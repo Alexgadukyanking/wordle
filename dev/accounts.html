@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Account Database — Five Development</title>
+    <link rel="stylesheet" href="/src/dev/accounts.css" />
+  </head>
+  <body class="accounts-dashboard">
+    <header class="dashboard-header">
+      <div>
+        <p class="environment-label">Development only</p>
+        <h1>Account database</h1>
+        <p>Read-only local D1 account and game data.</p>
+      </div>
+      <nav aria-label="Development navigation">
+        <a href="/">Back to Wordle</a>
+        <button id="refresh-button" type="button">Refresh data</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="summary-grid" aria-label="Account summary">
+        <article><span>Accounts</span><strong id="total-accounts">—</strong></article>
+        <article><span>Active sessions</span><strong id="total-sessions">—</strong></article>
+        <article><span>Games</span><strong id="total-games">—</strong></article>
+        <article><span>Wins</span><strong id="total-wins">—</strong></article>
+        <article><span>Games (no hints)</span><strong id="total-games-no-hints">—</strong></article>
+        <article><span>Wins (no hints)</span><strong id="total-wins-no-hints">—</strong></article>
+      </section>
+
+      <section class="accounts-card" aria-labelledby="accounts-heading">
+        <div class="card-heading">
+          <div>
+            <h2 id="accounts-heading">Accounts</h2>
+            <p>Up to 500 newest accounts are shown.</p>
+          </div>
+          <label>
+            <span>Search username or ID</span>
+            <input id="account-search" type="search" autocomplete="off" placeholder="Search accounts" />
+          </label>
+        </div>
+
+        <p id="dashboard-status" class="dashboard-status" role="status" aria-live="polite">Loading accounts…</p>
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Account ID</th>
+                <th>Created</th>
+                <th>Sessions</th>
+                <th>Games</th>
+                <th>Wins</th>
+                <th>Games (no hints)</th>
+                <th>Wins (no hints)</th>
+                <th>Losses</th>
+                <th>Last game</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="accounts-body"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <dialog id="account-detail-dialog" aria-labelledby="detail-title">
+      <button id="detail-close" class="detail-close" type="button" aria-label="Close account details">×</button>
+      <p class="environment-label">Account detail</p>
+      <h2 id="detail-title">Account</h2>
+      <dl id="account-detail-list"></dl>
+      <h3>Recent games</h3>
+      <div class="table-scroll detail-games-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Game ID</th>
+              <th>Status</th>
+              <th>Guesses</th>
+              <th>Hints</th>
+              <th>Counts in stats</th>
+              <th>Hardcore</th>
+              <th>Created</th>
+            </tr>
+          </thead>
+          <tbody id="detail-games-body"></tbody>
+        </table>
+      </div>
+      <p id="detail-status" class="dashboard-status" role="status" aria-live="polite"></p>
+    </dialog>
+
+    <script type="module" src="/src/dev/accounts.js"></script>
+  </body>
+</html>

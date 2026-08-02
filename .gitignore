@@ -1,6 +1,8 @@
 node_modules/
 dist/
 .wrangler/
+dev.log
+dev-error.log
 
 .dev.vars*
 .env*

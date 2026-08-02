@@ -6,6 +6,13 @@
   "vars": {
     "ENVIRONMENT": "production"
   },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "wordle-production",
+      "migrations_dir": "migrations"
+    }
+  ],
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",
@@ -20,7 +27,14 @@
       "workers_dev": true,
       "vars": {
         "ENVIRONMENT": "dev"
-      }
+      },
+      "d1_databases": [
+        {
+          "binding": "DB",
+          "database_name": "wordle-dev",
+          "migrations_dir": "migrations"
+        }
+      ]
     }
   }
 }

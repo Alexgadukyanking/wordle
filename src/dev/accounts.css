@@ -1,0 +1,275 @@
+:root {
+  color: #201d1a;
+  background: #f2eee6;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, #ffffff 0, transparent 36%),
+    #f2eee6;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.dashboard-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 34px max(24px, calc((100vw - 1320px) / 2));
+  border-bottom: 1px solid #d6cec2;
+  background: #fffaf2;
+}
+
+.dashboard-header h1 {
+  margin: 2px 0 5px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 5vw, 48px);
+}
+
+.dashboard-header p {
+  margin: 0;
+  color: #716a61;
+}
+
+.environment-label {
+  color: #8f2424 !important;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.dashboard-header nav {
+  display: flex;
+  gap: 8px;
+}
+
+.dashboard-header a,
+.dashboard-header button,
+.view-account-button {
+  min-height: 40px;
+  border: 1px solid #174f66;
+  border-radius: 7px;
+  background: #174f66;
+  color: #fff;
+  padding: 10px 14px;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.dashboard-header a {
+  border-color: #b5aa9c;
+  background: transparent;
+  color: #201d1a;
+}
+
+main {
+  width: min(1320px, calc(100% - 32px));
+  margin: 24px auto 50px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.summary-grid article,
+.accounts-card {
+  border: 1px solid #d6cec2;
+  border-radius: 12px;
+  background: #fffdf8;
+  box-shadow: 0 8px 30px #3e352914;
+}
+
+.summary-grid article {
+  display: grid;
+  gap: 8px;
+  padding: 18px;
+}
+
+.summary-grid span {
+  color: #716a61;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.summary-grid strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+}
+
+.accounts-card {
+  overflow: hidden;
+}
+
+.card-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+  border-bottom: 1px solid #e0d9cf;
+}
+
+.card-heading h2,
+.card-heading p {
+  margin: 0;
+}
+
+.card-heading p,
+.dashboard-status {
+  color: #716a61;
+  font-size: 12px;
+}
+
+.card-heading label {
+  min-width: min(100%, 320px);
+  display: grid;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.card-heading input {
+  min-height: 40px;
+  border: 1px solid #cfc6ba;
+  border-radius: 7px;
+  background: #fff;
+  padding: 8px 10px;
+}
+
+.dashboard-status {
+  margin: 0;
+  padding: 12px 20px;
+}
+
+.table-scroll {
+  overflow: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+th,
+td {
+  padding: 11px 12px;
+  border-top: 1px solid #ece5dc;
+  text-align: left;
+}
+
+th {
+  color: #716a61;
+  background: #faf6ef;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.username-cell {
+  font-weight: 900;
+}
+
+.id-cell {
+  color: #594f44;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 11px;
+}
+
+.view-account-button {
+  min-height: 30px;
+  padding: 6px 10px;
+  font-size: 11px;
+}
+
+dialog {
+  width: min(920px, calc(100vw - 28px));
+  max-height: min(86vh, 760px);
+  overflow: auto;
+  border: 0;
+  border-radius: 14px;
+  background: #fffdf8;
+  color: #201d1a;
+  padding: 24px;
+  box-shadow: 0 24px 80px #201d1a66;
+}
+
+dialog::backdrop {
+  background: #201d1aaa;
+}
+
+dialog h2 {
+  margin: 4px 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 32px;
+}
+
+.detail-close {
+  float: right;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 7px 16px;
+  padding: 14px;
+  border-radius: 8px;
+  background: #f5f0e8;
+}
+
+dt {
+  color: #716a61;
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-family: Consolas, "Courier New", monospace;
+}
+
+.detail-games-scroll {
+  max-height: 310px;
+  border: 1px solid #e0d9cf;
+  border-radius: 8px;
+}
+
+@media (max-width: 760px) {
+  .dashboard-header,
+  .card-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-header nav {
+    flex-wrap: wrap;
+  }
+}

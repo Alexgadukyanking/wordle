@@ -55,7 +55,8 @@
   gap: 7px;
 }
 
-.dev-panel-actions button {
+.dev-panel-actions button,
+.dev-panel-actions a {
   min-height: 36px;
   border: 1px solid #8f2424;
   border-radius: 6px;
@@ -66,6 +67,8 @@
   font-size: 10px;
   font-weight: 800;
   cursor: pointer;
+  text-align: center;
+  text-decoration: none;
 }
 
 .dev-panel-actions button:last-child {
@@ -74,7 +77,14 @@
   color: #fff;
 }
 
+.dev-panel-actions button[aria-pressed="true"] {
+  border-color: #236b3d;
+  background: #dff4e5;
+  color: #174d2b;
+}
+
 .dev-panel-actions button:focus-visible,
+.dev-panel-actions a:focus-visible,
 .dev-panel summary:focus-visible {
   outline: 3px solid #d19a3c;
   outline-offset: 2px;

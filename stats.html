@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Player Statistics — Five</title>
+    <link rel="stylesheet" href="/src/stats.css" />
+  </head>
+  <body>
+    <header class="stats-header">
+      <a class="brand-link" href="/" aria-label="Back to Five">
+        <span class="brand-tiles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+        <span>FIVE</span>
+      </a>
+      <a class="back-link" href="/">Back to game</a>
+    </header>
+
+    <main class="stats-shell">
+      <p class="page-kicker">Player profile</p>
+      <h1>Your statistics</h1>
+      <p id="stats-status" class="stats-status" role="status" aria-live="polite">Loading statistics…</p>
+
+      <section id="stats-signed-out" class="signed-out-card" hidden>
+        <h2>Log in to see your statistics</h2>
+        <p>Statistics belong to your player account and are not stored in the browser.</p>
+        <a href="/">Go to the account login</a>
+      </section>
+
+      <section id="stats-signed-in" hidden>
+        <div class="player-heading">
+          <span>Signed in as</span>
+          <strong id="stats-username"></strong>
+        </div>
+
+        <div class="statistics-sections">
+          <section class="statistics-card" aria-labelledby="regular-heading">
+            <div class="card-heading">
+              <div>
+                <p>All completed games</p>
+                <h2 id="regular-heading">Regular</h2>
+              </div>
+              <span class="category-badge">Hints allowed</span>
+            </div>
+            <div class="metric-grid">
+              <article><span>Games</span><strong id="stats-games">0</strong></article>
+              <article><span>Wins</span><strong id="stats-wins">0</strong></article>
+              <article><span>Win rate</span><strong id="stats-win-rate">0%</strong></article>
+            </div>
+          </section>
+
+          <section class="statistics-card no-hint-card" aria-labelledby="no-hint-heading">
+            <div class="card-heading">
+              <div>
+                <p>Competitive record</p>
+                <h2 id="no-hint-heading">No hints</h2>
+              </div>
+              <span class="category-badge">Zero hints</span>
+            </div>
+            <div class="metric-grid">
+              <article><span>Games</span><strong id="stats-games-no-hints">0</strong></article>
+              <article><span>Wins</span><strong id="stats-wins-no-hints">0</strong></article>
+              <article><span>Win rate</span><strong id="stats-win-rate-no-hints">0%</strong></article>
+            </div>
+          </section>
+        </div>
+
+        <section class="distribution-card" aria-labelledby="distribution-heading">
+          <div>
+            <p>No-hint wins</p>
+            <h2 id="distribution-heading">Guess distribution</h2>
+          </div>
+          <ol id="stats-guess-distribution" class="distribution-list"></ol>
+        </section>
+      </section>
+    </main>
+
+    <script type="module" src="/src/stats.js"></script>
+  </body>
+</html>

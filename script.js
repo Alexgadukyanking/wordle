@@ -1,6 +1,5 @@
-const WORDS = Array.isArray(window.FIVE_LETTER_WORDS)
-  ? window.FIVE_LETTER_WORDS
-  : [];
+import WORDS from "./data/words.json";
+
 const validWords = new Set(WORDS);
 
 const VICTORY_REACTION_SPECS = [
@@ -37,7 +36,7 @@ const KEY_ROWS = [
   ["ENTER", "Z", "X", "C", "V", "B", "N", "M", "⌫"]
 ];
 
-const STORAGE_KEY = "five-word-state-v1";
+const STORAGE_KEY = "five-word-state-v2";
 const BACKGROUND_DB_NAME = "five-customization-v1";
 const BACKGROUND_STORE_NAME = "backgrounds";
 const BACKGROUND_RECORD_KEY = "page-background";
@@ -46,6 +45,25 @@ const board = document.querySelector("#board");
 const keyboard = document.querySelector("#keyboard");
 const message = document.querySelector("#message");
 const helpDialog = document.querySelector("#help-dialog");
+const accountDialog = document.querySelector("#account-dialog");
+const accountButton = document.querySelector("#account-button");
+const accountCloseButton = document.querySelector("#account-close-button");
+const accountSignedOut = document.querySelector("#account-signed-out");
+const accountSignedIn = document.querySelector("#account-signed-in");
+const accountUsername = document.querySelector("#account-username");
+const accountGames = document.querySelector("#account-games");
+const accountWins = document.querySelector("#account-wins");
+const accountWinRate = document.querySelector("#account-win-rate");
+const accountGamesNoHints = document.querySelector("#account-games-no-hints");
+const accountWinsNoHints = document.querySelector("#account-wins-no-hints");
+const accountWinRateNoHints = document.querySelector("#account-win-rate-no-hints");
+const accountGuessDistribution = document.querySelector("#account-guess-distribution");
+const loginTab = document.querySelector("#login-tab");
+const registerTab = document.querySelector("#register-tab");
+const loginForm = document.querySelector("#login-form");
+const registerForm = document.querySelector("#register-form");
+const authMessage = document.querySelector("#auth-message");
+const logoutButton = document.querySelector("#logout-button");
 const hardcoreButton = document.querySelector("#hardcore-button");
 const hardcoreLabel = document.querySelector("#hardcore-label");
 const hardcoreNote = document.querySelector("#hardcore-note");
@@ -66,24 +84,23 @@ const backgroundFileInput = document.querySelector("#background-file-input");
 const backgroundRemoveButton = document.querySelector("#background-remove-button");
 const backgroundStatus = document.querySelector("#background-status");
 
-let answer;
-let guesses;
-let current;
-let finished;
+let gameId = "";
+let guesses = [];
+let guessResults = [];
+let current = "";
+let finished = false;
+let gameStatus = "active";
+let revealedAnswer = "";
 let hardcoreMode = false;
+let requestPending = false;
+let allowAnyGuess = false;
+let currentUser = null;
+let currentStatistics = null;
+let hintsUsed = 0;
 let audioContext;
 let cameraStream;
 let lastVictoryReactionIndex = -1;
-let hintLookupToken = 0;
 let backgroundObjectUrl = "";
-
-const ADJECTIVE_WORDS = new Set(
-  "ACUTE AWARE BASIC BLACK BLIND BROAD BROWN CIVIL CLEAN CLEAR EAGER EARLY ELITE EMPTY EQUAL EXACT FALSE FINAL FIXED FRESH FUNNY GRAND GREAT GREEN GROSS HAPPY HEAVY IDEAL INNER LARGE LEGAL LOCAL LOOSE LUCKY MAJOR MINOR MORAL OTHER PLAIN PRIME PROUD QUICK QUIET RAPID READY RIGHT ROUGH ROYAL RURAL SHARP SHORT SMALL SMART SOLID SORRY SWEET THICK TIGHT TIRED TOUGH UPPER URBAN USUAL VALID VITAL WHITE WHOLE WRONG YOUNG".split(" ")
-);
-
-const VERB_WORDS = new Set(
-  "ADMIT ADOPT AGREE ALLOW APPLY ARGUE ARISE AVOID BEGIN BREAK BRING BUILD CARRY CATCH CHASE CHECK CLAIM CLICK COVER CRASH DRINK DRIVE ENJOY ENTER EXIST FIGHT FOCUS FORCE GUARD GUESS GUIDE LEARN LEAVE MATCH MOUNT OCCUR OFFER PAINT PROVE RAISE REACH REFER SERVE SHARE SHINE SHOOT SLEEP SOLVE SPEAK SPEND SPLIT STAND START STICK STUDY TEACH THINK THROW TOUCH TRAIN TREAT TRUST VISIT WATCH WRITE YIELD".split(" ")
-);
 
 function openBackgroundDatabase() {
   return new Promise((resolve, reject) => {
@@ -218,52 +235,147 @@ async function loadVictoryReactions() {
   }
 }
 
-function localPartOfSpeech(word) {
-  if (ADJECTIVE_WORDS.has(word)) return "Adjective";
-  if (VERB_WORDS.has(word)) return "Verb";
-  return "Noun";
-}
-
 function closeHints() {
   document
     .querySelectorAll(".hints-panel details")
     .forEach((hint) => { hint.open = false; });
 }
 
-async function updateHints() {
-  const letters = [...answer];
-  hintFirstLetter.textContent = letters[0];
-  hintLastLetter.textContent = letters.at(-1);
-  hintDouble.textContent = new Set(letters).size < letters.length ? "Yes" : "No";
-  hintVowels.textContent = String(letters.filter((letter) => "AEIOU".includes(letter)).length);
-  hintPartOfSpeech.textContent = localPartOfSpeech(answer);
+function clearHints() {
+  [hintFirstLetter, hintLastLetter, hintDouble, hintVowels, hintPartOfSpeech]
+    .forEach((hint) => { hint.textContent = ""; });
+}
 
-  const token = ++hintLookupToken;
-  try {
-    const response = await fetch(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${answer.toLowerCase()}`
-    );
-    if (!response.ok) return;
-    const entries = await response.json();
-    const accepted = new Set(["adjective", "noun", "verb"]);
-    const parts = [
-      ...new Set(
-        entries
-          .flatMap((entry) => entry.meanings || [])
-          .map((meaning) => meaning.partOfSpeech)
-          .filter((part) => accepted.has(part))
-      )
-    ];
-
-    if (token === hintLookupToken && parts.length) {
-      hintPartOfSpeech.textContent = parts
-        .map((part) => part[0].toUpperCase() + part.slice(1))
-        .join(" / ");
+async function requestJson(url, options = {}) {
+  const response = await fetch(url, {
+    ...options,
+    headers: {
+      ...(options.body ? { "content-type": "application/json" } : {}),
+      ...options.headers
     }
+  });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    const error = new Error(payload.error || `Request failed (${response.status})`);
+    error.status = response.status;
+    throw error;
+  }
+  return payload;
+}
+
+function showAuthView(view) {
+  const showLogin = view === "login";
+  loginTab.setAttribute("aria-selected", String(showLogin));
+  registerTab.setAttribute("aria-selected", String(!showLogin));
+  loginForm.hidden = !showLogin;
+  registerForm.hidden = showLogin;
+  authMessage.textContent = "";
+}
+
+function updateAccountUI() {
+  const signedIn = Boolean(currentUser);
+  accountSignedOut.hidden = signedIn;
+  accountSignedIn.hidden = !signedIn;
+  accountButton.textContent = signedIn ? `@${currentUser.username}` : "Account";
+  accountButton.title = signedIn ? `Signed in as ${currentUser.username}` : "Log in or create account";
+  accountUsername.textContent = signedIn ? currentUser.username : "";
+  if (!signedIn) return;
+
+  const statistics = currentStatistics || {
+    games: 0,
+    wins: 0,
+    winRate: 0,
+    gamesNoHints: 0,
+    winsNoHints: 0,
+    winRateNoHints: 0,
+    guessDistribution: [0, 0, 0, 0, 0, 0]
+  };
+  accountGames.textContent = statistics.games.toLocaleString();
+  accountWins.textContent = statistics.wins.toLocaleString();
+  accountWinRate.textContent = `${statistics.winRate}%`;
+  accountGamesNoHints.textContent = statistics.gamesNoHints.toLocaleString();
+  accountWinsNoHints.textContent = statistics.winsNoHints.toLocaleString();
+  accountWinRateNoHints.textContent = `${statistics.winRateNoHints}%`;
+  accountGuessDistribution.replaceChildren();
+  statistics.guessDistribution.forEach((wins, index) => {
+    const item = document.createElement("li");
+    item.innerHTML = `<span>${index + 1} guesses</span><strong>${wins.toLocaleString()}</strong>`;
+    accountGuessDistribution.appendChild(item);
+  });
+}
+
+async function loadCurrentUser() {
+  try {
+    const payload = await requestJson("/api/auth/me");
+    currentUser = payload.user;
+    currentStatistics = payload.statistics;
   } catch {
-    // Keep the local classification when dictionary lookup is unavailable.
+    currentUser = null;
+    currentStatistics = null;
+  }
+  updateAccountUI();
+}
+
+async function submitAccountForm(form, endpoint) {
+  const submitButton = form.querySelector('button[type="submit"]');
+  submitButton.disabled = true;
+  authMessage.textContent = endpoint === "register"
+    ? "Creating account…"
+    : "Logging in…";
+  try {
+    const values = Object.fromEntries(new FormData(form));
+    if (endpoint === "register" && values.password !== values.passwordConfirmation) {
+      throw new Error("Passwords do not match");
+    }
+    const payload = await requestJson(`/api/auth/${endpoint}`, {
+      method: "POST",
+      body: JSON.stringify(values)
+    });
+    currentUser = payload.user;
+    currentStatistics = payload.statistics;
+    form.reset();
+    updateAccountUI();
+  } catch (error) {
+    authMessage.textContent = error.message;
+  } finally {
+    submitButton.disabled = false;
   }
 }
+
+async function revealHint(details) {
+  if (!details.open || !gameId) return;
+  if (finished) {
+    details.open = false;
+    showMessage("Hints are unavailable after the game ends");
+    return;
+  }
+  const value = details.querySelector("p");
+  if (value.dataset.loadedFor === gameId) return;
+  if (hintsUsed === 0) {
+    const confirmed = window.confirm(
+      "Using a hint means this game will not count toward your no-hint games, wins, or guess statistics. Reveal this hint?"
+    );
+    if (!confirmed) {
+      details.open = false;
+      return;
+    }
+  }
+  value.textContent = "Loading…";
+  try {
+    const payload = await requestJson(
+      `/api/games/${encodeURIComponent(gameId)}/hints/${details.dataset.hintType}`
+    );
+    value.textContent = payload.value;
+    value.dataset.loadedFor = gameId;
+    hintsUsed = payload.hintsUsed;
+  } catch (error) {
+    value.textContent = error.message;
+  }
+}
+
+document.querySelectorAll(".hints-panel details").forEach((details) => {
+  details.addEventListener("toggle", () => revealHint(details));
+});
 
 function showVictory() {
   let index;
@@ -278,7 +390,7 @@ function showVictory() {
   const reaction = victoryReactions[index];
   victoryImage.src = reaction.image;
   victoryImage.alt = reaction.name;
-  victoryWord.textContent = `The word was ${answer}.`;
+  victoryWord.textContent = `The word was ${revealedAnswer}.`;
   if (!victoryDialog.open) victoryDialog.showModal();
 }
 
@@ -314,16 +426,6 @@ async function startCamera() {
   } finally {
     cameraButton.disabled = false;
   }
-}
-
-function chooseAnswer() {
-  const day = Math.floor(Date.now() / 86400000);
-  return WORDS[day % WORDS.length];
-}
-
-function chooseDifferentAnswer(previousAnswer) {
-  const choices = WORDS.filter((word) => word !== previousAnswer);
-  return choices[Math.floor(Math.random() * choices.length)];
 }
 
 function buildBoard() {
@@ -367,13 +469,13 @@ function buildKeyboard() {
 function saveGame() {
   localStorage.setItem(
     STORAGE_KEY,
-    JSON.stringify({ answer, guesses, current, finished, hardcoreMode })
+    JSON.stringify({ gameId, current, hardcoreMode })
   );
 }
 
 function renderSavedGame() {
   guesses.forEach((guess, rowIndex) => {
-    const result = scoreGuess(guess);
+    const result = guessResults[rowIndex];
     const row = board.children[rowIndex];
     [...row.children].forEach((tile, columnIndex) => {
       const letter = guess[columnIndex];
@@ -386,8 +488,9 @@ function renderSavedGame() {
   updateCurrentRow();
 
   if (finished) {
-    const won = guesses.at(-1) === answer;
-    message.textContent = won ? "You got it!" : `The word was ${answer}`;
+    message.textContent = gameStatus === "won"
+      ? "You got it!"
+      : `The word was ${revealedAnswer}`;
   }
 }
 
@@ -395,50 +498,96 @@ function loadGame() {
   try {
     const saved = JSON.parse(localStorage.getItem(STORAGE_KEY));
     if (
-      WORDS.includes(saved?.answer) &&
-      Array.isArray(saved.guesses) &&
-      saved.guesses.length <= 6 &&
-      saved.guesses.every((guess) => /^[A-Z]{5}$/.test(guess)) &&
+      typeof saved?.gameId === "string" &&
+      saved.gameId.length > 0 &&
       typeof saved.current === "string" &&
       /^[A-Z]{0,5}$/.test(saved.current)
     ) {
-      answer = saved.answer;
-      guesses = saved.guesses;
-      current = saved.current;
-      finished = Boolean(saved.finished);
-      hardcoreMode = Boolean(saved.hardcoreMode);
+      return saved;
     }
   } catch {
-    localStorage.removeItem(STORAGE_KEY);
+    // Invalid browser state is discarded below.
   }
+  localStorage.removeItem(STORAGE_KEY);
+  return null;
 }
 
-function startGame(reset = false) {
-  const previousAnswer = answer;
+function applyServerGame(game) {
+  gameId = game.id;
+  guesses = game.guesses.map((entry) => entry.guess);
+  guessResults = game.guesses.map((entry) => entry.result);
+  gameStatus = game.status;
+  finished = game.status === "won" || game.status === "lost";
+  revealedAnswer = game.answer || "";
+  hardcoreMode = game.hardcoreMode;
+  hintsUsed = game.hintsUsed;
+  if (finished) current = "";
+}
+
+async function createServerGame(previousGameId = "") {
+  const payload = await requestJson("/api/games", {
+    method: "POST",
+    body: JSON.stringify({ hardcoreMode, previousGameId })
+  });
+  applyServerGame(payload.game);
+}
+
+async function startGame(reset = false) {
   const selectedMode = hardcoreMode;
   if (victoryDialog.open) victoryDialog.close();
   closeHints();
+  clearHints();
   guesses = [];
+  guessResults = [];
   current = "";
   finished = false;
+  gameStatus = "active";
+  revealedAnswer = "";
+  hintsUsed = 0;
   message.textContent = "";
-
-  if (reset) {
-    localStorage.removeItem(STORAGE_KEY);
-    answer = chooseDifferentAnswer(previousAnswer);
-    hardcoreMode = selectedMode;
-  } else {
-    answer = chooseAnswer();
-    loadGame();
-  }
-
   buildBoard();
   buildKeyboard();
-  renderSavedGame();
-  updateHardcoreControl();
-  updatePossibleWords();
-  saveGame();
-  updateHints();
+  requestPending = true;
+  keyboard.setAttribute("aria-disabled", "true");
+  message.textContent = "Loading game…";
+
+  try {
+    hardcoreMode = selectedMode;
+    if (reset) {
+      const previousGameId = gameId;
+      localStorage.removeItem(STORAGE_KEY);
+      await createServerGame(previousGameId);
+    } else {
+      const saved = loadGame();
+      if (saved) {
+        current = saved.current;
+        try {
+          const payload = await requestJson(`/api/games/${encodeURIComponent(saved.gameId)}`);
+          applyServerGame(payload.game);
+        } catch (error) {
+          if (error.status !== 404) throw error;
+          current = "";
+          hardcoreMode = Boolean(saved.hardcoreMode);
+          await createServerGame();
+        }
+      } else {
+        await createServerGame();
+      }
+    }
+
+    message.textContent = "";
+    buildBoard();
+    buildKeyboard();
+    renderSavedGame();
+    updateHardcoreControl();
+    updatePossibleWords();
+    saveGame();
+  } catch (error) {
+    message.textContent = `Game server unavailable: ${error.message}`;
+  } finally {
+    requestPending = false;
+    keyboard.removeAttribute("aria-disabled");
+  }
 }
 
 function showMessage(text) {
@@ -481,19 +630,13 @@ function scoreAgainst(guess, target) {
   return result;
 }
 
-function scoreGuess(guess) {
-  return scoreAgainst(guess, answer);
-}
-
 function updatePossibleWords() {
   if (guesses.length === 0) {
     possibleCount.textContent = WORDS.length.toLocaleString();
     return;
   }
 
-  const cluePatterns = guesses.map((guess) =>
-    scoreGuess(guess).join(",")
-  );
+  const cluePatterns = guessResults.map((result) => result.join(","));
   const remaining = WORDS.reduce((count, candidate) => {
     const matchesEveryClue = guesses.every(
       (guess, index) =>
@@ -534,8 +677,8 @@ function getHardcoreConstraints() {
   const minimums = new Map();
   const maximums = new Map();
 
-  guesses.forEach((guess) => {
-    const result = scoreGuess(guess);
+  guesses.forEach((guess, guessIndex) => {
+    const result = guessResults[guessIndex];
     const guessCounts = new Map();
     const matchedCounts = new Map();
 
@@ -603,13 +746,13 @@ function validateHardcoreGuess(guess) {
   return "";
 }
 
-function submitGuess() {
+async function submitGuess() {
   if (current.length !== 5) {
     showMessage("Not enough letters");
     shakeRow();
     return;
   }
-  if (!validWords.has(current)) {
+  if (!validWords.has(current) && !(__DEV_BUILD__ && allowAnyGuess)) {
     showMessage("Not in word list");
     shakeRow();
     return;
@@ -622,29 +765,43 @@ function submitGuess() {
   }
   const submittedGuess = current;
   const row = board.children[guesses.length];
-  const result = scoreGuess(submittedGuess);
-  [...row.children].forEach((tile, index) => {
-    window.setTimeout(() => {
-      tile.classList.add(result[index]);
-      updateKey(submittedGuess[index], result[index]);
-    }, index * 120);
-  });
+  requestPending = true;
+  try {
+    const guessEndpoint = __DEV_BUILD__ && allowAnyGuess
+      ? `/api/dev/games/${encodeURIComponent(gameId)}/guesses`
+      : `/api/games/${encodeURIComponent(gameId)}/guesses`;
+    const payload = await requestJson(
+      guessEndpoint,
+      { method: "POST", body: JSON.stringify({ guess: submittedGuess }) }
+    );
+    const result = payload.result;
+    current = "";
+    applyServerGame(payload.game);
+    [...row.children].forEach((tile, index) => {
+      window.setTimeout(() => {
+        tile.classList.add(result[index]);
+        updateKey(submittedGuess[index], result[index]);
+      }, index * 120);
+    });
 
-  guesses.push(submittedGuess);
-  updateHardcoreControl();
-  updatePossibleWords();
-  const won = submittedGuess === answer;
-  current = "";
-
-  if (won) {
-    finished = true;
-    window.setTimeout(() => { message.textContent = "You got it!"; }, 650);
-    window.setTimeout(showVictory, 850);
-  } else if (guesses.length === 6) {
-    finished = true;
-    window.setTimeout(() => { message.textContent = `The word was ${answer}`; }, 650);
+    updateHardcoreControl();
+    updatePossibleWords();
+    if (gameStatus === "won") {
+      window.setTimeout(() => { message.textContent = "You got it!"; }, 650);
+      window.setTimeout(showVictory, 850);
+    } else if (gameStatus === "lost") {
+      window.setTimeout(() => {
+        message.textContent = `The word was ${revealedAnswer}`;
+      }, 650);
+    }
+    if (finished && currentUser) loadCurrentUser();
+    saveGame();
+  } catch (error) {
+    showMessage(error.message);
+    shakeRow();
+  } finally {
+    requestPending = false;
   }
-  saveGame();
 }
 
 function shakeRow() {
@@ -655,7 +812,7 @@ function shakeRow() {
 }
 
 function handleKey(key) {
-  if (finished) return;
+  if (finished || requestPending) return;
   if (key === "ENTER") {
     submitGuess();
   } else if (key === "⌫" || key === "BACKSPACE") {
@@ -671,7 +828,7 @@ function handleKey(key) {
 }
 
 document.addEventListener("keydown", (event) => {
-  if (helpDialog.open || victoryDialog.open) return;
+  if (helpDialog.open || accountDialog.open || victoryDialog.open) return;
   const key = event.key.toUpperCase();
   if (key === "ENTER" || key === "BACKSPACE" || /^[A-Z]$/.test(key)) {
     event.preventDefault();
@@ -680,13 +837,68 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.querySelector("#help-button").addEventListener("click", () => helpDialog.showModal());
-document.querySelector(".close-button").addEventListener("click", () => helpDialog.close());
-document.querySelector("#reset-button").addEventListener("click", () => startGame(true));
-hardcoreButton.addEventListener("click", () => {
-  if (guesses.length > 0) return;
-  hardcoreMode = !hardcoreMode;
-  updateHardcoreControl();
-  saveGame();
+document.querySelector("#help-dialog .close-button").addEventListener("click", () => helpDialog.close());
+accountButton.addEventListener("click", () => {
+  if (!currentUser) showAuthView("login");
+  accountDialog.showModal();
+});
+accountCloseButton.addEventListener("click", () => accountDialog.close());
+loginTab.addEventListener("click", () => showAuthView("login"));
+registerTab.addEventListener("click", () => showAuthView("register"));
+loginForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  await submitAccountForm(loginForm, "login");
+});
+registerForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  await submitAccountForm(registerForm, "register");
+});
+logoutButton.addEventListener("click", async () => {
+  logoutButton.disabled = true;
+  try {
+    await requestJson("/api/auth/logout", { method: "POST" });
+    currentUser = null;
+    currentStatistics = null;
+    updateAccountUI();
+    showAuthView("login");
+  } catch (error) {
+    authMessage.textContent = error.message;
+  } finally {
+    logoutButton.disabled = false;
+  }
+});
+document.querySelector("#reset-button").addEventListener("click", () => {
+  const resetCountsAsLoss = guesses.length > 0 || hintsUsed > 0;
+  if (
+    !finished &&
+    resetCountsAsLoss &&
+    !window.confirm("Resetting this game will count as a loss. Start a new game?")
+  ) {
+    return;
+  }
+  startGame(true);
+});
+hardcoreButton.addEventListener("click", async () => {
+  if (guesses.length > 0 || requestPending) return;
+  const requestedMode = !hardcoreMode;
+  requestPending = true;
+  hardcoreButton.disabled = true;
+  try {
+    const payload = await requestJson(
+      `/api/games/${encodeURIComponent(gameId)}/mode`,
+      {
+        method: "PUT",
+        body: JSON.stringify({ hardcoreMode: requestedMode })
+      }
+    );
+    applyServerGame(payload.game);
+    saveGame();
+  } catch (error) {
+    showMessage(error.message);
+  } finally {
+    requestPending = false;
+    updateHardcoreControl();
+  }
 });
 document.querySelector("#current-year").textContent = new Date().getFullYear();
 document.querySelector("#victory-reset-button").addEventListener("click", () => startGame(true));
@@ -740,13 +952,14 @@ window.addEventListener("pagehide", () => {
   if (backgroundObjectUrl) URL.revokeObjectURL(backgroundObjectUrl);
 });
 
-function initializeGame() {
+async function initializeGame() {
   if (WORDS.length === 0) {
     message.textContent = "Word database could not be loaded";
     keyboard.setAttribute("aria-disabled", "true");
     return;
   }
-  startGame();
+  await loadCurrentUser();
+  await startGame();
   startCamera();
   loadVictoryReactions();
   initializeBackground();
@@ -758,13 +971,33 @@ if (__DEV_BUILD__) {
   import("./src/dev/debug-panel.js").then(({ mountDebugPanel }) => {
     mountDebugPanel({
       getState: () => ({
-        answer,
+        gameId,
         guesses: [...guesses],
+        guessResults: guessResults.map((result) => [...result]),
         current,
         finished,
-        hardcoreMode
+        gameStatus,
+        hardcoreMode,
+        allowAnyGuess
       }),
-      resetGame: () => startGame(true)
+      revealAnswer: async () => {
+        const payload = await requestJson(
+          `/api/dev/games/${encodeURIComponent(gameId)}`
+        );
+        return payload.game.answer;
+      },
+      toggleAnyGuess: () => {
+        allowAnyGuess = !allowAnyGuess;
+        return allowAnyGuess;
+      },
+      resetDatabase: async () => {
+        await requestJson("/api/dev/database/reset", {
+          method: "POST",
+          headers: { "x-wordle-dev-reset": "reset-entire-database" }
+        });
+        localStorage.removeItem(STORAGE_KEY);
+        window.location.reload();
+      }
     });
   });
 }

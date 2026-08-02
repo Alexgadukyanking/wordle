@@ -14,6 +14,9 @@ const debugMarkers = [
   "Development build",
   "Reveal current word",
   "Debug panel ready",
+  "Account database",
+  "accounts-dashboard",
+  "dev/accounts",
   "data-dev-action",
   "dev-panel"
 ];
