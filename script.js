@@ -1,4 +1,5 @@
 import WORDS from "./data/words.json";
+import { updateInputText } from "./src/input-logic.mjs";
 
 const validWords = new Set(WORDS);
 
@@ -97,6 +98,7 @@ let gameStatus = "active";
 let revealedAnswer = "";
 let hardcoreMode = false;
 let requestPending = false;
+let gameInitializing = false;
 let allowAnyGuess = false;
 let currentUser = null;
 let currentStatistics = null;
@@ -573,8 +575,8 @@ async function startGame(reset = false) {
   message.textContent = "";
   buildBoard();
   buildKeyboard();
+  gameInitializing = true;
   requestPending = true;
-  keyboard.setAttribute("aria-disabled", "true");
   message.textContent = "Loading game…";
 
   try {
@@ -613,8 +615,8 @@ async function startGame(reset = false) {
   } catch (error) {
     message.textContent = `Game server unavailable: ${error.message}`;
   } finally {
+    gameInitializing = false;
     requestPending = false;
-    keyboard.removeAttribute("aria-disabled");
   }
 }
 
@@ -840,18 +842,22 @@ function shakeRow() {
 }
 
 function handleKey(key) {
-  if (finished || requestPending) return;
+  if (finished || (requestPending && !gameInitializing)) return;
   if (key === "ENTER") {
+    if (gameInitializing) {
+      showMessage("Game is still loading");
+      return;
+    }
     submitGuess();
-  } else if (key === "⌫" || key === "BACKSPACE") {
-    current = current.slice(0, -1);
+    return;
+  }
+  const nextInput = updateInputText(current, key);
+  if (nextInput !== current) {
+    const addedLetter = nextInput.length > current.length;
+    current = nextInput;
+    if (addedLetter) playLetterSound();
     updateCurrentRow();
-    saveGame();
-  } else if (/^[A-Z]$/.test(key) && current.length < 5) {
-    current += key;
-    playLetterSound();
-    updateCurrentRow();
-    saveGame();
+    if (!gameInitializing) saveGame();
   }
 }
 
@@ -1059,6 +1065,7 @@ if (__DEV_BUILD__) {
         finished,
         gameStatus,
         hardcoreMode,
+        gameInitializing,
         allowAnyGuess
       }),
       revealAnswer: async () => {

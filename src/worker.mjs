@@ -66,10 +66,11 @@ function json(data, status = 200, extraHeaders = {}) {
   });
 }
 
-function withSecurityHeaders(response) {
+function withSecurityHeaders(response, disableCache = false) {
   const headers = new Headers(response.headers);
   Object.entries(SECURITY_HEADERS).forEach(([name, value]) => headers.set(name, value));
   headers.set("x-content-type-options", "nosniff");
+  if (disableCache) headers.set("cache-control", "no-store");
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
@@ -1156,7 +1157,10 @@ export default {
       }
     }
 
-    return withSecurityHeaders(await env.ASSETS.fetch(request));
+    return withSecurityHeaders(
+      await env.ASSETS.fetch(request),
+      env.ENVIRONMENT === "dev"
+    );
   }
 };
 
