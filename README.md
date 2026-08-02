@@ -46,10 +46,9 @@ Usernames are case-insensitively unique and must contain 3–24 ASCII letters,
 numbers, or underscores. Authentication is optional, and games created while
 signed in are linked to that user for future per-user statistics.
 
-Player-facing statistics include no-hint games only. A game counts in
+Player-facing Games, Wins, and Win rate include every completed game, whether or
+not hints were used. Guess distribution remains no-hint only. A game counts in
 `gamesNoHints` only after it ends in a win or loss without any recorded hint.
-All-game totals remain available internally in the development account dashboard
-for debugging, but they are not presented as a second player record.
 Resetting an active game records that game as a loss once a guess or hint has
 been submitted. An untouched game with zero guesses and zero hints is instead
 abandoned and excluded from statistics. The browser shows the loss warning only

@@ -52,9 +52,9 @@ const accountCloseButton = document.querySelector("#account-close-button");
 const accountSignedOut = document.querySelector("#account-signed-out");
 const accountSignedIn = document.querySelector("#account-signed-in");
 const accountUsername = document.querySelector("#account-username");
-const accountGamesNoHints = document.querySelector("#account-games-no-hints");
-const accountWinsNoHints = document.querySelector("#account-wins-no-hints");
-const accountWinRateNoHints = document.querySelector("#account-win-rate-no-hints");
+const accountGames = document.querySelector("#account-games");
+const accountWins = document.querySelector("#account-wins");
+const accountWinRate = document.querySelector("#account-win-rate");
 const accountGuessDistribution = document.querySelector("#account-guess-distribution");
 const loginTab = document.querySelector("#login-tab");
 const registerTab = document.querySelector("#register-tab");
@@ -303,9 +303,9 @@ function updateAccountUI() {
     winRateNoHints: 0,
     guessDistribution: [0, 0, 0, 0, 0, 0]
   };
-  accountGamesNoHints.textContent = statistics.gamesNoHints.toLocaleString();
-  accountWinsNoHints.textContent = statistics.winsNoHints.toLocaleString();
-  accountWinRateNoHints.textContent = `${statistics.winRateNoHints}%`;
+  accountGames.textContent = statistics.games.toLocaleString();
+  accountWins.textContent = statistics.wins.toLocaleString();
+  accountWinRate.textContent = `${statistics.winRate}%`;
   accountGuessDistribution.replaceChildren();
   statistics.guessDistribution.forEach((wins, index) => {
     const item = document.createElement("li");
