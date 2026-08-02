@@ -13,6 +13,7 @@
     "verify:dev": "npm run build:dev && node scripts/verify-build.mjs dev",
     "verify:prod": "npm run build:prod && node scripts/verify-build.mjs production",
     "preview": "vite preview",
+    "words:metadata": "node scripts/generate-word-metadata.mjs",
     "test": "node --test tests/*.test.mjs",
     "check": "npm test && npm run verify:prod && npm run verify:dev",
     "db:migrate:dev": "wrangler d1 migrations apply DB --local --env dev",
@@ -23,6 +24,8 @@
   },
   "devDependencies": {
     "vite": "^8.2.0",
+    "wink-lemmatizer": "^3.0.4",
+    "wordnet-db": "^3.1.14",
     "wrangler": "^4.118.0"
   }
 }

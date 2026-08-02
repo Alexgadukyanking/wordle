@@ -1,5 +1,6 @@
 import WORDS from "../data/words.json" with { type: "json" };
 import ANSWERS from "../data/answers.json" with { type: "json" };
+import WORD_METADATA from "../data/word-metadata.json" with { type: "json" };
 
 const SECURITY_HEADERS = {
   "content-security-policy": [
@@ -9,8 +10,8 @@ const SECURITY_HEADERS = {
     "frame-ancestors 'none'",
     "script-src 'self' https://widgets.tradingview-widget.com",
     "style-src 'self' 'unsafe-inline'",
-    "img-src 'self' data: blob: https://i.imgflip.com https://*.tradingview.com",
-    "connect-src 'self' https://api.imgflip.com https://*.tradingview.com wss://*.tradingview.com",
+    "img-src 'self' data: blob: https://*.tradingview.com",
+    "connect-src 'self' https://*.tradingview.com wss://*.tradingview.com",
     "frame-src https://*.tradingview.com",
     "font-src 'self' data: https://*.tradingview.com",
     "media-src 'self' blob:",
@@ -50,12 +51,6 @@ const HINT_TYPES = new Set([
   "vowel-count",
   "part-of-speech"
 ]);
-const ADJECTIVE_WORDS = new Set(
-  "ACUTE AWARE BASIC BLACK BLIND BROAD BROWN CIVIL CLEAN CLEAR EAGER EARLY ELITE EMPTY EQUAL EXACT FALSE FINAL FIXED FRESH FUNNY GRAND GREAT GREEN GROSS HAPPY HEAVY IDEAL INNER LARGE LEGAL LOCAL LOOSE LUCKY MAJOR MINOR MORAL OTHER PLAIN PRIME PROUD QUICK QUIET RAPID READY RIGHT ROUGH ROYAL RURAL SHARP SHORT SMALL SMART SOLID SORRY SWEET THICK TIGHT TIRED TOUGH UPPER URBAN USUAL VALID VITAL WHITE WHOLE WRONG YOUNG".split(" ")
-);
-const VERB_WORDS = new Set(
-  "ADMIT ADOPT AGREE ALLOW APPLY ARGUE ARISE AVOID BEGIN BREAK BRING BUILD CARRY CATCH CHASE CHECK CLAIM CLICK COVER CRASH DRINK DRIVE ENJOY ENTER EXIST FIGHT FOCUS FORCE GUARD GUESS GUIDE LEARN LEAVE MATCH MOUNT OCCUR OFFER PAINT PROVE RAISE REACH REFER SERVE SHARE SHINE SHOOT SLEEP SOLVE SPEAK SPEND SPLIT STAND START STICK STUDY TEACH THINK THROW TOUCH TRAIN TREAT TRUST VISIT WATCH WRITE YIELD".split(" ")
-);
 
 function json(data, status = 200, extraHeaders = {}) {
   const headers = new Headers(JSON_HEADERS);
@@ -163,6 +158,15 @@ async function clearAuthAttempts(db, action, identityHash) {
   await db.prepare(
     "DELETE FROM auth_rate_limits WHERE action = ? AND identity_hash = ?"
   ).bind(action, identityHash).run();
+}
+
+async function cleanupExpiredSecurityRows(db) {
+  await db.batch([
+    db.prepare("DELETE FROM auth_sessions WHERE expires_at <= CURRENT_TIMESTAMP"),
+    db.prepare(
+      "DELETE FROM auth_rate_limits WHERE window_started_at <= datetime('now', ?)"
+    ).bind(`-${AUTH_RATE_WINDOW_MINUTES} minutes`)
+  ]);
 }
 
 async function derivePassword(password, salt, iterations = PASSWORD_ITERATIONS) {
@@ -804,71 +808,94 @@ async function updateMode(request, env, gameId) {
 async function submitGuess(request, env, gameId, allowAnyWord = false) {
   const body = await readJson(request);
   const guess = typeof body?.guess === "string" ? body.guess.trim().toUpperCase() : "";
+  const requestedAttempt = Number(body?.attempt);
   if (!/^[A-Z]{5}$/.test(guess)) throw new ApiError(400, "Guess must be five letters");
+  if (!Number.isInteger(requestedAttempt) || requestedAttempt < 1 || requestedAttempt > MAX_ATTEMPTS) {
+    throw new ApiError(400, "Attempt must be a number from 1 to 6");
+  }
   if (!allowAnyWord && !WORD_SET.has(guess)) throw new ApiError(422, "Not in word list");
 
   const game = await findAuthorizedGame(request, env, gameId);
-  if (game.status !== "active") throw new ApiError(409, "Game has already ended");
   const guesses = await findGuesses(env.DB, gameId);
+  const existingAttempt = guesses.find(({ attempt }) => attempt === requestedAttempt);
+  if (existingAttempt) {
+    if (existingAttempt.guess !== guess) {
+      throw new ApiError(409, "Another guess already occupies this attempt");
+    }
+    return json({
+      game: publicGame(game, guesses),
+      result: existingAttempt.result,
+      duplicate: true
+    });
+  }
+  if (game.status !== "active") throw new ApiError(409, "Game has already ended");
   if (guesses.length >= MAX_ATTEMPTS) throw new ApiError(409, "No attempts remaining");
+  const attempt = guesses.length + 1;
+  if (requestedAttempt !== attempt) {
+    throw new ApiError(409, "Game state changed. Refresh and try again");
+  }
   if (game.hardcore_mode) {
     const hardcoreError = validateHardcoreGuess(guess, guesses);
     if (hardcoreError) throw new ApiError(422, hardcoreError);
   }
 
   const result = scoreAgainst(guess, game.answer);
-  const attempt = guesses.length + 1;
   const status = guess === game.answer ? "won" : attempt === MAX_ATTEMPTS ? "lost" : "active";
   const statements = [
     env.DB.prepare(
-      "INSERT INTO game_guesses (game_id, attempt, guess, result) VALUES (?, ?, ?, ?)"
-    ).bind(gameId, attempt, guess, JSON.stringify(result))
+      `INSERT INTO game_guesses (game_id, attempt, guess, result)
+       SELECT ?, ?, ?, ?
+       WHERE EXISTS (
+         SELECT 1 FROM game_sessions WHERE id = ? AND status = 'active'
+       ) AND NOT EXISTS (
+         SELECT 1 FROM game_guesses WHERE game_id = ? AND attempt = ?
+       )`
+    ).bind(
+      gameId,
+      attempt,
+      guess,
+      JSON.stringify(result),
+      gameId,
+      gameId,
+      attempt
+    )
   ];
   if (status !== "active") {
     statements.push(env.DB.prepare(
-      "UPDATE game_sessions SET status = ?, completed_at = CURRENT_TIMESTAMP WHERE id = ? AND status = 'active'"
-    ).bind(status, gameId));
+      `UPDATE game_sessions
+       SET status = ?, completed_at = CURRENT_TIMESTAMP
+       WHERE id = ? AND status = 'active'
+         AND EXISTS (
+           SELECT 1 FROM game_guesses
+           WHERE game_id = ? AND attempt = ? AND guess = ?
+         )`
+    ).bind(status, gameId, gameId, attempt, guess));
   }
-  await env.DB.batch(statements);
-  game.status = status;
-  if (status !== "active") game.completed_at = new Date().toISOString();
-  guesses.push({ attempt, guess, result, createdAt: new Date().toISOString() });
-  return json({ game: publicGame(game, guesses), result });
-}
-
-function localPartOfSpeech(word) {
-  if (ADJECTIVE_WORDS.has(word)) return "Adjective";
-  if (VERB_WORDS.has(word)) return "Verb";
-  return "Noun";
-}
-
-async function partOfSpeech(word) {
-  try {
-    const response = await fetch(
-      `https://api.dictionaryapi.dev/api/v2/entries/en/${word.toLowerCase()}`
-    );
-    if (!response.ok) return localPartOfSpeech(word);
-    const entries = await response.json();
-    const accepted = new Set(["adjective", "noun", "verb"]);
-    const parts = [...new Set(
-      entries.flatMap((entry) => entry.meanings || [])
-        .map((meaning) => meaning.partOfSpeech)
-        .filter((part) => accepted.has(part))
-    )];
-    return parts.length
-      ? parts.map((part) => part[0].toUpperCase() + part.slice(1)).join(" / ")
-      : localPartOfSpeech(word);
-  } catch {
-    return localPartOfSpeech(word);
+  const batchResults = await env.DB.batch(statements);
+  const inserted = Number(batchResults[0]?.meta?.changes ?? batchResults[0]?.changes ?? 0) > 0;
+  const latestGame = await findAuthorizedGame(request, env, gameId);
+  const latestGuesses = await findGuesses(env.DB, gameId);
+  const savedAttempt = latestGuesses.find(({ attempt: saved }) => saved === requestedAttempt);
+  if (!inserted) {
+    if (savedAttempt?.guess === guess) {
+      return json({
+        game: publicGame(latestGame, latestGuesses),
+        result: savedAttempt.result,
+        duplicate: true
+      });
+    }
+    if (latestGame.status !== "active") throw new ApiError(409, "Game has already ended");
+    throw new ApiError(409, "Another guess already occupies this attempt");
   }
+  return json({ game: publicGame(latestGame, latestGuesses), result });
 }
 
-async function computeHint(type, answer) {
+function computeHint(type, answer) {
   if (type === "first-letter") return answer[0];
   if (type === "last-letter") return answer.at(-1);
   if (type === "double-letters") return new Set(answer).size < answer.length ? "Yes" : "No";
   if (type === "vowel-count") return String([...answer].filter((letter) => "AEIOU".includes(letter)).length);
-  return partOfSpeech(answer);
+  return WORD_METADATA[answer].join(" / ");
 }
 
 async function getHint(request, env, gameId, hintType) {
@@ -889,7 +916,7 @@ async function getHint(request, env, gameId, hintType) {
     });
   }
 
-  const value = await computeHint(hintType, game.answer);
+  const value = computeHint(hintType, game.answer);
   await env.DB.prepare(
     "INSERT OR IGNORE INTO game_hints (game_id, hint_type, hint_value) VALUES (?, ?, ?)"
   ).bind(gameId, hintType, value).run();
@@ -1049,6 +1076,9 @@ async function getDevUser(request, env, userId) {
 
 async function routeApi(request, env, pathname) {
   if (!env.DB) throw new ApiError(503, "Database binding is unavailable");
+  if (pathname.startsWith("/api/auth/")) {
+    await cleanupExpiredSecurityRows(env.DB);
+  }
   if (request.method === "POST" && pathname === "/api/auth/register") {
     return register(request, env);
   }
@@ -1084,7 +1114,7 @@ async function routeApi(request, env, pathname) {
   if (match && request.method === "POST") return submitGuess(request, env, match[1]);
 
   match = pathname.match(/^\/api\/games\/([^/]+)\/hints\/([^/]+)$/);
-  if (match && request.method === "GET") return getHint(request, env, match[1], match[2]);
+  if (match && request.method === "POST") return getHint(request, env, match[1], match[2]);
 
   match = pathname.match(/^\/api\/dev\/games\/([^/]+)$/);
   if (match && request.method === "GET") return getDevGame(request, env, match[1]);
@@ -1131,7 +1161,7 @@ export default {
           "GET /api/games/:id",
           "PUT /api/games/:id/mode",
           "POST /api/games/:id/guesses",
-          "GET /api/games/:id/hints/:type"
+          "POST /api/games/:id/hints/:type"
         ]
       });
     }
@@ -1168,6 +1198,7 @@ export {
   ANSWER_SET,
   WORD_SET,
   chooseAnswer,
+  computeHint,
   publicStatistics,
   requireGameAccess,
   scoreAgainst,

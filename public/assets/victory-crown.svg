@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title">
+  <title id="title">Golden winner's crown</title>
+  <rect width="640" height="420" rx="28" fill="#eef7f8"/>
+  <path d="m142 112 97 82 81-127 81 127 97-82-38 198H180z" fill="#c99732" stroke="#1e1b18" stroke-width="14" stroke-linejoin="round"/>
+  <path d="M180 310h280v53H180z" fill="#d9aa46" stroke="#1e1b18" stroke-width="14" stroke-linejoin="round"/>
+  <g fill="#0b6f9f" stroke="#f8f3e9" stroke-width="6"><circle cx="239" cy="275" r="18"/><circle cx="320" cy="275" r="18"/><circle cx="401" cy="275" r="18"/></g>
+  <g fill="#d95757"><circle cx="142" cy="112" r="16"/><circle cx="320" cy="67" r="16"/><circle cx="498" cy="112" r="16"/></g>
+</svg>

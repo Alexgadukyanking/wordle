@@ -155,11 +155,6 @@ h1 {
   text-transform: uppercase;
 }
 
-.no-hint-card .category-badge {
-  background: #dbe9dc;
-  color: #285b35;
-}
-
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

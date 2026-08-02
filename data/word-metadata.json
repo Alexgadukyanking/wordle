@@ -1,0 +1,8219 @@
+{
+  "ABACK": [
+    "Adverb"
+  ],
+  "ABASE": [
+    "Verb"
+  ],
+  "ABATE": [
+    "Verb"
+  ],
+  "ABBEY": [
+    "Noun"
+  ],
+  "ABBOT": [
+    "Noun"
+  ],
+  "ABHOR": [
+    "Verb"
+  ],
+  "ABIDE": [
+    "Verb"
+  ],
+  "ABLED": [
+    "Adjective",
+    "Verb"
+  ],
+  "ABODE": [
+    "Noun",
+    "Verb"
+  ],
+  "ABORT": [
+    "Noun",
+    "Verb"
+  ],
+  "ABOUT": [
+    "Adjective",
+    "Adverb"
+  ],
+  "ABOVE": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "ABUSE": [
+    "Noun",
+    "Verb"
+  ],
+  "ABYSS": [
+    "Noun"
+  ],
+  "ACORN": [
+    "Noun"
+  ],
+  "ACRID": [
+    "Adjective"
+  ],
+  "ACTOR": [
+    "Noun"
+  ],
+  "ACUTE": [
+    "Adjective",
+    "Noun"
+  ],
+  "ADAGE": [
+    "Noun"
+  ],
+  "ADAPT": [
+    "Verb"
+  ],
+  "ADEPT": [
+    "Adjective",
+    "Noun"
+  ],
+  "ADMIN": [
+    "Noun",
+    "Verb"
+  ],
+  "ADMIT": [
+    "Verb"
+  ],
+  "ADOBE": [
+    "Noun"
+  ],
+  "ADOPT": [
+    "Verb"
+  ],
+  "ADORE": [
+    "Verb"
+  ],
+  "ADORN": [
+    "Verb"
+  ],
+  "ADULT": [
+    "Adjective",
+    "Noun"
+  ],
+  "AFFIX": [
+    "Noun",
+    "Verb"
+  ],
+  "AFIRE": [
+    "Adjective"
+  ],
+  "AFOOT": [
+    "Adjective",
+    "Adverb"
+  ],
+  "AFOUL": [
+    "Adjective"
+  ],
+  "AFTER": [
+    "Adjective",
+    "Adverb"
+  ],
+  "AGAIN": [
+    "Adverb"
+  ],
+  "AGAPE": [
+    "Adjective",
+    "Noun"
+  ],
+  "AGATE": [
+    "Noun"
+  ],
+  "AGENT": [
+    "Noun"
+  ],
+  "AGILE": [
+    "Adjective"
+  ],
+  "AGING": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "AGLOW": [
+    "Adjective"
+  ],
+  "AGONY": [
+    "Noun"
+  ],
+  "AGORA": [
+    "Noun"
+  ],
+  "AGREE": [
+    "Verb"
+  ],
+  "AHEAD": [
+    "Adjective",
+    "Adverb"
+  ],
+  "AIDER": [
+    "Noun"
+  ],
+  "AISLE": [
+    "Noun"
+  ],
+  "ALARM": [
+    "Noun",
+    "Verb"
+  ],
+  "ALBUM": [
+    "Noun"
+  ],
+  "ALERT": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "ALGAE": [
+    "Noun"
+  ],
+  "ALIBI": [
+    "Noun",
+    "Verb"
+  ],
+  "ALIEN": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "ALIGN": [
+    "Verb"
+  ],
+  "ALIKE": [
+    "Adjective",
+    "Adverb"
+  ],
+  "ALIVE": [
+    "Adjective"
+  ],
+  "ALLAY": [
+    "Verb"
+  ],
+  "ALLEY": [
+    "Noun"
+  ],
+  "ALLOT": [
+    "Verb"
+  ],
+  "ALLOW": [
+    "Verb"
+  ],
+  "ALLOY": [
+    "Noun",
+    "Verb"
+  ],
+  "ALOFT": [
+    "Adverb"
+  ],
+  "ALONE": [
+    "Adjective",
+    "Adverb"
+  ],
+  "ALONG": [
+    "Adverb"
+  ],
+  "ALOOF": [
+    "Adjective",
+    "Adverb"
+  ],
+  "ALOUD": [
+    "Adverb"
+  ],
+  "ALPHA": [
+    "Adjective",
+    "Noun"
+  ],
+  "ALTAR": [
+    "Noun"
+  ],
+  "ALTER": [
+    "Verb"
+  ],
+  "AMASS": [
+    "Verb"
+  ],
+  "AMAZE": [
+    "Verb"
+  ],
+  "AMBER": [
+    "Adjective",
+    "Noun"
+  ],
+  "AMBLE": [
+    "Noun",
+    "Verb"
+  ],
+  "AMEND": [
+    "Verb"
+  ],
+  "AMISS": [
+    "Adjective",
+    "Adverb"
+  ],
+  "AMITY": [
+    "Noun"
+  ],
+  "AMONG": [
+    "Preposition"
+  ],
+  "AMPLE": [
+    "Adjective"
+  ],
+  "AMPLY": [
+    "Adverb"
+  ],
+  "AMUSE": [
+    "Verb"
+  ],
+  "ANGEL": [
+    "Noun"
+  ],
+  "ANGER": [
+    "Noun",
+    "Verb"
+  ],
+  "ANGLE": [
+    "Noun",
+    "Verb"
+  ],
+  "ANGRY": [
+    "Adjective"
+  ],
+  "ANGST": [
+    "Noun"
+  ],
+  "ANIME": [
+    "Noun"
+  ],
+  "ANKLE": [
+    "Noun"
+  ],
+  "ANNEX": [
+    "Noun",
+    "Verb"
+  ],
+  "ANNOY": [
+    "Verb"
+  ],
+  "ANNUL": [
+    "Verb"
+  ],
+  "ANODE": [
+    "Noun"
+  ],
+  "ANTIC": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "ANVIL": [
+    "Noun"
+  ],
+  "AORTA": [
+    "Noun"
+  ],
+  "APART": [
+    "Adjective",
+    "Adverb"
+  ],
+  "APHID": [
+    "Noun"
+  ],
+  "APING": [
+    "Verb"
+  ],
+  "APNEA": [
+    "Noun"
+  ],
+  "APPLE": [
+    "Noun"
+  ],
+  "APPLY": [
+    "Verb"
+  ],
+  "APRON": [
+    "Noun"
+  ],
+  "APTLY": [
+    "Adverb"
+  ],
+  "ARBOR": [
+    "Noun"
+  ],
+  "ARDOR": [
+    "Noun"
+  ],
+  "ARENA": [
+    "Noun"
+  ],
+  "ARGUE": [
+    "Verb"
+  ],
+  "ARISE": [
+    "Verb"
+  ],
+  "ARMOR": [
+    "Noun",
+    "Verb"
+  ],
+  "AROMA": [
+    "Noun"
+  ],
+  "AROSE": [
+    "Verb"
+  ],
+  "ARRAY": [
+    "Noun",
+    "Verb"
+  ],
+  "ARROW": [
+    "Noun"
+  ],
+  "ARSON": [
+    "Noun"
+  ],
+  "ARTSY": [
+    "Adjective"
+  ],
+  "ASCOT": [
+    "Noun"
+  ],
+  "ASHEN": [
+    "Adjective"
+  ],
+  "ASIDE": [
+    "Adverb",
+    "Noun"
+  ],
+  "ASKEW": [
+    "Adjective",
+    "Adverb"
+  ],
+  "ASSAY": [
+    "Noun",
+    "Verb"
+  ],
+  "ASSET": [
+    "Noun"
+  ],
+  "ASTRO": [
+    "Adjective",
+    "Noun"
+  ],
+  "ATOLL": [
+    "Noun"
+  ],
+  "ATONE": [
+    "Verb"
+  ],
+  "ATTIC": [
+    "Adjective",
+    "Noun"
+  ],
+  "AUDIO": [
+    "Noun"
+  ],
+  "AUDIT": [
+    "Noun",
+    "Verb"
+  ],
+  "AUGUR": [
+    "Noun",
+    "Verb"
+  ],
+  "AUNTY": [
+    "Noun"
+  ],
+  "AVAIL": [
+    "Noun",
+    "Verb"
+  ],
+  "AVERT": [
+    "Verb"
+  ],
+  "AVIAN": [
+    "Adjective"
+  ],
+  "AVOID": [
+    "Verb"
+  ],
+  "AWAIT": [
+    "Verb"
+  ],
+  "AWAKE": [
+    "Adjective",
+    "Verb"
+  ],
+  "AWARD": [
+    "Noun",
+    "Verb"
+  ],
+  "AWARE": [
+    "Adjective"
+  ],
+  "AWASH": [
+    "Adjective"
+  ],
+  "AWFUL": [
+    "Adjective",
+    "Adverb"
+  ],
+  "AWOKE": [
+    "Verb"
+  ],
+  "AXIAL": [
+    "Adjective"
+  ],
+  "AXIOM": [
+    "Noun"
+  ],
+  "AXION": [
+    "Noun"
+  ],
+  "AZURE": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BACON": [
+    "Noun"
+  ],
+  "BADGE": [
+    "Noun",
+    "Verb"
+  ],
+  "BADLY": [
+    "Adverb"
+  ],
+  "BAGEL": [
+    "Noun"
+  ],
+  "BAGGY": [
+    "Adjective"
+  ],
+  "BAKER": [
+    "Noun"
+  ],
+  "BALER": [
+    "Noun"
+  ],
+  "BALMY": [
+    "Adjective"
+  ],
+  "BANAL": [
+    "Adjective"
+  ],
+  "BANJO": [
+    "Noun"
+  ],
+  "BARGE": [
+    "Noun",
+    "Verb"
+  ],
+  "BARON": [
+    "Noun"
+  ],
+  "BASAL": [
+    "Adjective"
+  ],
+  "BASED": [
+    "Adjective",
+    "Verb"
+  ],
+  "BASIC": [
+    "Adjective",
+    "Noun"
+  ],
+  "BASIL": [
+    "Noun"
+  ],
+  "BASIN": [
+    "Noun"
+  ],
+  "BASIS": [
+    "Noun"
+  ],
+  "BASTE": [
+    "Noun",
+    "Verb"
+  ],
+  "BATCH": [
+    "Noun",
+    "Verb"
+  ],
+  "BATHE": [
+    "Noun",
+    "Verb"
+  ],
+  "BATON": [
+    "Noun"
+  ],
+  "BATTY": [
+    "Adjective"
+  ],
+  "BAWDY": [
+    "Adjective",
+    "Noun"
+  ],
+  "BAYOU": [
+    "Noun"
+  ],
+  "BEACH": [
+    "Noun",
+    "Verb"
+  ],
+  "BEADY": [
+    "Adjective"
+  ],
+  "BEARD": [
+    "Noun",
+    "Verb"
+  ],
+  "BEAST": [
+    "Noun"
+  ],
+  "BEECH": [
+    "Noun"
+  ],
+  "BEEFY": [
+    "Adjective"
+  ],
+  "BEFIT": [
+    "Verb"
+  ],
+  "BEGAN": [
+    "Verb"
+  ],
+  "BEGAT": [
+    "Verb"
+  ],
+  "BEGET": [
+    "Verb"
+  ],
+  "BEGIN": [
+    "Noun",
+    "Verb"
+  ],
+  "BEGUN": [
+    "Verb"
+  ],
+  "BEING": [
+    "Noun"
+  ],
+  "BELCH": [
+    "Noun",
+    "Verb"
+  ],
+  "BELIE": [
+    "Verb"
+  ],
+  "BELLE": [
+    "Noun"
+  ],
+  "BELLY": [
+    "Noun",
+    "Verb"
+  ],
+  "BELOW": [
+    "Adverb"
+  ],
+  "BENCH": [
+    "Noun",
+    "Verb"
+  ],
+  "BERET": [
+    "Noun"
+  ],
+  "BERRY": [
+    "Noun",
+    "Verb"
+  ],
+  "BERTH": [
+    "Noun",
+    "Verb"
+  ],
+  "BESET": [
+    "Verb"
+  ],
+  "BETEL": [
+    "Noun"
+  ],
+  "BEVEL": [
+    "Noun",
+    "Verb"
+  ],
+  "BEZEL": [
+    "Noun"
+  ],
+  "BIBLE": [
+    "Noun"
+  ],
+  "BICEP": [
+    "Noun"
+  ],
+  "BIDDY": [
+    "Noun"
+  ],
+  "BIGOT": [
+    "Noun"
+  ],
+  "BILGE": [
+    "Noun",
+    "Verb"
+  ],
+  "BILLY": [
+    "Noun"
+  ],
+  "BINGE": [
+    "Noun",
+    "Verb"
+  ],
+  "BINGO": [
+    "Noun"
+  ],
+  "BIOME": [
+    "Noun"
+  ],
+  "BIRCH": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BIRTH": [
+    "Noun",
+    "Verb"
+  ],
+  "BISON": [
+    "Noun"
+  ],
+  "BITTY": [
+    "Adjective"
+  ],
+  "BLACK": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BLADE": [
+    "Noun"
+  ],
+  "BLAME": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BLAND": [
+    "Adjective"
+  ],
+  "BLANK": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BLARE": [
+    "Noun",
+    "Verb"
+  ],
+  "BLAST": [
+    "Noun",
+    "Verb"
+  ],
+  "BLAZE": [
+    "Noun",
+    "Verb"
+  ],
+  "BLEAK": [
+    "Adjective"
+  ],
+  "BLEAT": [
+    "Noun",
+    "Verb"
+  ],
+  "BLEED": [
+    "Verb"
+  ],
+  "BLEEP": [
+    "Noun",
+    "Verb"
+  ],
+  "BLEND": [
+    "Noun",
+    "Verb"
+  ],
+  "BLESS": [
+    "Verb"
+  ],
+  "BLIMP": [
+    "Noun"
+  ],
+  "BLIND": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BLING": [
+    "Noun"
+  ],
+  "BLINK": [
+    "Noun",
+    "Verb"
+  ],
+  "BLISS": [
+    "Noun"
+  ],
+  "BLITZ": [
+    "Noun",
+    "Verb"
+  ],
+  "BLOAT": [
+    "Noun",
+    "Verb"
+  ],
+  "BLOCK": [
+    "Noun",
+    "Verb"
+  ],
+  "BLOKE": [
+    "Noun"
+  ],
+  "BLOND": [
+    "Adjective",
+    "Noun"
+  ],
+  "BLOOD": [
+    "Noun",
+    "Verb"
+  ],
+  "BLOOM": [
+    "Noun",
+    "Verb"
+  ],
+  "BLOWN": [
+    "Adjective",
+    "Verb"
+  ],
+  "BLUER": [
+    "Adjective"
+  ],
+  "BLUFF": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BLUNT": [
+    "Adjective",
+    "Verb"
+  ],
+  "BLURB": [
+    "Noun"
+  ],
+  "BLURT": [
+    "Verb"
+  ],
+  "BLUSH": [
+    "Noun",
+    "Verb"
+  ],
+  "BOARD": [
+    "Noun",
+    "Verb"
+  ],
+  "BOAST": [
+    "Noun",
+    "Verb"
+  ],
+  "BOBBY": [
+    "Noun"
+  ],
+  "BONEY": [
+    "Adjective"
+  ],
+  "BONGO": [
+    "Noun"
+  ],
+  "BONUS": [
+    "Noun"
+  ],
+  "BOOBY": [
+    "Noun"
+  ],
+  "BOOST": [
+    "Noun",
+    "Verb"
+  ],
+  "BOOTH": [
+    "Noun"
+  ],
+  "BOOTY": [
+    "Noun"
+  ],
+  "BOOZE": [
+    "Noun",
+    "Verb"
+  ],
+  "BOOZY": [
+    "Adjective"
+  ],
+  "BORAX": [
+    "Noun"
+  ],
+  "BORNE": [
+    "Verb"
+  ],
+  "BOSOM": [
+    "Noun",
+    "Verb"
+  ],
+  "BOSSY": [
+    "Adjective"
+  ],
+  "BOTCH": [
+    "Noun",
+    "Verb"
+  ],
+  "BOUGH": [
+    "Noun"
+  ],
+  "BOULE": [
+    "Noun"
+  ],
+  "BOUND": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BOWEL": [
+    "Noun"
+  ],
+  "BOXER": [
+    "Noun"
+  ],
+  "BRACE": [
+    "Noun",
+    "Verb"
+  ],
+  "BRAID": [
+    "Noun",
+    "Verb"
+  ],
+  "BRAIN": [
+    "Noun",
+    "Verb"
+  ],
+  "BRAKE": [
+    "Noun",
+    "Verb"
+  ],
+  "BRAND": [
+    "Noun",
+    "Verb"
+  ],
+  "BRASH": [
+    "Adjective"
+  ],
+  "BRASS": [
+    "Noun"
+  ],
+  "BRAVE": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BRAVO": [
+    "Noun",
+    "Verb"
+  ],
+  "BRAWL": [
+    "Noun",
+    "Verb"
+  ],
+  "BRAWN": [
+    "Noun"
+  ],
+  "BREAD": [
+    "Noun",
+    "Verb"
+  ],
+  "BREAK": [
+    "Noun",
+    "Verb"
+  ],
+  "BREED": [
+    "Noun",
+    "Verb"
+  ],
+  "BRIAR": [
+    "Noun"
+  ],
+  "BRIBE": [
+    "Noun",
+    "Verb"
+  ],
+  "BRICK": [
+    "Noun"
+  ],
+  "BRIDE": [
+    "Noun"
+  ],
+  "BRIEF": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BRINE": [
+    "Noun",
+    "Verb"
+  ],
+  "BRING": [
+    "Verb"
+  ],
+  "BRINK": [
+    "Noun"
+  ],
+  "BRINY": [
+    "Adjective",
+    "Noun"
+  ],
+  "BRISK": [
+    "Adjective",
+    "Verb"
+  ],
+  "BROAD": [
+    "Adjective",
+    "Noun"
+  ],
+  "BROIL": [
+    "Noun",
+    "Verb"
+  ],
+  "BROKE": [
+    "Adjective",
+    "Verb"
+  ],
+  "BROOD": [
+    "Noun",
+    "Verb"
+  ],
+  "BROOK": [
+    "Noun",
+    "Verb"
+  ],
+  "BROOM": [
+    "Noun",
+    "Verb"
+  ],
+  "BROTH": [
+    "Noun"
+  ],
+  "BROWN": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BRUNT": [
+    "Noun"
+  ],
+  "BRUSH": [
+    "Noun",
+    "Verb"
+  ],
+  "BRUTE": [
+    "Adjective",
+    "Noun"
+  ],
+  "BUDDY": [
+    "Noun"
+  ],
+  "BUDGE": [
+    "Noun",
+    "Verb"
+  ],
+  "BUGGY": [
+    "Adjective",
+    "Noun"
+  ],
+  "BUGLE": [
+    "Noun",
+    "Verb"
+  ],
+  "BUILD": [
+    "Noun",
+    "Verb"
+  ],
+  "BUILT": [
+    "Adjective",
+    "Verb"
+  ],
+  "BULGE": [
+    "Noun",
+    "Verb"
+  ],
+  "BULKY": [
+    "Adjective"
+  ],
+  "BULLY": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "BUNCH": [
+    "Noun",
+    "Verb"
+  ],
+  "BUNNY": [
+    "Noun"
+  ],
+  "BURLY": [
+    "Adjective"
+  ],
+  "BURNT": [
+    "Adjective",
+    "Verb"
+  ],
+  "BURST": [
+    "Noun",
+    "Verb"
+  ],
+  "BUSED": [
+    "Verb"
+  ],
+  "BUSHY": [
+    "Adjective"
+  ],
+  "BUTCH": [
+    "Adjective",
+    "Noun"
+  ],
+  "BUTTE": [
+    "Noun"
+  ],
+  "BUXOM": [
+    "Adjective"
+  ],
+  "BUYER": [
+    "Noun"
+  ],
+  "BYLAW": [
+    "Noun"
+  ],
+  "CABAL": [
+    "Noun",
+    "Verb"
+  ],
+  "CABBY": [
+    "Noun"
+  ],
+  "CABIN": [
+    "Noun",
+    "Verb"
+  ],
+  "CABLE": [
+    "Noun",
+    "Verb"
+  ],
+  "CACAO": [
+    "Noun"
+  ],
+  "CACHE": [
+    "Noun",
+    "Verb"
+  ],
+  "CACTI": [
+    "Noun"
+  ],
+  "CADDY": [
+    "Noun",
+    "Verb"
+  ],
+  "CADET": [
+    "Noun"
+  ],
+  "CAGEY": [
+    "Adjective"
+  ],
+  "CAIRN": [
+    "Noun"
+  ],
+  "CAMEL": [
+    "Noun"
+  ],
+  "CAMEO": [
+    "Noun"
+  ],
+  "CANAL": [
+    "Noun",
+    "Verb"
+  ],
+  "CANDY": [
+    "Noun",
+    "Verb"
+  ],
+  "CANNY": [
+    "Adjective"
+  ],
+  "CANOE": [
+    "Noun",
+    "Verb"
+  ],
+  "CANON": [
+    "Noun"
+  ],
+  "CAPER": [
+    "Noun",
+    "Verb"
+  ],
+  "CAPUT": [
+    "Noun"
+  ],
+  "CARAT": [
+    "Noun"
+  ],
+  "CARGO": [
+    "Noun"
+  ],
+  "CAROL": [
+    "Noun",
+    "Verb"
+  ],
+  "CARRY": [
+    "Noun",
+    "Verb"
+  ],
+  "CARVE": [
+    "Verb"
+  ],
+  "CASTE": [
+    "Noun"
+  ],
+  "CATCH": [
+    "Noun",
+    "Verb"
+  ],
+  "CATER": [
+    "Verb"
+  ],
+  "CATTY": [
+    "Adjective",
+    "Noun"
+  ],
+  "CAULK": [
+    "Noun",
+    "Verb"
+  ],
+  "CAUSE": [
+    "Noun",
+    "Verb"
+  ],
+  "CAVIL": [
+    "Noun",
+    "Verb"
+  ],
+  "CEASE": [
+    "Noun",
+    "Verb"
+  ],
+  "CEDAR": [
+    "Noun"
+  ],
+  "CELLO": [
+    "Noun"
+  ],
+  "CHAFE": [
+    "Noun",
+    "Verb"
+  ],
+  "CHAFF": [
+    "Noun",
+    "Verb"
+  ],
+  "CHAIN": [
+    "Noun",
+    "Verb"
+  ],
+  "CHAIR": [
+    "Noun",
+    "Verb"
+  ],
+  "CHALK": [
+    "Noun",
+    "Verb"
+  ],
+  "CHAMP": [
+    "Noun",
+    "Verb"
+  ],
+  "CHANT": [
+    "Noun",
+    "Verb"
+  ],
+  "CHAOS": [
+    "Noun"
+  ],
+  "CHARD": [
+    "Noun"
+  ],
+  "CHARM": [
+    "Noun",
+    "Verb"
+  ],
+  "CHART": [
+    "Noun",
+    "Verb"
+  ],
+  "CHASE": [
+    "Noun",
+    "Verb"
+  ],
+  "CHASM": [
+    "Noun"
+  ],
+  "CHEAP": [
+    "Adjective"
+  ],
+  "CHEAT": [
+    "Noun",
+    "Verb"
+  ],
+  "CHECK": [
+    "Noun",
+    "Verb"
+  ],
+  "CHEEK": [
+    "Noun",
+    "Verb"
+  ],
+  "CHEER": [
+    "Noun",
+    "Verb"
+  ],
+  "CHEMO": [
+    "Noun"
+  ],
+  "CHESS": [
+    "Noun"
+  ],
+  "CHEST": [
+    "Noun"
+  ],
+  "CHICK": [
+    "Noun"
+  ],
+  "CHIDE": [
+    "Verb"
+  ],
+  "CHIEF": [
+    "Adjective",
+    "Noun"
+  ],
+  "CHILD": [
+    "Noun"
+  ],
+  "CHILI": [
+    "Noun"
+  ],
+  "CHILL": [
+    "Noun",
+    "Verb"
+  ],
+  "CHIME": [
+    "Noun",
+    "Verb"
+  ],
+  "CHINA": [
+    "Noun"
+  ],
+  "CHIRP": [
+    "Noun",
+    "Verb"
+  ],
+  "CHOCK": [
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "CHOIR": [
+    "Noun",
+    "Verb"
+  ],
+  "CHOKE": [
+    "Noun",
+    "Verb"
+  ],
+  "CHORD": [
+    "Noun",
+    "Verb"
+  ],
+  "CHORE": [
+    "Noun"
+  ],
+  "CHOSE": [
+    "Verb"
+  ],
+  "CHUCK": [
+    "Noun",
+    "Verb"
+  ],
+  "CHUMP": [
+    "Noun"
+  ],
+  "CHUNK": [
+    "Noun",
+    "Verb"
+  ],
+  "CHURN": [
+    "Noun",
+    "Verb"
+  ],
+  "CHUTE": [
+    "Noun",
+    "Verb"
+  ],
+  "CIDER": [
+    "Noun"
+  ],
+  "CIGAR": [
+    "Noun"
+  ],
+  "CINCH": [
+    "Noun",
+    "Verb"
+  ],
+  "CIRCA": [
+    "Adverb",
+    "Preposition"
+  ],
+  "CIVIC": [
+    "Adjective"
+  ],
+  "CIVIL": [
+    "Adjective"
+  ],
+  "CLACK": [
+    "Noun",
+    "Verb"
+  ],
+  "CLAIM": [
+    "Noun",
+    "Verb"
+  ],
+  "CLAMP": [
+    "Noun",
+    "Verb"
+  ],
+  "CLANG": [
+    "Noun",
+    "Verb"
+  ],
+  "CLANK": [
+    "Noun",
+    "Verb"
+  ],
+  "CLASH": [
+    "Noun",
+    "Verb"
+  ],
+  "CLASP": [
+    "Noun",
+    "Verb"
+  ],
+  "CLASS": [
+    "Noun",
+    "Verb"
+  ],
+  "CLEAN": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "CLEAR": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "CLEAT": [
+    "Noun",
+    "Verb"
+  ],
+  "CLEFT": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "CLERK": [
+    "Noun",
+    "Verb"
+  ],
+  "CLICK": [
+    "Noun",
+    "Verb"
+  ],
+  "CLIFF": [
+    "Noun"
+  ],
+  "CLIMB": [
+    "Noun",
+    "Verb"
+  ],
+  "CLING": [
+    "Noun",
+    "Verb"
+  ],
+  "CLINK": [
+    "Noun",
+    "Verb"
+  ],
+  "CLOAK": [
+    "Noun",
+    "Verb"
+  ],
+  "CLOCK": [
+    "Noun",
+    "Verb"
+  ],
+  "CLONE": [
+    "Noun",
+    "Verb"
+  ],
+  "CLOSE": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "CLOTH": [
+    "Noun"
+  ],
+  "CLOUD": [
+    "Noun",
+    "Verb"
+  ],
+  "CLOUT": [
+    "Noun",
+    "Verb"
+  ],
+  "CLOVE": [
+    "Noun",
+    "Verb"
+  ],
+  "CLOWN": [
+    "Noun",
+    "Verb"
+  ],
+  "CLUCK": [
+    "Noun",
+    "Verb"
+  ],
+  "CLUED": [
+    "Verb"
+  ],
+  "CLUMP": [
+    "Noun",
+    "Verb"
+  ],
+  "CLUNG": [
+    "Verb"
+  ],
+  "COACH": [
+    "Noun",
+    "Verb"
+  ],
+  "COAST": [
+    "Noun",
+    "Verb"
+  ],
+  "COBRA": [
+    "Noun"
+  ],
+  "COCOA": [
+    "Noun"
+  ],
+  "COLON": [
+    "Noun"
+  ],
+  "COLOR": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "COMET": [
+    "Noun"
+  ],
+  "COMFY": [
+    "Adjective"
+  ],
+  "COMIC": [
+    "Adjective",
+    "Noun"
+  ],
+  "COMMA": [
+    "Noun"
+  ],
+  "CONCH": [
+    "Noun"
+  ],
+  "CONDO": [
+    "Noun"
+  ],
+  "CONIC": [
+    "Adjective",
+    "Noun"
+  ],
+  "COPSE": [
+    "Noun"
+  ],
+  "CORAL": [
+    "Adjective",
+    "Noun"
+  ],
+  "CORER": [
+    "Noun"
+  ],
+  "CORNY": [
+    "Adjective"
+  ],
+  "COUCH": [
+    "Noun",
+    "Verb"
+  ],
+  "COUGH": [
+    "Noun",
+    "Verb"
+  ],
+  "COULD": [
+    "Verb"
+  ],
+  "COUNT": [
+    "Noun",
+    "Verb"
+  ],
+  "COUPE": [
+    "Noun"
+  ],
+  "COURT": [
+    "Noun",
+    "Verb"
+  ],
+  "COVEN": [
+    "Noun"
+  ],
+  "COVER": [
+    "Noun",
+    "Verb"
+  ],
+  "COVET": [
+    "Verb"
+  ],
+  "COVEY": [
+    "Noun"
+  ],
+  "COWER": [
+    "Verb"
+  ],
+  "COYLY": [
+    "Adverb"
+  ],
+  "CRACK": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "CRAFT": [
+    "Noun",
+    "Verb"
+  ],
+  "CRAMP": [
+    "Noun",
+    "Verb"
+  ],
+  "CRANE": [
+    "Noun",
+    "Verb"
+  ],
+  "CRANK": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "CRASH": [
+    "Noun",
+    "Verb"
+  ],
+  "CRASS": [
+    "Adjective"
+  ],
+  "CRATE": [
+    "Noun",
+    "Verb"
+  ],
+  "CRAVE": [
+    "Verb"
+  ],
+  "CRAWL": [
+    "Noun",
+    "Verb"
+  ],
+  "CRAZE": [
+    "Noun",
+    "Verb"
+  ],
+  "CRAZY": [
+    "Adjective",
+    "Noun"
+  ],
+  "CREAK": [
+    "Noun",
+    "Verb"
+  ],
+  "CREAM": [
+    "Noun",
+    "Verb"
+  ],
+  "CREDO": [
+    "Noun"
+  ],
+  "CREED": [
+    "Noun"
+  ],
+  "CREEK": [
+    "Noun"
+  ],
+  "CREEP": [
+    "Noun",
+    "Verb"
+  ],
+  "CREME": [
+    "Noun"
+  ],
+  "CREPE": [
+    "Noun",
+    "Verb"
+  ],
+  "CREPT": [
+    "Verb"
+  ],
+  "CRESS": [
+    "Noun"
+  ],
+  "CREST": [
+    "Noun",
+    "Verb"
+  ],
+  "CRICK": [
+    "Noun",
+    "Verb"
+  ],
+  "CRIED": [
+    "Verb"
+  ],
+  "CRIER": [
+    "Noun"
+  ],
+  "CRIME": [
+    "Noun"
+  ],
+  "CRIMP": [
+    "Noun",
+    "Verb"
+  ],
+  "CRISP": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "CROAK": [
+    "Noun",
+    "Verb"
+  ],
+  "CROCK": [
+    "Noun",
+    "Verb"
+  ],
+  "CRONE": [
+    "Noun"
+  ],
+  "CRONY": [
+    "Noun"
+  ],
+  "CROOK": [
+    "Noun",
+    "Verb"
+  ],
+  "CROSS": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "CROUP": [
+    "Noun"
+  ],
+  "CROWD": [
+    "Noun",
+    "Verb"
+  ],
+  "CROWN": [
+    "Noun",
+    "Verb"
+  ],
+  "CRUDE": [
+    "Adjective",
+    "Noun"
+  ],
+  "CRUEL": [
+    "Adjective"
+  ],
+  "CRUMB": [
+    "Noun",
+    "Verb"
+  ],
+  "CRUMP": [
+    "Verb"
+  ],
+  "CRUSH": [
+    "Noun",
+    "Verb"
+  ],
+  "CRUST": [
+    "Noun",
+    "Verb"
+  ],
+  "CRYPT": [
+    "Noun"
+  ],
+  "CUBIC": [
+    "Adjective"
+  ],
+  "CUMIN": [
+    "Noun"
+  ],
+  "CURIO": [
+    "Noun"
+  ],
+  "CURLY": [
+    "Adjective"
+  ],
+  "CURRY": [
+    "Noun",
+    "Verb"
+  ],
+  "CURSE": [
+    "Noun",
+    "Verb"
+  ],
+  "CURVE": [
+    "Noun",
+    "Verb"
+  ],
+  "CURVY": [
+    "Adjective"
+  ],
+  "CUTIE": [
+    "Noun"
+  ],
+  "CYBER": [
+    "Adjective"
+  ],
+  "CYCLE": [
+    "Noun",
+    "Verb"
+  ],
+  "CYNIC": [
+    "Noun"
+  ],
+  "DADDY": [
+    "Noun"
+  ],
+  "DAILY": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "DAIRY": [
+    "Noun"
+  ],
+  "DAISY": [
+    "Noun"
+  ],
+  "DALLY": [
+    "Verb"
+  ],
+  "DANCE": [
+    "Noun",
+    "Verb"
+  ],
+  "DANDY": [
+    "Adjective",
+    "Noun"
+  ],
+  "DATUM": [
+    "Noun"
+  ],
+  "DAUNT": [
+    "Verb"
+  ],
+  "DEALT": [
+    "Verb"
+  ],
+  "DEATH": [
+    "Noun"
+  ],
+  "DEBAR": [
+    "Verb"
+  ],
+  "DEBIT": [
+    "Noun",
+    "Verb"
+  ],
+  "DEBUG": [
+    "Verb"
+  ],
+  "DEBUT": [
+    "Noun",
+    "Verb"
+  ],
+  "DECAL": [
+    "Noun"
+  ],
+  "DECAY": [
+    "Noun",
+    "Verb"
+  ],
+  "DECOR": [
+    "Noun"
+  ],
+  "DECOY": [
+    "Noun",
+    "Verb"
+  ],
+  "DECRY": [
+    "Verb"
+  ],
+  "DEFER": [
+    "Verb"
+  ],
+  "DEIGN": [
+    "Verb"
+  ],
+  "DEITY": [
+    "Noun"
+  ],
+  "DELAY": [
+    "Noun",
+    "Verb"
+  ],
+  "DELTA": [
+    "Noun"
+  ],
+  "DELVE": [
+    "Verb"
+  ],
+  "DEMON": [
+    "Noun"
+  ],
+  "DEMUR": [
+    "Noun",
+    "Verb"
+  ],
+  "DENIM": [
+    "Noun"
+  ],
+  "DENSE": [
+    "Adjective"
+  ],
+  "DEPOT": [
+    "Noun"
+  ],
+  "DEPTH": [
+    "Noun"
+  ],
+  "DERBY": [
+    "Noun"
+  ],
+  "DETER": [
+    "Verb"
+  ],
+  "DETOX": [
+    "Noun",
+    "Verb"
+  ],
+  "DEUCE": [
+    "Noun"
+  ],
+  "DEVIL": [
+    "Noun",
+    "Verb"
+  ],
+  "DIARY": [
+    "Noun"
+  ],
+  "DICEY": [
+    "Adjective"
+  ],
+  "DIGIT": [
+    "Noun"
+  ],
+  "DILLY": [
+    "Noun"
+  ],
+  "DIMLY": [
+    "Adverb"
+  ],
+  "DINER": [
+    "Noun"
+  ],
+  "DINGO": [
+    "Noun"
+  ],
+  "DINGY": [
+    "Adjective"
+  ],
+  "DIODE": [
+    "Noun"
+  ],
+  "DIRGE": [
+    "Noun"
+  ],
+  "DIRTY": [
+    "Adjective",
+    "Verb"
+  ],
+  "DISCO": [
+    "Noun",
+    "Verb"
+  ],
+  "DITCH": [
+    "Noun",
+    "Verb"
+  ],
+  "DITTO": [
+    "Noun",
+    "Verb"
+  ],
+  "DITTY": [
+    "Noun"
+  ],
+  "DIVER": [
+    "Noun"
+  ],
+  "DIZZY": [
+    "Adjective",
+    "Verb"
+  ],
+  "DODGE": [
+    "Noun",
+    "Verb"
+  ],
+  "DODGY": [
+    "Adjective"
+  ],
+  "DOGMA": [
+    "Noun"
+  ],
+  "DOING": [
+    "Verb"
+  ],
+  "DOLLY": [
+    "Noun"
+  ],
+  "DONOR": [
+    "Noun"
+  ],
+  "DONUT": [
+    "Noun"
+  ],
+  "DOPEY": [
+    "Adjective"
+  ],
+  "DOUBT": [
+    "Noun",
+    "Verb"
+  ],
+  "DOUGH": [
+    "Noun"
+  ],
+  "DOWDY": [
+    "Adjective",
+    "Noun"
+  ],
+  "DOWEL": [
+    "Noun"
+  ],
+  "DOWNY": [
+    "Adjective"
+  ],
+  "DOWRY": [
+    "Noun"
+  ],
+  "DOZEN": [
+    "Adjective",
+    "Noun"
+  ],
+  "DRAFT": [
+    "Noun",
+    "Verb"
+  ],
+  "DRAIN": [
+    "Noun",
+    "Verb"
+  ],
+  "DRAKE": [
+    "Noun"
+  ],
+  "DRAMA": [
+    "Noun"
+  ],
+  "DRANK": [
+    "Verb"
+  ],
+  "DRAPE": [
+    "Noun",
+    "Verb"
+  ],
+  "DRAWL": [
+    "Noun",
+    "Verb"
+  ],
+  "DRAWN": [
+    "Adjective",
+    "Verb"
+  ],
+  "DREAD": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "DREAM": [
+    "Noun",
+    "Verb"
+  ],
+  "DRESS": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "DRIED": [
+    "Adjective",
+    "Verb"
+  ],
+  "DRIER": [
+    "Adjective",
+    "Noun"
+  ],
+  "DRIFT": [
+    "Noun",
+    "Verb"
+  ],
+  "DRILL": [
+    "Noun",
+    "Verb"
+  ],
+  "DRINK": [
+    "Noun",
+    "Verb"
+  ],
+  "DRIVE": [
+    "Noun",
+    "Verb"
+  ],
+  "DROID": [
+    "Noun"
+  ],
+  "DROIT": [
+    "Adjective",
+    "Noun"
+  ],
+  "DROLL": [
+    "Adjective"
+  ],
+  "DRONE": [
+    "Noun",
+    "Verb"
+  ],
+  "DROOL": [
+    "Noun",
+    "Verb"
+  ],
+  "DROOP": [
+    "Noun",
+    "Verb"
+  ],
+  "DROSS": [
+    "Noun"
+  ],
+  "DROVE": [
+    "Noun",
+    "Verb"
+  ],
+  "DROWN": [
+    "Verb"
+  ],
+  "DRUID": [
+    "Noun"
+  ],
+  "DRUNK": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "DRYER": [
+    "Adjective",
+    "Noun"
+  ],
+  "DRYLY": [
+    "Adverb"
+  ],
+  "DUCHY": [
+    "Noun"
+  ],
+  "DULLY": [
+    "Adverb"
+  ],
+  "DUMMY": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "DUMPY": [
+    "Adjective"
+  ],
+  "DUNCE": [
+    "Noun"
+  ],
+  "DUSKY": [
+    "Adjective"
+  ],
+  "DUSTY": [
+    "Adjective"
+  ],
+  "DUTCH": [
+    "Adjective",
+    "Noun"
+  ],
+  "DUVET": [
+    "Noun"
+  ],
+  "DWARF": [
+    "Noun",
+    "Verb"
+  ],
+  "DWELL": [
+    "Verb"
+  ],
+  "DWELT": [
+    "Verb"
+  ],
+  "DYING": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "EAGER": [
+    "Adjective",
+    "Noun"
+  ],
+  "EAGLE": [
+    "Noun",
+    "Verb"
+  ],
+  "EARLY": [
+    "Adjective",
+    "Adverb"
+  ],
+  "EARTH": [
+    "Noun",
+    "Verb"
+  ],
+  "EASEL": [
+    "Noun"
+  ],
+  "EATEN": [
+    "Verb"
+  ],
+  "EATER": [
+    "Noun"
+  ],
+  "EBONY": [
+    "Adjective",
+    "Noun"
+  ],
+  "EBOOK": [
+    "Noun"
+  ],
+  "ECLAT": [
+    "Noun"
+  ],
+  "EDICT": [
+    "Noun"
+  ],
+  "EDIFY": [
+    "Verb"
+  ],
+  "EERIE": [
+    "Adjective"
+  ],
+  "EGRET": [
+    "Noun"
+  ],
+  "EIGHT": [
+    "Adjective",
+    "Noun"
+  ],
+  "EJECT": [
+    "Verb"
+  ],
+  "EKING": [
+    "Verb"
+  ],
+  "ELATE": [
+    "Verb"
+  ],
+  "ELBOW": [
+    "Noun",
+    "Verb"
+  ],
+  "ELDER": [
+    "Adjective",
+    "Noun"
+  ],
+  "ELECT": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "ELEGY": [
+    "Noun"
+  ],
+  "ELFIN": [
+    "Adjective"
+  ],
+  "ELIDE": [
+    "Verb"
+  ],
+  "ELITE": [
+    "Adjective",
+    "Noun"
+  ],
+  "ELOPE": [
+    "Verb"
+  ],
+  "ELUDE": [
+    "Verb"
+  ],
+  "EMAIL": [
+    "Noun",
+    "Verb"
+  ],
+  "EMBED": [
+    "Verb"
+  ],
+  "EMBER": [
+    "Noun"
+  ],
+  "EMCEE": [
+    "Noun",
+    "Verb"
+  ],
+  "EMPTY": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "ENACT": [
+    "Verb"
+  ],
+  "ENDOW": [
+    "Verb"
+  ],
+  "ENEMA": [
+    "Noun"
+  ],
+  "ENEMY": [
+    "Noun"
+  ],
+  "ENJOY": [
+    "Verb"
+  ],
+  "ENNUI": [
+    "Noun"
+  ],
+  "ENSUE": [
+    "Verb"
+  ],
+  "ENTER": [
+    "Verb"
+  ],
+  "ENTRY": [
+    "Noun"
+  ],
+  "ENVOY": [
+    "Noun"
+  ],
+  "EPOCH": [
+    "Noun"
+  ],
+  "EPOXY": [
+    "Noun",
+    "Verb"
+  ],
+  "EQUAL": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "EQUIP": [
+    "Verb"
+  ],
+  "ERASE": [
+    "Verb"
+  ],
+  "ERECT": [
+    "Adjective",
+    "Verb"
+  ],
+  "ERODE": [
+    "Verb"
+  ],
+  "ERROR": [
+    "Noun"
+  ],
+  "ERUPT": [
+    "Verb"
+  ],
+  "ESSAY": [
+    "Noun",
+    "Verb"
+  ],
+  "ESTER": [
+    "Noun"
+  ],
+  "ETHER": [
+    "Noun"
+  ],
+  "ETHIC": [
+    "Noun"
+  ],
+  "ETHOS": [
+    "Noun"
+  ],
+  "ETUDE": [
+    "Noun"
+  ],
+  "EVADE": [
+    "Verb"
+  ],
+  "EVENT": [
+    "Noun"
+  ],
+  "EVERY": [
+    "Adjective"
+  ],
+  "EVICT": [
+    "Verb"
+  ],
+  "EVOKE": [
+    "Verb"
+  ],
+  "EXACT": [
+    "Adjective",
+    "Verb"
+  ],
+  "EXALT": [
+    "Verb"
+  ],
+  "EXCEL": [
+    "Verb"
+  ],
+  "EXERT": [
+    "Verb"
+  ],
+  "EXILE": [
+    "Noun",
+    "Verb"
+  ],
+  "EXIST": [
+    "Verb"
+  ],
+  "EXPEL": [
+    "Verb"
+  ],
+  "EXTOL": [
+    "Verb"
+  ],
+  "EXTRA": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "EXULT": [
+    "Verb"
+  ],
+  "EYING": [
+    "Verb"
+  ],
+  "FABLE": [
+    "Noun"
+  ],
+  "FACET": [
+    "Noun"
+  ],
+  "FAINT": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "FAIRY": [
+    "Noun"
+  ],
+  "FAITH": [
+    "Noun"
+  ],
+  "FALSE": [
+    "Adjective",
+    "Adverb"
+  ],
+  "FANCY": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "FANNY": [
+    "Noun"
+  ],
+  "FARCE": [
+    "Noun",
+    "Verb"
+  ],
+  "FATAL": [
+    "Adjective"
+  ],
+  "FATTY": [
+    "Adjective",
+    "Noun"
+  ],
+  "FAULT": [
+    "Noun",
+    "Verb"
+  ],
+  "FAUNA": [
+    "Noun"
+  ],
+  "FAVOR": [
+    "Noun",
+    "Verb"
+  ],
+  "FEAST": [
+    "Noun",
+    "Verb"
+  ],
+  "FECAL": [
+    "Adjective"
+  ],
+  "FEIGN": [
+    "Verb"
+  ],
+  "FELLA": [
+    "Noun"
+  ],
+  "FELON": [
+    "Noun"
+  ],
+  "FEMME": [
+    "Adjective",
+    "Noun"
+  ],
+  "FEMUR": [
+    "Noun"
+  ],
+  "FENCE": [
+    "Noun",
+    "Verb"
+  ],
+  "FERAL": [
+    "Adjective"
+  ],
+  "FERRY": [
+    "Noun",
+    "Verb"
+  ],
+  "FETAL": [
+    "Adjective"
+  ],
+  "FETCH": [
+    "Noun",
+    "Verb"
+  ],
+  "FETID": [
+    "Adjective"
+  ],
+  "FETUS": [
+    "Noun"
+  ],
+  "FEVER": [
+    "Noun"
+  ],
+  "FEWER": [
+    "Adjective"
+  ],
+  "FIBER": [
+    "Noun"
+  ],
+  "FIBRE": [
+    "Noun"
+  ],
+  "FICUS": [
+    "Noun"
+  ],
+  "FIELD": [
+    "Noun",
+    "Verb"
+  ],
+  "FIEND": [
+    "Noun"
+  ],
+  "FIERY": [
+    "Adjective"
+  ],
+  "FIFTH": [
+    "Adjective",
+    "Noun"
+  ],
+  "FIFTY": [
+    "Adjective",
+    "Noun"
+  ],
+  "FIGHT": [
+    "Noun",
+    "Verb"
+  ],
+  "FILER": [
+    "Noun"
+  ],
+  "FILET": [
+    "Noun",
+    "Verb"
+  ],
+  "FILLY": [
+    "Noun"
+  ],
+  "FILMY": [
+    "Adjective"
+  ],
+  "FILTH": [
+    "Noun"
+  ],
+  "FINAL": [
+    "Adjective",
+    "Noun"
+  ],
+  "FINCH": [
+    "Noun"
+  ],
+  "FINER": [
+    "Adjective"
+  ],
+  "FIRST": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "FISHY": [
+    "Adjective"
+  ],
+  "FIXED": [
+    "Adjective",
+    "Verb"
+  ],
+  "FIXER": [
+    "Noun"
+  ],
+  "FIZZY": [
+    "Adjective"
+  ],
+  "FJORD": [
+    "Noun"
+  ],
+  "FLACK": [
+    "Noun"
+  ],
+  "FLAIL": [
+    "Noun",
+    "Verb"
+  ],
+  "FLAIR": [
+    "Noun"
+  ],
+  "FLAKE": [
+    "Noun",
+    "Verb"
+  ],
+  "FLAKY": [
+    "Adjective"
+  ],
+  "FLAME": [
+    "Noun",
+    "Verb"
+  ],
+  "FLANK": [
+    "Noun",
+    "Verb"
+  ],
+  "FLARE": [
+    "Noun",
+    "Verb"
+  ],
+  "FLASH": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "FLASK": [
+    "Noun"
+  ],
+  "FLECK": [
+    "Noun",
+    "Verb"
+  ],
+  "FLEET": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "FLESH": [
+    "Noun",
+    "Verb"
+  ],
+  "FLICK": [
+    "Noun",
+    "Verb"
+  ],
+  "FLIER": [
+    "Noun"
+  ],
+  "FLING": [
+    "Noun",
+    "Verb"
+  ],
+  "FLINT": [
+    "Adjective",
+    "Noun"
+  ],
+  "FLIRT": [
+    "Noun",
+    "Verb"
+  ],
+  "FLOAT": [
+    "Noun",
+    "Verb"
+  ],
+  "FLOCK": [
+    "Noun",
+    "Verb"
+  ],
+  "FLOOD": [
+    "Noun",
+    "Verb"
+  ],
+  "FLOOR": [
+    "Noun",
+    "Verb"
+  ],
+  "FLORA": [
+    "Noun"
+  ],
+  "FLOSS": [
+    "Noun",
+    "Verb"
+  ],
+  "FLOUR": [
+    "Noun",
+    "Verb"
+  ],
+  "FLOUT": [
+    "Verb"
+  ],
+  "FLOWN": [
+    "Verb"
+  ],
+  "FLUFF": [
+    "Noun",
+    "Verb"
+  ],
+  "FLUID": [
+    "Adjective",
+    "Noun"
+  ],
+  "FLUKE": [
+    "Noun"
+  ],
+  "FLUME": [
+    "Noun"
+  ],
+  "FLUNG": [
+    "Verb"
+  ],
+  "FLUNK": [
+    "Noun",
+    "Verb"
+  ],
+  "FLUSH": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "FLUTE": [
+    "Noun",
+    "Verb"
+  ],
+  "FLYER": [
+    "Adjective",
+    "Noun"
+  ],
+  "FOAMY": [
+    "Adjective"
+  ],
+  "FOCAL": [
+    "Adjective"
+  ],
+  "FOCUS": [
+    "Noun",
+    "Verb"
+  ],
+  "FOGGY": [
+    "Adjective"
+  ],
+  "FOIST": [
+    "Verb"
+  ],
+  "FOLIO": [
+    "Noun"
+  ],
+  "FOLLY": [
+    "Noun"
+  ],
+  "FORAY": [
+    "Noun",
+    "Verb"
+  ],
+  "FORCE": [
+    "Noun",
+    "Verb"
+  ],
+  "FORGE": [
+    "Noun",
+    "Verb"
+  ],
+  "FORGO": [
+    "Verb"
+  ],
+  "FORTE": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "FORTH": [
+    "Adverb",
+    "Noun"
+  ],
+  "FORTY": [
+    "Adjective",
+    "Noun"
+  ],
+  "FORUM": [
+    "Noun"
+  ],
+  "FOUND": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "FOYER": [
+    "Noun"
+  ],
+  "FRAIL": [
+    "Adjective",
+    "Noun"
+  ],
+  "FRAME": [
+    "Noun",
+    "Verb"
+  ],
+  "FRANK": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "FRAUD": [
+    "Noun"
+  ],
+  "FREAK": [
+    "Noun",
+    "Verb"
+  ],
+  "FREED": [
+    "Verb"
+  ],
+  "FREER": [
+    "Adjective"
+  ],
+  "FRESH": [
+    "Adjective",
+    "Adverb"
+  ],
+  "FRIAR": [
+    "Noun"
+  ],
+  "FRIED": [
+    "Adjective",
+    "Verb"
+  ],
+  "FRILL": [
+    "Noun"
+  ],
+  "FRISK": [
+    "Noun",
+    "Verb"
+  ],
+  "FRITZ": [
+    "Noun"
+  ],
+  "FROCK": [
+    "Noun",
+    "Verb"
+  ],
+  "FROND": [
+    "Noun"
+  ],
+  "FRONT": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "FROST": [
+    "Noun",
+    "Verb"
+  ],
+  "FROTH": [
+    "Noun",
+    "Verb"
+  ],
+  "FROWN": [
+    "Noun",
+    "Verb"
+  ],
+  "FROZE": [
+    "Verb"
+  ],
+  "FRUIT": [
+    "Noun",
+    "Verb"
+  ],
+  "FUDGE": [
+    "Noun",
+    "Verb"
+  ],
+  "FUGUE": [
+    "Noun"
+  ],
+  "FULLY": [
+    "Adverb"
+  ],
+  "FUNGI": [
+    "Noun"
+  ],
+  "FUNKY": [
+    "Adjective"
+  ],
+  "FUNNY": [
+    "Adjective",
+    "Noun"
+  ],
+  "FUROR": [
+    "Noun"
+  ],
+  "FURRY": [
+    "Adjective"
+  ],
+  "FUSSY": [
+    "Adjective"
+  ],
+  "FUZZY": [
+    "Adjective"
+  ],
+  "GAFFE": [
+    "Noun"
+  ],
+  "GAILY": [
+    "Adverb"
+  ],
+  "GAMER": [
+    "Adjective"
+  ],
+  "GAMMA": [
+    "Noun"
+  ],
+  "GAMUT": [
+    "Noun"
+  ],
+  "GASSY": [
+    "Adjective"
+  ],
+  "GAUDY": [
+    "Adjective",
+    "Noun"
+  ],
+  "GAUGE": [
+    "Noun",
+    "Verb"
+  ],
+  "GAUNT": [
+    "Adjective"
+  ],
+  "GAUZE": [
+    "Noun"
+  ],
+  "GAVEL": [
+    "Noun"
+  ],
+  "GAWKY": [
+    "Adjective"
+  ],
+  "GAYER": [
+    "Adjective"
+  ],
+  "GAYLY": [
+    "Adverb"
+  ],
+  "GAZER": [
+    "Noun"
+  ],
+  "GECKO": [
+    "Noun"
+  ],
+  "GEEKY": [
+    "Adjective"
+  ],
+  "GEESE": [
+    "Noun"
+  ],
+  "GENIE": [
+    "Noun"
+  ],
+  "GENRE": [
+    "Noun"
+  ],
+  "GHOST": [
+    "Noun",
+    "Verb"
+  ],
+  "GHOUL": [
+    "Noun"
+  ],
+  "GIANT": [
+    "Adjective",
+    "Noun"
+  ],
+  "GIDDY": [
+    "Adjective"
+  ],
+  "GIPSY": [
+    "Noun"
+  ],
+  "GIRLY": [
+    "Adjective"
+  ],
+  "GIRTH": [
+    "Noun",
+    "Verb"
+  ],
+  "GIVEN": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "GIVER": [
+    "Noun"
+  ],
+  "GLADE": [
+    "Noun"
+  ],
+  "GLAND": [
+    "Noun"
+  ],
+  "GLARE": [
+    "Noun",
+    "Verb"
+  ],
+  "GLASS": [
+    "Noun",
+    "Verb"
+  ],
+  "GLAZE": [
+    "Noun",
+    "Verb"
+  ],
+  "GLEAM": [
+    "Noun",
+    "Verb"
+  ],
+  "GLEAN": [
+    "Verb"
+  ],
+  "GLIDE": [
+    "Noun",
+    "Verb"
+  ],
+  "GLINT": [
+    "Noun",
+    "Verb"
+  ],
+  "GLOAT": [
+    "Noun",
+    "Verb"
+  ],
+  "GLOBE": [
+    "Noun"
+  ],
+  "GLOOM": [
+    "Noun"
+  ],
+  "GLORY": [
+    "Noun",
+    "Verb"
+  ],
+  "GLOSS": [
+    "Noun",
+    "Verb"
+  ],
+  "GLOVE": [
+    "Noun"
+  ],
+  "GLYPH": [
+    "Noun"
+  ],
+  "GNASH": [
+    "Verb"
+  ],
+  "GNOME": [
+    "Noun"
+  ],
+  "GODLY": [
+    "Adjective"
+  ],
+  "GOING": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "GOLEM": [
+    "Noun"
+  ],
+  "GOLLY": [
+    "Interjection"
+  ],
+  "GONAD": [
+    "Noun"
+  ],
+  "GONER": [
+    "Noun"
+  ],
+  "GOODY": [
+    "Noun"
+  ],
+  "GOOEY": [
+    "Adjective"
+  ],
+  "GOOFY": [
+    "Adjective",
+    "Noun"
+  ],
+  "GOOSE": [
+    "Noun",
+    "Verb"
+  ],
+  "GORGE": [
+    "Noun",
+    "Verb"
+  ],
+  "GOUGE": [
+    "Noun",
+    "Verb"
+  ],
+  "GOURD": [
+    "Noun"
+  ],
+  "GRACE": [
+    "Noun",
+    "Verb"
+  ],
+  "GRADE": [
+    "Noun",
+    "Verb"
+  ],
+  "GRAFT": [
+    "Noun",
+    "Verb"
+  ],
+  "GRAIL": [
+    "Noun"
+  ],
+  "GRAIN": [
+    "Noun",
+    "Verb"
+  ],
+  "GRAND": [
+    "Adjective",
+    "Noun"
+  ],
+  "GRANT": [
+    "Noun",
+    "Verb"
+  ],
+  "GRAPE": [
+    "Noun"
+  ],
+  "GRAPH": [
+    "Noun",
+    "Verb"
+  ],
+  "GRASP": [
+    "Noun",
+    "Verb"
+  ],
+  "GRASS": [
+    "Noun",
+    "Verb"
+  ],
+  "GRATE": [
+    "Noun",
+    "Verb"
+  ],
+  "GRAVE": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "GRAVY": [
+    "Noun"
+  ],
+  "GRAZE": [
+    "Noun",
+    "Verb"
+  ],
+  "GREAT": [
+    "Adjective",
+    "Noun"
+  ],
+  "GREED": [
+    "Noun"
+  ],
+  "GREEN": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "GREET": [
+    "Verb"
+  ],
+  "GRIEF": [
+    "Noun"
+  ],
+  "GRILL": [
+    "Noun",
+    "Verb"
+  ],
+  "GRIME": [
+    "Noun",
+    "Verb"
+  ],
+  "GRIMY": [
+    "Adjective"
+  ],
+  "GRIND": [
+    "Noun",
+    "Verb"
+  ],
+  "GRIPE": [
+    "Noun",
+    "Verb"
+  ],
+  "GROAN": [
+    "Noun",
+    "Verb"
+  ],
+  "GROIN": [
+    "Noun",
+    "Verb"
+  ],
+  "GROOM": [
+    "Noun",
+    "Verb"
+  ],
+  "GROPE": [
+    "Noun",
+    "Verb"
+  ],
+  "GROSS": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "GROUP": [
+    "Noun",
+    "Verb"
+  ],
+  "GROUT": [
+    "Noun",
+    "Verb"
+  ],
+  "GROVE": [
+    "Noun"
+  ],
+  "GROWL": [
+    "Noun",
+    "Verb"
+  ],
+  "GROWN": [
+    "Adjective",
+    "Verb"
+  ],
+  "GRUEL": [
+    "Noun"
+  ],
+  "GRUFF": [
+    "Adjective"
+  ],
+  "GRUNT": [
+    "Noun",
+    "Verb"
+  ],
+  "GUARD": [
+    "Noun",
+    "Verb"
+  ],
+  "GUAVA": [
+    "Noun"
+  ],
+  "GUESS": [
+    "Noun",
+    "Verb"
+  ],
+  "GUEST": [
+    "Noun"
+  ],
+  "GUIDE": [
+    "Noun",
+    "Verb"
+  ],
+  "GUILD": [
+    "Noun"
+  ],
+  "GUILE": [
+    "Noun"
+  ],
+  "GUILT": [
+    "Noun"
+  ],
+  "GUISE": [
+    "Noun"
+  ],
+  "GULCH": [
+    "Noun"
+  ],
+  "GULLY": [
+    "Noun"
+  ],
+  "GUMBO": [
+    "Noun"
+  ],
+  "GUMMY": [
+    "Adjective"
+  ],
+  "GUPPY": [
+    "Noun"
+  ],
+  "GUSTO": [
+    "Noun"
+  ],
+  "GUSTY": [
+    "Adjective"
+  ],
+  "GYPSY": [
+    "Noun"
+  ],
+  "HABIT": [
+    "Noun",
+    "Verb"
+  ],
+  "HAIRY": [
+    "Adjective"
+  ],
+  "HALVE": [
+    "Verb"
+  ],
+  "HANDY": [
+    "Adjective",
+    "Noun"
+  ],
+  "HAPPY": [
+    "Adjective"
+  ],
+  "HARDY": [
+    "Adjective",
+    "Noun"
+  ],
+  "HAREM": [
+    "Noun"
+  ],
+  "HARPY": [
+    "Noun"
+  ],
+  "HARRY": [
+    "Verb"
+  ],
+  "HARSH": [
+    "Adjective"
+  ],
+  "HASTE": [
+    "Noun"
+  ],
+  "HASTY": [
+    "Adjective"
+  ],
+  "HATCH": [
+    "Noun",
+    "Verb"
+  ],
+  "HATER": [
+    "Noun"
+  ],
+  "HAUNT": [
+    "Noun",
+    "Verb"
+  ],
+  "HAUTE": [
+    "Adjective"
+  ],
+  "HAVEN": [
+    "Noun"
+  ],
+  "HAVOC": [
+    "Noun"
+  ],
+  "HAZEL": [
+    "Adjective",
+    "Noun"
+  ],
+  "HEADY": [
+    "Adjective"
+  ],
+  "HEARD": [
+    "Adjective",
+    "Verb"
+  ],
+  "HEART": [
+    "Noun"
+  ],
+  "HEATH": [
+    "Noun"
+  ],
+  "HEAVE": [
+    "Noun",
+    "Verb"
+  ],
+  "HEAVY": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "HEDGE": [
+    "Noun",
+    "Verb"
+  ],
+  "HEFTY": [
+    "Adjective"
+  ],
+  "HEIST": [
+    "Noun",
+    "Verb"
+  ],
+  "HELIX": [
+    "Noun"
+  ],
+  "HELLO": [
+    "Noun"
+  ],
+  "HENCE": [
+    "Adverb"
+  ],
+  "HERON": [
+    "Noun"
+  ],
+  "HILLY": [
+    "Adjective"
+  ],
+  "HINGE": [
+    "Noun",
+    "Verb"
+  ],
+  "HIPPO": [
+    "Noun"
+  ],
+  "HIPPY": [
+    "Noun"
+  ],
+  "HITCH": [
+    "Noun",
+    "Verb"
+  ],
+  "HOARD": [
+    "Noun",
+    "Verb"
+  ],
+  "HOBBY": [
+    "Noun"
+  ],
+  "HOIST": [
+    "Noun",
+    "Verb"
+  ],
+  "HOLLY": [
+    "Noun"
+  ],
+  "HOMER": [
+    "Noun",
+    "Verb"
+  ],
+  "HOMIE": [
+    "Noun"
+  ],
+  "HONEY": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "HONOR": [
+    "Noun",
+    "Verb"
+  ],
+  "HORDE": [
+    "Noun"
+  ],
+  "HORNY": [
+    "Adjective"
+  ],
+  "HORSE": [
+    "Noun",
+    "Verb"
+  ],
+  "HOTEL": [
+    "Noun"
+  ],
+  "HOTLY": [
+    "Adverb"
+  ],
+  "HOUND": [
+    "Noun",
+    "Verb"
+  ],
+  "HOUSE": [
+    "Noun",
+    "Verb"
+  ],
+  "HOVEL": [
+    "Noun"
+  ],
+  "HOVER": [
+    "Verb"
+  ],
+  "HOWDY": [
+    "Noun"
+  ],
+  "HUMAN": [
+    "Adjective",
+    "Noun"
+  ],
+  "HUMID": [
+    "Adjective"
+  ],
+  "HUMOR": [
+    "Noun",
+    "Verb"
+  ],
+  "HUMPH": [
+    "Interjection"
+  ],
+  "HUMUS": [
+    "Noun"
+  ],
+  "HUNCH": [
+    "Noun",
+    "Verb"
+  ],
+  "HUNKY": [
+    "Adjective"
+  ],
+  "HURRY": [
+    "Noun",
+    "Verb"
+  ],
+  "HUSKY": [
+    "Adjective",
+    "Noun"
+  ],
+  "HUSSY": [
+    "Noun"
+  ],
+  "HUTCH": [
+    "Noun"
+  ],
+  "HYDRO": [
+    "Adjective",
+    "Noun"
+  ],
+  "HYENA": [
+    "Noun"
+  ],
+  "HYMEN": [
+    "Noun"
+  ],
+  "HYPER": [
+    "Adjective"
+  ],
+  "ICILY": [
+    "Adverb"
+  ],
+  "ICING": [
+    "Noun",
+    "Verb"
+  ],
+  "IDEAL": [
+    "Adjective",
+    "Noun"
+  ],
+  "IDIOM": [
+    "Noun"
+  ],
+  "IDIOT": [
+    "Noun"
+  ],
+  "IDLER": [
+    "Adjective",
+    "Noun"
+  ],
+  "IDYLL": [
+    "Noun"
+  ],
+  "IGLOO": [
+    "Noun"
+  ],
+  "ILIAC": [
+    "Adjective"
+  ],
+  "IMAGE": [
+    "Noun",
+    "Verb"
+  ],
+  "IMBUE": [
+    "Verb"
+  ],
+  "IMPEL": [
+    "Verb"
+  ],
+  "IMPLY": [
+    "Verb"
+  ],
+  "INANE": [
+    "Adjective"
+  ],
+  "INBOX": [
+    "Noun",
+    "Verb"
+  ],
+  "INCUR": [
+    "Verb"
+  ],
+  "INDEX": [
+    "Noun",
+    "Verb"
+  ],
+  "INDIE": [
+    "Adjective",
+    "Noun"
+  ],
+  "INEPT": [
+    "Adjective"
+  ],
+  "INERT": [
+    "Adjective"
+  ],
+  "INFER": [
+    "Verb"
+  ],
+  "INGOT": [
+    "Noun"
+  ],
+  "INLAY": [
+    "Noun",
+    "Verb"
+  ],
+  "INLET": [
+    "Noun"
+  ],
+  "INNER": [
+    "Adjective"
+  ],
+  "INPUT": [
+    "Noun",
+    "Verb"
+  ],
+  "INTER": [
+    "Verb"
+  ],
+  "INTRO": [
+    "Noun"
+  ],
+  "IONIC": [
+    "Adjective",
+    "Noun"
+  ],
+  "IRATE": [
+    "Adjective"
+  ],
+  "IRONY": [
+    "Noun"
+  ],
+  "ISLET": [
+    "Noun"
+  ],
+  "ISSUE": [
+    "Noun",
+    "Verb"
+  ],
+  "ITCHY": [
+    "Adjective"
+  ],
+  "IVORY": [
+    "Noun"
+  ],
+  "JAUNT": [
+    "Noun",
+    "Verb"
+  ],
+  "JAZZY": [
+    "Adjective"
+  ],
+  "JELLY": [
+    "Noun",
+    "Verb"
+  ],
+  "JERKY": [
+    "Adjective",
+    "Noun"
+  ],
+  "JETTY": [
+    "Noun"
+  ],
+  "JEWEL": [
+    "Noun",
+    "Verb"
+  ],
+  "JIFFY": [
+    "Noun"
+  ],
+  "JOINT": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "JOIST": [
+    "Noun"
+  ],
+  "JOKER": [
+    "Noun"
+  ],
+  "JOLLY": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "JOUST": [
+    "Noun",
+    "Verb"
+  ],
+  "JUDGE": [
+    "Noun",
+    "Verb"
+  ],
+  "JUICE": [
+    "Noun"
+  ],
+  "JUICY": [
+    "Adjective"
+  ],
+  "JUMBO": [
+    "Adjective"
+  ],
+  "JUMPY": [
+    "Adjective"
+  ],
+  "JUNTA": [
+    "Noun"
+  ],
+  "JUNTO": [
+    "Noun"
+  ],
+  "JUROR": [
+    "Noun"
+  ],
+  "KAPPA": [
+    "Noun"
+  ],
+  "KARMA": [
+    "Noun"
+  ],
+  "KAYAK": [
+    "Noun",
+    "Verb"
+  ],
+  "KEBAB": [
+    "Noun"
+  ],
+  "KHAKI": [
+    "Adjective",
+    "Noun"
+  ],
+  "KINKY": [
+    "Adjective"
+  ],
+  "KIOSK": [
+    "Noun"
+  ],
+  "KITTY": [
+    "Noun"
+  ],
+  "KNACK": [
+    "Noun"
+  ],
+  "KNAVE": [
+    "Noun"
+  ],
+  "KNEAD": [
+    "Verb"
+  ],
+  "KNEED": [
+    "Verb"
+  ],
+  "KNEEL": [
+    "Noun",
+    "Verb"
+  ],
+  "KNELT": [
+    "Verb"
+  ],
+  "KNIFE": [
+    "Noun",
+    "Verb"
+  ],
+  "KNOCK": [
+    "Noun",
+    "Verb"
+  ],
+  "KNOLL": [
+    "Noun"
+  ],
+  "KNOWN": [
+    "Adjective",
+    "Verb"
+  ],
+  "KOALA": [
+    "Noun"
+  ],
+  "KRILL": [
+    "Noun"
+  ],
+  "LABEL": [
+    "Noun",
+    "Verb"
+  ],
+  "LABOR": [
+    "Noun",
+    "Verb"
+  ],
+  "LADEN": [
+    "Adjective",
+    "Verb"
+  ],
+  "LADLE": [
+    "Noun",
+    "Verb"
+  ],
+  "LAGER": [
+    "Noun"
+  ],
+  "LANCE": [
+    "Noun",
+    "Verb"
+  ],
+  "LANKY": [
+    "Adjective"
+  ],
+  "LAPEL": [
+    "Noun"
+  ],
+  "LAPSE": [
+    "Noun",
+    "Verb"
+  ],
+  "LARGE": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "LARVA": [
+    "Noun"
+  ],
+  "LASER": [
+    "Noun"
+  ],
+  "LASSO": [
+    "Noun",
+    "Verb"
+  ],
+  "LATCH": [
+    "Noun",
+    "Verb"
+  ],
+  "LATER": [
+    "Adjective",
+    "Adverb"
+  ],
+  "LATHE": [
+    "Noun"
+  ],
+  "LATTE": [
+    "Noun"
+  ],
+  "LAUGH": [
+    "Noun",
+    "Verb"
+  ],
+  "LAYER": [
+    "Noun",
+    "Verb"
+  ],
+  "LEACH": [
+    "Noun",
+    "Verb"
+  ],
+  "LEAFY": [
+    "Adjective"
+  ],
+  "LEAKY": [
+    "Adjective"
+  ],
+  "LEANT": [
+    "Verb"
+  ],
+  "LEAPT": [
+    "Verb"
+  ],
+  "LEARN": [
+    "Verb"
+  ],
+  "LEASE": [
+    "Noun",
+    "Verb"
+  ],
+  "LEASH": [
+    "Noun",
+    "Verb"
+  ],
+  "LEAST": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "LEAVE": [
+    "Noun",
+    "Verb"
+  ],
+  "LEDGE": [
+    "Noun"
+  ],
+  "LEECH": [
+    "Noun",
+    "Verb"
+  ],
+  "LEERY": [
+    "Adjective"
+  ],
+  "LEFTY": [
+    "Noun"
+  ],
+  "LEGAL": [
+    "Adjective"
+  ],
+  "LEGGY": [
+    "Adjective"
+  ],
+  "LEMON": [
+    "Noun"
+  ],
+  "LEMUR": [
+    "Noun"
+  ],
+  "LEPER": [
+    "Noun"
+  ],
+  "LEVEL": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "LEVER": [
+    "Noun",
+    "Verb"
+  ],
+  "LIBEL": [
+    "Noun",
+    "Verb"
+  ],
+  "LIEGE": [
+    "Adjective",
+    "Noun"
+  ],
+  "LIGHT": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "LIKEN": [
+    "Verb"
+  ],
+  "LILAC": [
+    "Adjective",
+    "Noun"
+  ],
+  "LIMBO": [
+    "Noun"
+  ],
+  "LIMIT": [
+    "Noun",
+    "Verb"
+  ],
+  "LINEN": [
+    "Noun"
+  ],
+  "LINER": [
+    "Noun"
+  ],
+  "LINGO": [
+    "Noun"
+  ],
+  "LIPID": [
+    "Noun"
+  ],
+  "LITHE": [
+    "Adjective"
+  ],
+  "LIVER": [
+    "Adjective",
+    "Noun"
+  ],
+  "LIVID": [
+    "Adjective"
+  ],
+  "LLAMA": [
+    "Noun"
+  ],
+  "LOAMY": [
+    "Adjective"
+  ],
+  "LOATH": [
+    "Adjective"
+  ],
+  "LOBBY": [
+    "Noun",
+    "Verb"
+  ],
+  "LOCAL": [
+    "Adjective",
+    "Noun"
+  ],
+  "LOCUS": [
+    "Noun"
+  ],
+  "LODGE": [
+    "Noun",
+    "Verb"
+  ],
+  "LOFTY": [
+    "Adjective"
+  ],
+  "LOGIC": [
+    "Noun"
+  ],
+  "LOGIN": [
+    "Adjective",
+    "Noun"
+  ],
+  "LOOPY": [
+    "Adjective"
+  ],
+  "LOOSE": [
+    "Adjective",
+    "Adverb",
+    "Verb"
+  ],
+  "LORRY": [
+    "Noun"
+  ],
+  "LOSER": [
+    "Noun"
+  ],
+  "LOUSE": [
+    "Noun"
+  ],
+  "LOUSY": [
+    "Adjective"
+  ],
+  "LOVER": [
+    "Noun"
+  ],
+  "LOWER": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "LOWLY": [
+    "Adjective"
+  ],
+  "LOYAL": [
+    "Adjective"
+  ],
+  "LUCID": [
+    "Adjective"
+  ],
+  "LUCKY": [
+    "Adjective"
+  ],
+  "LUMEN": [
+    "Noun"
+  ],
+  "LUMPY": [
+    "Adjective"
+  ],
+  "LUNAR": [
+    "Adjective"
+  ],
+  "LUNCH": [
+    "Noun",
+    "Verb"
+  ],
+  "LUNGE": [
+    "Noun",
+    "Verb"
+  ],
+  "LUPUS": [
+    "Noun"
+  ],
+  "LURCH": [
+    "Noun",
+    "Verb"
+  ],
+  "LURID": [
+    "Adjective"
+  ],
+  "LUSTY": [
+    "Adjective"
+  ],
+  "LYING": [
+    "Noun",
+    "Verb"
+  ],
+  "LYMPH": [
+    "Noun"
+  ],
+  "LYNCH": [
+    "Verb"
+  ],
+  "LYRIC": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "MACAW": [
+    "Noun"
+  ],
+  "MACHO": [
+    "Adjective",
+    "Noun"
+  ],
+  "MACRO": [
+    "Adjective",
+    "Noun"
+  ],
+  "MADAM": [
+    "Noun"
+  ],
+  "MADLY": [
+    "Adverb"
+  ],
+  "MAFIA": [
+    "Noun"
+  ],
+  "MAGIC": [
+    "Adjective",
+    "Noun"
+  ],
+  "MAGMA": [
+    "Noun"
+  ],
+  "MAIZE": [
+    "Noun"
+  ],
+  "MAJOR": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "MAKER": [
+    "Noun"
+  ],
+  "MAMBO": [
+    "Noun",
+    "Verb"
+  ],
+  "MAMMA": [
+    "Noun"
+  ],
+  "MAMMY": [
+    "Noun"
+  ],
+  "MANGA": [
+    "Noun"
+  ],
+  "MANGE": [
+    "Noun"
+  ],
+  "MANGO": [
+    "Noun"
+  ],
+  "MANGY": [
+    "Adjective"
+  ],
+  "MANIA": [
+    "Noun"
+  ],
+  "MANIC": [
+    "Adjective"
+  ],
+  "MANLY": [
+    "Adjective",
+    "Adverb"
+  ],
+  "MANOR": [
+    "Noun"
+  ],
+  "MAPLE": [
+    "Noun"
+  ],
+  "MARCH": [
+    "Noun",
+    "Verb"
+  ],
+  "MARRY": [
+    "Verb"
+  ],
+  "MARSH": [
+    "Noun"
+  ],
+  "MASON": [
+    "Noun"
+  ],
+  "MASSE": [
+    "Noun"
+  ],
+  "MATCH": [
+    "Noun",
+    "Verb"
+  ],
+  "MATEY": [
+    "Adjective"
+  ],
+  "MAUVE": [
+    "Adjective",
+    "Noun"
+  ],
+  "MAXIM": [
+    "Noun"
+  ],
+  "MAYBE": [
+    "Adverb"
+  ],
+  "MAYOR": [
+    "Noun"
+  ],
+  "MEALY": [
+    "Adjective"
+  ],
+  "MEANT": [
+    "Verb"
+  ],
+  "MEATY": [
+    "Adjective"
+  ],
+  "MECCA": [
+    "Noun"
+  ],
+  "MEDAL": [
+    "Noun"
+  ],
+  "MEDIA": [
+    "Noun"
+  ],
+  "MEDIC": [
+    "Noun"
+  ],
+  "MELEE": [
+    "Noun"
+  ],
+  "MELON": [
+    "Noun"
+  ],
+  "MERCY": [
+    "Noun"
+  ],
+  "MERGE": [
+    "Verb"
+  ],
+  "MERIT": [
+    "Noun",
+    "Verb"
+  ],
+  "MERRY": [
+    "Adjective"
+  ],
+  "METAL": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "METER": [
+    "Noun",
+    "Verb"
+  ],
+  "METRO": [
+    "Noun"
+  ],
+  "MICRO": [
+    "Adjective"
+  ],
+  "MIDGE": [
+    "Noun"
+  ],
+  "MIDST": [
+    "Noun"
+  ],
+  "MIGHT": [
+    "Noun"
+  ],
+  "MILKY": [
+    "Adjective"
+  ],
+  "MIMIC": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "MINCE": [
+    "Noun",
+    "Verb"
+  ],
+  "MINER": [
+    "Noun"
+  ],
+  "MINIM": [
+    "Noun"
+  ],
+  "MINOR": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "MINTY": [
+    "Adjective"
+  ],
+  "MINUS": [
+    "Adjective",
+    "Noun"
+  ],
+  "MIRTH": [
+    "Noun"
+  ],
+  "MISER": [
+    "Noun"
+  ],
+  "MISSY": [
+    "Noun"
+  ],
+  "MOCHA": [
+    "Noun"
+  ],
+  "MODAL": [
+    "Adjective",
+    "Noun"
+  ],
+  "MODEL": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "MODEM": [
+    "Noun"
+  ],
+  "MOGUL": [
+    "Noun"
+  ],
+  "MOIST": [
+    "Adjective"
+  ],
+  "MOLAR": [
+    "Adjective",
+    "Noun"
+  ],
+  "MOLDY": [
+    "Adjective"
+  ],
+  "MONEY": [
+    "Noun"
+  ],
+  "MONTH": [
+    "Noun"
+  ],
+  "MOODY": [
+    "Adjective",
+    "Noun"
+  ],
+  "MOOSE": [
+    "Noun"
+  ],
+  "MORAL": [
+    "Adjective",
+    "Noun"
+  ],
+  "MORON": [
+    "Noun"
+  ],
+  "MORPH": [
+    "Verb"
+  ],
+  "MOSSY": [
+    "Adjective"
+  ],
+  "MOTEL": [
+    "Noun"
+  ],
+  "MOTIF": [
+    "Noun"
+  ],
+  "MOTOR": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "MOTTO": [
+    "Noun"
+  ],
+  "MOULT": [
+    "Noun",
+    "Verb"
+  ],
+  "MOUND": [
+    "Noun",
+    "Verb"
+  ],
+  "MOUNT": [
+    "Noun",
+    "Verb"
+  ],
+  "MOURN": [
+    "Verb"
+  ],
+  "MOUSE": [
+    "Noun",
+    "Verb"
+  ],
+  "MOUTH": [
+    "Noun",
+    "Verb"
+  ],
+  "MOVER": [
+    "Noun"
+  ],
+  "MOVIE": [
+    "Noun"
+  ],
+  "MOWER": [
+    "Noun"
+  ],
+  "MUCKY": [
+    "Adjective"
+  ],
+  "MUCUS": [
+    "Noun"
+  ],
+  "MUDDY": [
+    "Adjective",
+    "Verb"
+  ],
+  "MULCH": [
+    "Noun",
+    "Verb"
+  ],
+  "MUMMY": [
+    "Noun"
+  ],
+  "MUNCH": [
+    "Noun",
+    "Verb"
+  ],
+  "MURAL": [
+    "Adjective",
+    "Noun"
+  ],
+  "MURKY": [
+    "Adjective"
+  ],
+  "MUSHY": [
+    "Adjective"
+  ],
+  "MUSIC": [
+    "Noun"
+  ],
+  "MUSKY": [
+    "Adjective"
+  ],
+  "MUSTY": [
+    "Adjective"
+  ],
+  "MYRRH": [
+    "Noun"
+  ],
+  "NADIR": [
+    "Noun"
+  ],
+  "NAIVE": [
+    "Adjective"
+  ],
+  "NANNY": [
+    "Noun"
+  ],
+  "NASAL": [
+    "Adjective",
+    "Noun"
+  ],
+  "NASTY": [
+    "Adjective"
+  ],
+  "NATAL": [
+    "Adjective",
+    "Noun"
+  ],
+  "NAVAL": [
+    "Adjective"
+  ],
+  "NAVEL": [
+    "Noun"
+  ],
+  "NEEDS": [
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "NEEDY": [
+    "Adjective",
+    "Noun"
+  ],
+  "NEIGH": [
+    "Noun",
+    "Verb"
+  ],
+  "NERDY": [
+    "Adjective"
+  ],
+  "NERVE": [
+    "Noun",
+    "Verb"
+  ],
+  "NEVER": [
+    "Adverb"
+  ],
+  "NEWER": [
+    "Adjective"
+  ],
+  "NEWLY": [
+    "Adverb"
+  ],
+  "NICER": [
+    "Adjective"
+  ],
+  "NICHE": [
+    "Noun"
+  ],
+  "NIECE": [
+    "Noun"
+  ],
+  "NIGHT": [
+    "Noun"
+  ],
+  "NINJA": [
+    "Noun"
+  ],
+  "NINNY": [
+    "Noun"
+  ],
+  "NINTH": [
+    "Adjective",
+    "Noun"
+  ],
+  "NOBLE": [
+    "Adjective",
+    "Noun"
+  ],
+  "NOBLY": [
+    "Adverb"
+  ],
+  "NOISE": [
+    "Noun",
+    "Verb"
+  ],
+  "NOISY": [
+    "Adjective"
+  ],
+  "NOMAD": [
+    "Noun"
+  ],
+  "NOOSE": [
+    "Noun",
+    "Verb"
+  ],
+  "NORTH": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "NOSEY": [
+    "Adjective"
+  ],
+  "NOTCH": [
+    "Noun",
+    "Verb"
+  ],
+  "NOVEL": [
+    "Adjective",
+    "Noun"
+  ],
+  "NUDGE": [
+    "Noun",
+    "Verb"
+  ],
+  "NURSE": [
+    "Noun",
+    "Verb"
+  ],
+  "NUTTY": [
+    "Adjective"
+  ],
+  "NYLON": [
+    "Noun"
+  ],
+  "NYMPH": [
+    "Noun"
+  ],
+  "OAKEN": [
+    "Adjective"
+  ],
+  "OBESE": [
+    "Adjective"
+  ],
+  "OCCUR": [
+    "Verb"
+  ],
+  "OCEAN": [
+    "Noun"
+  ],
+  "OCTAL": [
+    "Adjective"
+  ],
+  "OCTET": [
+    "Noun"
+  ],
+  "ODDER": [
+    "Adjective"
+  ],
+  "ODDLY": [
+    "Adverb"
+  ],
+  "OFFAL": [
+    "Noun"
+  ],
+  "OFFER": [
+    "Noun",
+    "Verb"
+  ],
+  "OFTEN": [
+    "Adverb"
+  ],
+  "OLDEN": [
+    "Adjective"
+  ],
+  "OLDER": [
+    "Adjective"
+  ],
+  "OLIVE": [
+    "Adjective",
+    "Noun"
+  ],
+  "OMBRE": [
+    "Adjective",
+    "Noun"
+  ],
+  "OMEGA": [
+    "Noun"
+  ],
+  "ONION": [
+    "Noun"
+  ],
+  "ONSET": [
+    "Noun"
+  ],
+  "OPERA": [
+    "Noun"
+  ],
+  "OPINE": [
+    "Verb"
+  ],
+  "OPIUM": [
+    "Noun"
+  ],
+  "OPTIC": [
+    "Adjective",
+    "Noun"
+  ],
+  "ORBIT": [
+    "Noun",
+    "Verb"
+  ],
+  "ORDER": [
+    "Noun",
+    "Verb"
+  ],
+  "ORGAN": [
+    "Noun"
+  ],
+  "OTHER": [
+    "Adjective"
+  ],
+  "OTTER": [
+    "Noun"
+  ],
+  "OUGHT": [
+    "Verb"
+  ],
+  "OUNCE": [
+    "Noun"
+  ],
+  "OUTDO": [
+    "Verb"
+  ],
+  "OUTER": [
+    "Adjective"
+  ],
+  "OUTGO": [
+    "Noun",
+    "Verb"
+  ],
+  "OVARY": [
+    "Noun"
+  ],
+  "OVATE": [
+    "Adjective"
+  ],
+  "OVERT": [
+    "Adjective"
+  ],
+  "OVINE": [
+    "Adjective"
+  ],
+  "OVOID": [
+    "Adjective",
+    "Noun"
+  ],
+  "OWING": [
+    "Adjective",
+    "Verb"
+  ],
+  "OWNER": [
+    "Noun"
+  ],
+  "OXIDE": [
+    "Noun"
+  ],
+  "OZONE": [
+    "Noun"
+  ],
+  "PADDY": [
+    "Noun"
+  ],
+  "PAGAN": [
+    "Adjective",
+    "Noun"
+  ],
+  "PAINT": [
+    "Noun",
+    "Verb"
+  ],
+  "PALEO": [
+    "Adjective",
+    "Noun"
+  ],
+  "PALER": [
+    "Adjective"
+  ],
+  "PALSY": [
+    "Noun",
+    "Verb"
+  ],
+  "PANEL": [
+    "Noun",
+    "Verb"
+  ],
+  "PANIC": [
+    "Noun",
+    "Verb"
+  ],
+  "PANSY": [
+    "Noun"
+  ],
+  "PAPAL": [
+    "Adjective"
+  ],
+  "PAPER": [
+    "Noun",
+    "Verb"
+  ],
+  "PARER": [
+    "Noun"
+  ],
+  "PARKA": [
+    "Noun"
+  ],
+  "PARRY": [
+    "Noun",
+    "Verb"
+  ],
+  "PARSE": [
+    "Verb"
+  ],
+  "PARTY": [
+    "Noun",
+    "Verb"
+  ],
+  "PASTA": [
+    "Noun"
+  ],
+  "PASTE": [
+    "Noun",
+    "Verb"
+  ],
+  "PASTY": [
+    "Adjective",
+    "Noun"
+  ],
+  "PATCH": [
+    "Noun",
+    "Verb"
+  ],
+  "PATIO": [
+    "Noun"
+  ],
+  "PATSY": [
+    "Noun"
+  ],
+  "PATTY": [
+    "Noun"
+  ],
+  "PAUSE": [
+    "Noun",
+    "Verb"
+  ],
+  "PAYEE": [
+    "Noun"
+  ],
+  "PAYER": [
+    "Noun"
+  ],
+  "PEACE": [
+    "Noun"
+  ],
+  "PEACH": [
+    "Noun",
+    "Verb"
+  ],
+  "PEARL": [
+    "Noun",
+    "Verb"
+  ],
+  "PECAN": [
+    "Noun"
+  ],
+  "PEDAL": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "PENAL": [
+    "Adjective"
+  ],
+  "PENCE": [
+    "Noun"
+  ],
+  "PENNE": [
+    "Noun"
+  ],
+  "PENNY": [
+    "Noun"
+  ],
+  "PERCH": [
+    "Noun",
+    "Verb"
+  ],
+  "PERIL": [
+    "Noun",
+    "Verb"
+  ],
+  "PERKY": [
+    "Adjective"
+  ],
+  "PESKY": [
+    "Adjective"
+  ],
+  "PESTO": [
+    "Noun"
+  ],
+  "PETAL": [
+    "Noun"
+  ],
+  "PETTY": [
+    "Adjective",
+    "Noun"
+  ],
+  "PHASE": [
+    "Noun",
+    "Verb"
+  ],
+  "PHONE": [
+    "Noun",
+    "Verb"
+  ],
+  "PHONY": [
+    "Adjective",
+    "Noun"
+  ],
+  "PHOTO": [
+    "Noun"
+  ],
+  "PIANO": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "PICKY": [
+    "Adjective"
+  ],
+  "PIECE": [
+    "Noun",
+    "Verb"
+  ],
+  "PIETY": [
+    "Noun"
+  ],
+  "PIGGY": [
+    "Adjective",
+    "Noun"
+  ],
+  "PILOT": [
+    "Noun",
+    "Verb"
+  ],
+  "PINCH": [
+    "Noun",
+    "Verb"
+  ],
+  "PINEY": [
+    "Adjective"
+  ],
+  "PINKY": [
+    "Noun"
+  ],
+  "PINTO": [
+    "Noun"
+  ],
+  "PIPER": [
+    "Noun"
+  ],
+  "PIQUE": [
+    "Noun",
+    "Verb"
+  ],
+  "PITCH": [
+    "Noun",
+    "Verb"
+  ],
+  "PITHY": [
+    "Adjective"
+  ],
+  "PIVOT": [
+    "Noun",
+    "Verb"
+  ],
+  "PIXEL": [
+    "Noun"
+  ],
+  "PIXIE": [
+    "Noun"
+  ],
+  "PIZZA": [
+    "Noun"
+  ],
+  "PLACE": [
+    "Noun",
+    "Verb"
+  ],
+  "PLAID": [
+    "Noun"
+  ],
+  "PLAIN": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "PLAIT": [
+    "Noun",
+    "Verb"
+  ],
+  "PLANE": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "PLANK": [
+    "Noun",
+    "Verb"
+  ],
+  "PLANT": [
+    "Noun",
+    "Verb"
+  ],
+  "PLATE": [
+    "Noun",
+    "Verb"
+  ],
+  "PLAZA": [
+    "Noun"
+  ],
+  "PLEAD": [
+    "Verb"
+  ],
+  "PLEAT": [
+    "Noun",
+    "Verb"
+  ],
+  "PLIED": [
+    "Verb"
+  ],
+  "PLIER": [
+    "Noun"
+  ],
+  "PLUCK": [
+    "Noun",
+    "Verb"
+  ],
+  "PLUMB": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "PLUME": [
+    "Noun",
+    "Verb"
+  ],
+  "PLUMP": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "PLUNK": [
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "PLUSH": [
+    "Adjective",
+    "Noun"
+  ],
+  "POESY": [
+    "Noun"
+  ],
+  "POINT": [
+    "Noun",
+    "Verb"
+  ],
+  "POISE": [
+    "Noun",
+    "Verb"
+  ],
+  "POKER": [
+    "Noun"
+  ],
+  "POLAR": [
+    "Adjective"
+  ],
+  "POLKA": [
+    "Noun",
+    "Verb"
+  ],
+  "POLYP": [
+    "Noun"
+  ],
+  "POOCH": [
+    "Noun",
+    "Verb"
+  ],
+  "POPPY": [
+    "Noun"
+  ],
+  "PORCH": [
+    "Noun"
+  ],
+  "POSER": [
+    "Noun"
+  ],
+  "POSIT": [
+    "Noun",
+    "Verb"
+  ],
+  "POSSE": [
+    "Noun"
+  ],
+  "POUCH": [
+    "Noun",
+    "Verb"
+  ],
+  "POUND": [
+    "Noun",
+    "Verb"
+  ],
+  "POUTY": [
+    "Adjective"
+  ],
+  "POWER": [
+    "Noun",
+    "Verb"
+  ],
+  "PRANK": [
+    "Noun",
+    "Verb"
+  ],
+  "PRAWN": [
+    "Noun",
+    "Verb"
+  ],
+  "PREEN": [
+    "Verb"
+  ],
+  "PRESS": [
+    "Noun",
+    "Verb"
+  ],
+  "PRICE": [
+    "Noun",
+    "Verb"
+  ],
+  "PRICK": [
+    "Noun",
+    "Verb"
+  ],
+  "PRIDE": [
+    "Noun",
+    "Verb"
+  ],
+  "PRIED": [
+    "Verb"
+  ],
+  "PRIME": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "PRIMO": [
+    "Adjective",
+    "Noun"
+  ],
+  "PRINT": [
+    "Noun",
+    "Verb"
+  ],
+  "PRIOR": [
+    "Adjective",
+    "Noun"
+  ],
+  "PRISM": [
+    "Noun"
+  ],
+  "PRIVY": [
+    "Adjective",
+    "Noun"
+  ],
+  "PRIZE": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "PROBE": [
+    "Noun",
+    "Verb"
+  ],
+  "PRONE": [
+    "Adjective"
+  ],
+  "PRONG": [
+    "Noun"
+  ],
+  "PROOF": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "PROSE": [
+    "Noun"
+  ],
+  "PROUD": [
+    "Adjective"
+  ],
+  "PROVE": [
+    "Verb"
+  ],
+  "PROWL": [
+    "Noun",
+    "Verb"
+  ],
+  "PROXY": [
+    "Noun"
+  ],
+  "PRUDE": [
+    "Noun"
+  ],
+  "PRUNE": [
+    "Noun",
+    "Verb"
+  ],
+  "PSALM": [
+    "Noun",
+    "Verb"
+  ],
+  "PUBIC": [
+    "Adjective"
+  ],
+  "PUDGY": [
+    "Adjective"
+  ],
+  "PUFFY": [
+    "Adjective"
+  ],
+  "PULPY": [
+    "Adjective"
+  ],
+  "PULSE": [
+    "Noun",
+    "Verb"
+  ],
+  "PUNCH": [
+    "Noun",
+    "Verb"
+  ],
+  "PUPAL": [
+    "Adjective"
+  ],
+  "PUPIL": [
+    "Noun"
+  ],
+  "PUPPY": [
+    "Noun"
+  ],
+  "PUREE": [
+    "Noun",
+    "Verb"
+  ],
+  "PURER": [
+    "Adjective"
+  ],
+  "PURGE": [
+    "Noun",
+    "Verb"
+  ],
+  "PURSE": [
+    "Noun",
+    "Verb"
+  ],
+  "PUSHY": [
+    "Adjective"
+  ],
+  "PUTTY": [
+    "Noun",
+    "Verb"
+  ],
+  "PYGMY": [
+    "Noun"
+  ],
+  "QUACK": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "QUAIL": [
+    "Noun",
+    "Verb"
+  ],
+  "QUAKE": [
+    "Noun",
+    "Verb"
+  ],
+  "QUALM": [
+    "Noun"
+  ],
+  "QUARK": [
+    "Noun"
+  ],
+  "QUART": [
+    "Noun"
+  ],
+  "QUASH": [
+    "Verb"
+  ],
+  "QUASI": [
+    "Adjective"
+  ],
+  "QUEEN": [
+    "Noun",
+    "Verb"
+  ],
+  "QUEER": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "QUELL": [
+    "Verb"
+  ],
+  "QUERY": [
+    "Noun",
+    "Verb"
+  ],
+  "QUEST": [
+    "Noun",
+    "Verb"
+  ],
+  "QUEUE": [
+    "Noun",
+    "Verb"
+  ],
+  "QUICK": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "QUIET": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "QUILL": [
+    "Noun"
+  ],
+  "QUILT": [
+    "Noun",
+    "Verb"
+  ],
+  "QUIRK": [
+    "Noun",
+    "Verb"
+  ],
+  "QUITE": [
+    "Adverb"
+  ],
+  "QUOTA": [
+    "Noun"
+  ],
+  "QUOTE": [
+    "Noun",
+    "Verb"
+  ],
+  "QUOTH": [
+    "Verb"
+  ],
+  "RABBI": [
+    "Noun"
+  ],
+  "RABID": [
+    "Adjective"
+  ],
+  "RACER": [
+    "Noun"
+  ],
+  "RADAR": [
+    "Noun"
+  ],
+  "RADII": [
+    "Noun"
+  ],
+  "RADIO": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "RAINY": [
+    "Adjective"
+  ],
+  "RAISE": [
+    "Noun",
+    "Verb"
+  ],
+  "RAJAH": [
+    "Noun"
+  ],
+  "RALLY": [
+    "Noun",
+    "Verb"
+  ],
+  "RALPH": [
+    "Verb"
+  ],
+  "RAMEN": [
+    "Noun"
+  ],
+  "RANCH": [
+    "Noun",
+    "Verb"
+  ],
+  "RANDY": [
+    "Adjective"
+  ],
+  "RANGE": [
+    "Noun",
+    "Verb"
+  ],
+  "RAPID": [
+    "Adjective",
+    "Noun"
+  ],
+  "RARER": [
+    "Adjective"
+  ],
+  "RASPY": [
+    "Adjective"
+  ],
+  "RATIO": [
+    "Noun"
+  ],
+  "RATTY": [
+    "Adjective"
+  ],
+  "RAVEN": [
+    "Noun",
+    "Verb"
+  ],
+  "RAYON": [
+    "Noun"
+  ],
+  "RAZOR": [
+    "Noun",
+    "Verb"
+  ],
+  "REACH": [
+    "Noun",
+    "Verb"
+  ],
+  "REACT": [
+    "Verb"
+  ],
+  "READY": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "REALM": [
+    "Noun"
+  ],
+  "REARM": [
+    "Verb"
+  ],
+  "REBAR": [
+    "Noun"
+  ],
+  "REBEL": [
+    "Noun",
+    "Verb"
+  ],
+  "REBUS": [
+    "Noun"
+  ],
+  "REBUT": [
+    "Verb"
+  ],
+  "RECAP": [
+    "Noun",
+    "Verb"
+  ],
+  "RECUR": [
+    "Verb"
+  ],
+  "RECUT": [
+    "Noun",
+    "Verb"
+  ],
+  "REEDY": [
+    "Adjective"
+  ],
+  "REFER": [
+    "Verb"
+  ],
+  "REFIT": [
+    "Noun",
+    "Verb"
+  ],
+  "REGAL": [
+    "Adjective"
+  ],
+  "REHAB": [
+    "Noun",
+    "Verb"
+  ],
+  "REIGN": [
+    "Noun",
+    "Verb"
+  ],
+  "RELAX": [
+    "Verb"
+  ],
+  "RELAY": [
+    "Noun",
+    "Verb"
+  ],
+  "RELIC": [
+    "Noun"
+  ],
+  "REMIT": [
+    "Noun",
+    "Verb"
+  ],
+  "RENAL": [
+    "Adjective"
+  ],
+  "RENEW": [
+    "Verb"
+  ],
+  "REPAY": [
+    "Verb"
+  ],
+  "REPEL": [
+    "Verb"
+  ],
+  "REPLY": [
+    "Noun",
+    "Verb"
+  ],
+  "RERUN": [
+    "Noun",
+    "Verb"
+  ],
+  "RESET": [
+    "Noun",
+    "Verb"
+  ],
+  "RESIN": [
+    "Noun"
+  ],
+  "RETCH": [
+    "Noun",
+    "Verb"
+  ],
+  "RETRO": [
+    "Adjective",
+    "Noun"
+  ],
+  "RETRY": [
+    "Verb"
+  ],
+  "REUSE": [
+    "Verb"
+  ],
+  "REVEL": [
+    "Noun",
+    "Verb"
+  ],
+  "REVUE": [
+    "Noun"
+  ],
+  "RHINO": [
+    "Noun"
+  ],
+  "RHYME": [
+    "Noun",
+    "Verb"
+  ],
+  "RIDER": [
+    "Noun"
+  ],
+  "RIDGE": [
+    "Noun",
+    "Verb"
+  ],
+  "RIFLE": [
+    "Noun",
+    "Verb"
+  ],
+  "RIGHT": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "RIGID": [
+    "Adjective"
+  ],
+  "RIGOR": [
+    "Noun"
+  ],
+  "RINSE": [
+    "Noun",
+    "Verb"
+  ],
+  "RIPEN": [
+    "Verb"
+  ],
+  "RIPER": [
+    "Adjective"
+  ],
+  "RISEN": [
+    "Adjective",
+    "Verb"
+  ],
+  "RISER": [
+    "Noun"
+  ],
+  "RISKY": [
+    "Adjective"
+  ],
+  "RIVAL": [
+    "Noun",
+    "Verb"
+  ],
+  "RIVER": [
+    "Noun"
+  ],
+  "RIVET": [
+    "Noun",
+    "Verb"
+  ],
+  "ROACH": [
+    "Noun",
+    "Verb"
+  ],
+  "ROAST": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "ROBIN": [
+    "Noun"
+  ],
+  "ROBOT": [
+    "Noun"
+  ],
+  "ROCKY": [
+    "Adjective"
+  ],
+  "RODEO": [
+    "Noun"
+  ],
+  "ROGER": [
+    "Interjection",
+    "Verb"
+  ],
+  "ROGUE": [
+    "Noun"
+  ],
+  "ROOMY": [
+    "Adjective",
+    "Noun"
+  ],
+  "ROOST": [
+    "Noun",
+    "Verb"
+  ],
+  "ROTOR": [
+    "Noun"
+  ],
+  "ROUGE": [
+    "Noun",
+    "Verb"
+  ],
+  "ROUGH": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "ROUND": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "ROUSE": [
+    "Verb"
+  ],
+  "ROUTE": [
+    "Noun",
+    "Verb"
+  ],
+  "ROVER": [
+    "Noun"
+  ],
+  "ROWDY": [
+    "Adjective",
+    "Noun"
+  ],
+  "ROWER": [
+    "Noun"
+  ],
+  "ROYAL": [
+    "Adjective",
+    "Noun"
+  ],
+  "RUDDY": [
+    "Adjective"
+  ],
+  "RUDER": [
+    "Adjective"
+  ],
+  "RUGBY": [
+    "Noun"
+  ],
+  "RULER": [
+    "Noun"
+  ],
+  "RUMBA": [
+    "Noun",
+    "Verb"
+  ],
+  "RUMOR": [
+    "Noun",
+    "Verb"
+  ],
+  "RUPEE": [
+    "Noun"
+  ],
+  "RURAL": [
+    "Adjective"
+  ],
+  "RUSTY": [
+    "Adjective"
+  ],
+  "SADLY": [
+    "Adverb"
+  ],
+  "SAFER": [
+    "Adjective"
+  ],
+  "SAINT": [
+    "Noun",
+    "Verb"
+  ],
+  "SALAD": [
+    "Noun"
+  ],
+  "SALLY": [
+    "Noun"
+  ],
+  "SALON": [
+    "Noun"
+  ],
+  "SALSA": [
+    "Noun"
+  ],
+  "SALTY": [
+    "Adjective"
+  ],
+  "SALVE": [
+    "Noun",
+    "Verb"
+  ],
+  "SALVO": [
+    "Noun"
+  ],
+  "SANDY": [
+    "Adjective"
+  ],
+  "SANER": [
+    "Adjective"
+  ],
+  "SAPPY": [
+    "Adjective"
+  ],
+  "SASSY": [
+    "Adjective"
+  ],
+  "SATIN": [
+    "Noun"
+  ],
+  "SATYR": [
+    "Noun"
+  ],
+  "SAUCE": [
+    "Noun",
+    "Verb"
+  ],
+  "SAUCY": [
+    "Adjective"
+  ],
+  "SAUNA": [
+    "Noun"
+  ],
+  "SAUTE": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SAVOR": [
+    "Noun",
+    "Verb"
+  ],
+  "SAVOY": [
+    "Noun"
+  ],
+  "SAVVY": [
+    "Noun",
+    "Verb"
+  ],
+  "SCALD": [
+    "Noun",
+    "Verb"
+  ],
+  "SCALE": [
+    "Noun",
+    "Verb"
+  ],
+  "SCALP": [
+    "Noun",
+    "Verb"
+  ],
+  "SCALY": [
+    "Adjective"
+  ],
+  "SCAMP": [
+    "Noun",
+    "Verb"
+  ],
+  "SCANT": [
+    "Adjective",
+    "Verb"
+  ],
+  "SCARE": [
+    "Noun",
+    "Verb"
+  ],
+  "SCARF": [
+    "Noun",
+    "Verb"
+  ],
+  "SCARY": [
+    "Adjective"
+  ],
+  "SCENE": [
+    "Noun"
+  ],
+  "SCENT": [
+    "Noun",
+    "Verb"
+  ],
+  "SCION": [
+    "Noun"
+  ],
+  "SCOFF": [
+    "Noun",
+    "Verb"
+  ],
+  "SCOLD": [
+    "Noun",
+    "Verb"
+  ],
+  "SCONE": [
+    "Noun"
+  ],
+  "SCOOP": [
+    "Noun",
+    "Verb"
+  ],
+  "SCOPE": [
+    "Noun"
+  ],
+  "SCORE": [
+    "Noun",
+    "Verb"
+  ],
+  "SCORN": [
+    "Noun",
+    "Verb"
+  ],
+  "SCOUR": [
+    "Noun",
+    "Verb"
+  ],
+  "SCOUT": [
+    "Noun",
+    "Verb"
+  ],
+  "SCOWL": [
+    "Noun",
+    "Verb"
+  ],
+  "SCRAM": [
+    "Verb"
+  ],
+  "SCRAP": [
+    "Noun",
+    "Verb"
+  ],
+  "SCREE": [
+    "Noun"
+  ],
+  "SCREW": [
+    "Noun",
+    "Verb"
+  ],
+  "SCRUB": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SCRUM": [
+    "Noun"
+  ],
+  "SCUBA": [
+    "Noun"
+  ],
+  "SEDAN": [
+    "Noun"
+  ],
+  "SEEDY": [
+    "Adjective"
+  ],
+  "SEGUE": [
+    "Noun",
+    "Verb"
+  ],
+  "SEIZE": [
+    "Verb"
+  ],
+  "SEMEN": [
+    "Noun"
+  ],
+  "SENSE": [
+    "Noun",
+    "Verb"
+  ],
+  "SEPIA": [
+    "Noun"
+  ],
+  "SERIF": [
+    "Noun"
+  ],
+  "SERUM": [
+    "Noun"
+  ],
+  "SERVE": [
+    "Noun",
+    "Verb"
+  ],
+  "SETUP": [
+    "Noun"
+  ],
+  "SEVEN": [
+    "Adjective",
+    "Noun"
+  ],
+  "SEVER": [
+    "Verb"
+  ],
+  "SEWER": [
+    "Noun"
+  ],
+  "SHACK": [
+    "Noun",
+    "Verb"
+  ],
+  "SHADE": [
+    "Noun",
+    "Verb"
+  ],
+  "SHADY": [
+    "Adjective"
+  ],
+  "SHAFT": [
+    "Noun",
+    "Verb"
+  ],
+  "SHAKE": [
+    "Noun",
+    "Verb"
+  ],
+  "SHAKY": [
+    "Adjective"
+  ],
+  "SHALE": [
+    "Noun"
+  ],
+  "SHALL": [
+    "Verb"
+  ],
+  "SHALT": [
+    "Verb"
+  ],
+  "SHAME": [
+    "Noun",
+    "Verb"
+  ],
+  "SHANK": [
+    "Noun",
+    "Verb"
+  ],
+  "SHAPE": [
+    "Noun",
+    "Verb"
+  ],
+  "SHARD": [
+    "Noun"
+  ],
+  "SHARE": [
+    "Noun",
+    "Verb"
+  ],
+  "SHARK": [
+    "Noun",
+    "Verb"
+  ],
+  "SHARP": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "SHAVE": [
+    "Noun",
+    "Verb"
+  ],
+  "SHAWL": [
+    "Noun"
+  ],
+  "SHEAR": [
+    "Noun",
+    "Verb"
+  ],
+  "SHEEN": [
+    "Noun"
+  ],
+  "SHEEP": [
+    "Noun"
+  ],
+  "SHEER": [
+    "Adjective",
+    "Adverb",
+    "Verb"
+  ],
+  "SHEET": [
+    "Noun",
+    "Verb"
+  ],
+  "SHEIK": [
+    "Noun"
+  ],
+  "SHELF": [
+    "Noun"
+  ],
+  "SHELL": [
+    "Noun",
+    "Verb"
+  ],
+  "SHIED": [
+    "Verb"
+  ],
+  "SHIFT": [
+    "Noun",
+    "Verb"
+  ],
+  "SHINE": [
+    "Noun",
+    "Verb"
+  ],
+  "SHINY": [
+    "Adjective"
+  ],
+  "SHIRE": [
+    "Noun"
+  ],
+  "SHIRK": [
+    "Verb"
+  ],
+  "SHIRT": [
+    "Noun",
+    "Verb"
+  ],
+  "SHOAL": [
+    "Noun",
+    "Verb"
+  ],
+  "SHOCK": [
+    "Noun",
+    "Verb"
+  ],
+  "SHONE": [
+    "Verb"
+  ],
+  "SHOOK": [
+    "Noun",
+    "Verb"
+  ],
+  "SHOOT": [
+    "Noun",
+    "Verb"
+  ],
+  "SHORE": [
+    "Noun",
+    "Verb"
+  ],
+  "SHORN": [
+    "Adjective",
+    "Verb"
+  ],
+  "SHORT": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "SHOUT": [
+    "Noun",
+    "Verb"
+  ],
+  "SHOVE": [
+    "Noun",
+    "Verb"
+  ],
+  "SHOWN": [
+    "Verb"
+  ],
+  "SHOWY": [
+    "Adjective"
+  ],
+  "SHREW": [
+    "Noun"
+  ],
+  "SHRUB": [
+    "Noun"
+  ],
+  "SHRUG": [
+    "Noun",
+    "Verb"
+  ],
+  "SHUCK": [
+    "Noun",
+    "Verb"
+  ],
+  "SHUNT": [
+    "Noun",
+    "Verb"
+  ],
+  "SHUSH": [
+    "Verb"
+  ],
+  "SHYLY": [
+    "Adverb"
+  ],
+  "SIEGE": [
+    "Noun"
+  ],
+  "SIEVE": [
+    "Noun",
+    "Verb"
+  ],
+  "SIGHT": [
+    "Noun",
+    "Verb"
+  ],
+  "SIGMA": [
+    "Noun"
+  ],
+  "SILKY": [
+    "Adjective"
+  ],
+  "SILLY": [
+    "Adjective",
+    "Noun"
+  ],
+  "SINCE": [
+    "Adverb",
+    "Conjunction",
+    "Preposition"
+  ],
+  "SINEW": [
+    "Noun"
+  ],
+  "SINGE": [
+    "Noun",
+    "Verb"
+  ],
+  "SIREN": [
+    "Noun"
+  ],
+  "SISSY": [
+    "Adjective",
+    "Noun"
+  ],
+  "SIXTH": [
+    "Adjective",
+    "Noun"
+  ],
+  "SIXTY": [
+    "Adjective",
+    "Noun"
+  ],
+  "SIZED": [
+    "Adjective",
+    "Verb"
+  ],
+  "SKATE": [
+    "Noun",
+    "Verb"
+  ],
+  "SKIER": [
+    "Noun"
+  ],
+  "SKIFF": [
+    "Noun"
+  ],
+  "SKILL": [
+    "Noun"
+  ],
+  "SKIMP": [
+    "Verb"
+  ],
+  "SKIRT": [
+    "Noun",
+    "Verb"
+  ],
+  "SKULK": [
+    "Verb"
+  ],
+  "SKULL": [
+    "Noun"
+  ],
+  "SKUNK": [
+    "Noun",
+    "Verb"
+  ],
+  "SLACK": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SLAIN": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SLANG": [
+    "Noun",
+    "Verb"
+  ],
+  "SLANT": [
+    "Noun",
+    "Verb"
+  ],
+  "SLASH": [
+    "Noun",
+    "Verb"
+  ],
+  "SLATE": [
+    "Noun",
+    "Verb"
+  ],
+  "SLAVE": [
+    "Noun",
+    "Verb"
+  ],
+  "SLEEK": [
+    "Adjective",
+    "Verb"
+  ],
+  "SLEEP": [
+    "Noun",
+    "Verb"
+  ],
+  "SLEET": [
+    "Noun",
+    "Verb"
+  ],
+  "SLEPT": [
+    "Verb"
+  ],
+  "SLICE": [
+    "Noun",
+    "Verb"
+  ],
+  "SLICK": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SLIDE": [
+    "Noun",
+    "Verb"
+  ],
+  "SLIME": [
+    "Noun",
+    "Verb"
+  ],
+  "SLIMY": [
+    "Adjective"
+  ],
+  "SLING": [
+    "Noun",
+    "Verb"
+  ],
+  "SLINK": [
+    "Verb"
+  ],
+  "SLOOP": [
+    "Noun"
+  ],
+  "SLOPE": [
+    "Noun",
+    "Verb"
+  ],
+  "SLOSH": [
+    "Verb"
+  ],
+  "SLOTH": [
+    "Noun"
+  ],
+  "SLUMP": [
+    "Noun",
+    "Verb"
+  ],
+  "SLUNG": [
+    "Verb"
+  ],
+  "SLUNK": [
+    "Verb"
+  ],
+  "SLURP": [
+    "Verb"
+  ],
+  "SLUSH": [
+    "Noun",
+    "Verb"
+  ],
+  "SLYLY": [
+    "Adverb"
+  ],
+  "SMACK": [
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "SMALL": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "SMART": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SMASH": [
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "SMEAR": [
+    "Noun",
+    "Verb"
+  ],
+  "SMELL": [
+    "Noun",
+    "Verb"
+  ],
+  "SMELT": [
+    "Noun",
+    "Verb"
+  ],
+  "SMILE": [
+    "Noun",
+    "Verb"
+  ],
+  "SMIRK": [
+    "Noun",
+    "Verb"
+  ],
+  "SMITE": [
+    "Verb"
+  ],
+  "SMITH": [
+    "Noun"
+  ],
+  "SMOCK": [
+    "Noun",
+    "Verb"
+  ],
+  "SMOKE": [
+    "Noun",
+    "Verb"
+  ],
+  "SMOKY": [
+    "Adjective"
+  ],
+  "SMOTE": [
+    "Verb"
+  ],
+  "SNACK": [
+    "Noun",
+    "Verb"
+  ],
+  "SNAIL": [
+    "Noun",
+    "Verb"
+  ],
+  "SNAKE": [
+    "Noun",
+    "Verb"
+  ],
+  "SNAKY": [
+    "Adjective"
+  ],
+  "SNARE": [
+    "Noun",
+    "Verb"
+  ],
+  "SNARL": [
+    "Noun",
+    "Verb"
+  ],
+  "SNEAK": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SNEER": [
+    "Noun",
+    "Verb"
+  ],
+  "SNIDE": [
+    "Adjective"
+  ],
+  "SNIFF": [
+    "Noun",
+    "Verb"
+  ],
+  "SNIPE": [
+    "Noun",
+    "Verb"
+  ],
+  "SNOOP": [
+    "Noun",
+    "Verb"
+  ],
+  "SNORE": [
+    "Noun",
+    "Verb"
+  ],
+  "SNORT": [
+    "Noun",
+    "Verb"
+  ],
+  "SNOUT": [
+    "Noun"
+  ],
+  "SNOWY": [
+    "Adjective"
+  ],
+  "SNUCK": [
+    "Verb"
+  ],
+  "SNUFF": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SOAPY": [
+    "Adjective"
+  ],
+  "SOBER": [
+    "Adjective",
+    "Verb"
+  ],
+  "SOGGY": [
+    "Adjective"
+  ],
+  "SOLAR": [
+    "Adjective"
+  ],
+  "SOLID": [
+    "Adjective",
+    "Noun"
+  ],
+  "SOLVE": [
+    "Verb"
+  ],
+  "SONAR": [
+    "Noun"
+  ],
+  "SONIC": [
+    "Adjective"
+  ],
+  "SOOTH": [
+    "Noun"
+  ],
+  "SOOTY": [
+    "Adjective"
+  ],
+  "SORRY": [
+    "Adjective"
+  ],
+  "SOUND": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SOUTH": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "SOWER": [
+    "Noun"
+  ],
+  "SPACE": [
+    "Noun",
+    "Verb"
+  ],
+  "SPADE": [
+    "Noun",
+    "Verb"
+  ],
+  "SPANK": [
+    "Noun",
+    "Verb"
+  ],
+  "SPARE": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SPARK": [
+    "Noun",
+    "Verb"
+  ],
+  "SPASM": [
+    "Noun"
+  ],
+  "SPAWN": [
+    "Noun",
+    "Verb"
+  ],
+  "SPEAK": [
+    "Verb"
+  ],
+  "SPEAR": [
+    "Noun",
+    "Verb"
+  ],
+  "SPECK": [
+    "Noun",
+    "Verb"
+  ],
+  "SPEED": [
+    "Noun",
+    "Verb"
+  ],
+  "SPELL": [
+    "Noun",
+    "Verb"
+  ],
+  "SPELT": [
+    "Noun",
+    "Verb"
+  ],
+  "SPEND": [
+    "Verb"
+  ],
+  "SPENT": [
+    "Adjective",
+    "Verb"
+  ],
+  "SPERM": [
+    "Noun"
+  ],
+  "SPICE": [
+    "Noun",
+    "Verb"
+  ],
+  "SPICY": [
+    "Adjective"
+  ],
+  "SPIED": [
+    "Verb"
+  ],
+  "SPIEL": [
+    "Noun",
+    "Verb"
+  ],
+  "SPIKE": [
+    "Noun",
+    "Verb"
+  ],
+  "SPIKY": [
+    "Adjective"
+  ],
+  "SPILL": [
+    "Noun",
+    "Verb"
+  ],
+  "SPILT": [
+    "Verb"
+  ],
+  "SPINE": [
+    "Noun"
+  ],
+  "SPINY": [
+    "Adjective"
+  ],
+  "SPIRE": [
+    "Noun"
+  ],
+  "SPITE": [
+    "Noun",
+    "Verb"
+  ],
+  "SPLAT": [
+    "Noun",
+    "Verb"
+  ],
+  "SPLIT": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SPOIL": [
+    "Noun",
+    "Verb"
+  ],
+  "SPOKE": [
+    "Noun",
+    "Verb"
+  ],
+  "SPOOF": [
+    "Noun",
+    "Verb"
+  ],
+  "SPOOK": [
+    "Noun",
+    "Verb"
+  ],
+  "SPOOL": [
+    "Noun",
+    "Verb"
+  ],
+  "SPOON": [
+    "Noun",
+    "Verb"
+  ],
+  "SPORE": [
+    "Noun"
+  ],
+  "SPORT": [
+    "Noun",
+    "Verb"
+  ],
+  "SPOUT": [
+    "Noun",
+    "Verb"
+  ],
+  "SPRAY": [
+    "Noun",
+    "Verb"
+  ],
+  "SPREE": [
+    "Noun",
+    "Verb"
+  ],
+  "SPRIG": [
+    "Noun"
+  ],
+  "SPUNK": [
+    "Noun"
+  ],
+  "SPURN": [
+    "Verb"
+  ],
+  "SPURT": [
+    "Noun",
+    "Verb"
+  ],
+  "SQUAD": [
+    "Noun"
+  ],
+  "SQUAT": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SQUIB": [
+    "Noun"
+  ],
+  "STACK": [
+    "Noun",
+    "Verb"
+  ],
+  "STAFF": [
+    "Noun",
+    "Verb"
+  ],
+  "STAGE": [
+    "Noun",
+    "Verb"
+  ],
+  "STAID": [
+    "Adjective"
+  ],
+  "STAIN": [
+    "Noun",
+    "Verb"
+  ],
+  "STAIR": [
+    "Noun"
+  ],
+  "STAKE": [
+    "Noun",
+    "Verb"
+  ],
+  "STALE": [
+    "Adjective",
+    "Verb"
+  ],
+  "STALK": [
+    "Noun",
+    "Verb"
+  ],
+  "STALL": [
+    "Noun",
+    "Verb"
+  ],
+  "STAMP": [
+    "Noun",
+    "Verb"
+  ],
+  "STAND": [
+    "Noun",
+    "Verb"
+  ],
+  "STANK": [
+    "Verb"
+  ],
+  "STARE": [
+    "Noun",
+    "Verb"
+  ],
+  "STARK": [
+    "Adjective",
+    "Adverb"
+  ],
+  "START": [
+    "Noun",
+    "Verb"
+  ],
+  "STASH": [
+    "Noun",
+    "Verb"
+  ],
+  "STATE": [
+    "Noun",
+    "Verb"
+  ],
+  "STAVE": [
+    "Noun",
+    "Verb"
+  ],
+  "STEAD": [
+    "Noun"
+  ],
+  "STEAK": [
+    "Noun"
+  ],
+  "STEAL": [
+    "Noun",
+    "Verb"
+  ],
+  "STEAM": [
+    "Noun",
+    "Verb"
+  ],
+  "STEED": [
+    "Noun"
+  ],
+  "STEEL": [
+    "Noun",
+    "Verb"
+  ],
+  "STEEP": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "STEER": [
+    "Noun",
+    "Verb"
+  ],
+  "STEIN": [
+    "Noun"
+  ],
+  "STERN": [
+    "Adjective",
+    "Noun"
+  ],
+  "STICK": [
+    "Noun",
+    "Verb"
+  ],
+  "STIFF": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "STILL": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "STILT": [
+    "Noun"
+  ],
+  "STING": [
+    "Noun",
+    "Verb"
+  ],
+  "STINK": [
+    "Noun",
+    "Verb"
+  ],
+  "STINT": [
+    "Noun",
+    "Verb"
+  ],
+  "STOCK": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "STOIC": [
+    "Adjective",
+    "Noun"
+  ],
+  "STOKE": [
+    "Verb"
+  ],
+  "STOLE": [
+    "Noun",
+    "Verb"
+  ],
+  "STOMP": [
+    "Noun",
+    "Verb"
+  ],
+  "STONE": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "STONY": [
+    "Adjective"
+  ],
+  "STOOD": [
+    "Verb"
+  ],
+  "STOOL": [
+    "Noun",
+    "Verb"
+  ],
+  "STOOP": [
+    "Noun",
+    "Verb"
+  ],
+  "STORE": [
+    "Noun",
+    "Verb"
+  ],
+  "STORK": [
+    "Noun"
+  ],
+  "STORM": [
+    "Noun",
+    "Verb"
+  ],
+  "STORY": [
+    "Noun"
+  ],
+  "STOUT": [
+    "Adjective",
+    "Noun"
+  ],
+  "STOVE": [
+    "Noun",
+    "Verb"
+  ],
+  "STRAP": [
+    "Noun",
+    "Verb"
+  ],
+  "STRAW": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "STRAY": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "STRIP": [
+    "Noun",
+    "Verb"
+  ],
+  "STRUT": [
+    "Noun",
+    "Verb"
+  ],
+  "STUCK": [
+    "Adjective",
+    "Verb"
+  ],
+  "STUDY": [
+    "Noun",
+    "Verb"
+  ],
+  "STUFF": [
+    "Noun",
+    "Verb"
+  ],
+  "STUMP": [
+    "Noun",
+    "Verb"
+  ],
+  "STUNG": [
+    "Adjective",
+    "Verb"
+  ],
+  "STUNK": [
+    "Verb"
+  ],
+  "STUNT": [
+    "Noun",
+    "Verb"
+  ],
+  "STYLE": [
+    "Noun",
+    "Verb"
+  ],
+  "SUAVE": [
+    "Adjective"
+  ],
+  "SUGAR": [
+    "Noun",
+    "Verb"
+  ],
+  "SUING": [
+    "Verb"
+  ],
+  "SUITE": [
+    "Noun"
+  ],
+  "SULKY": [
+    "Adjective",
+    "Noun"
+  ],
+  "SULLY": [
+    "Noun",
+    "Verb"
+  ],
+  "SUMAC": [
+    "Noun"
+  ],
+  "SUNNY": [
+    "Adjective"
+  ],
+  "SUPER": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "SURER": [
+    "Adjective"
+  ],
+  "SURGE": [
+    "Noun",
+    "Verb"
+  ],
+  "SURLY": [
+    "Adjective"
+  ],
+  "SUSHI": [
+    "Noun"
+  ],
+  "SWAMI": [
+    "Noun"
+  ],
+  "SWAMP": [
+    "Noun",
+    "Verb"
+  ],
+  "SWARM": [
+    "Noun",
+    "Verb"
+  ],
+  "SWASH": [
+    "Noun",
+    "Verb"
+  ],
+  "SWATH": [
+    "Noun"
+  ],
+  "SWEAR": [
+    "Verb"
+  ],
+  "SWEAT": [
+    "Noun",
+    "Verb"
+  ],
+  "SWEEP": [
+    "Noun",
+    "Verb"
+  ],
+  "SWEET": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "SWELL": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SWEPT": [
+    "Adjective",
+    "Verb"
+  ],
+  "SWIFT": [
+    "Adjective",
+    "Noun"
+  ],
+  "SWILL": [
+    "Noun",
+    "Verb"
+  ],
+  "SWINE": [
+    "Noun"
+  ],
+  "SWING": [
+    "Noun",
+    "Verb"
+  ],
+  "SWIRL": [
+    "Noun",
+    "Verb"
+  ],
+  "SWISH": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "SWOON": [
+    "Noun",
+    "Verb"
+  ],
+  "SWOOP": [
+    "Noun",
+    "Verb"
+  ],
+  "SWORD": [
+    "Noun"
+  ],
+  "SWORE": [
+    "Verb"
+  ],
+  "SWORN": [
+    "Adjective",
+    "Verb"
+  ],
+  "SWUNG": [
+    "Verb"
+  ],
+  "SYNOD": [
+    "Noun"
+  ],
+  "SYNTH": [
+    "Noun"
+  ],
+  "SYRUP": [
+    "Noun"
+  ],
+  "TABBY": [
+    "Adjective",
+    "Noun"
+  ],
+  "TABLE": [
+    "Noun",
+    "Verb"
+  ],
+  "TABOO": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "TACIT": [
+    "Adjective"
+  ],
+  "TACKY": [
+    "Adjective"
+  ],
+  "TAFFY": [
+    "Noun"
+  ],
+  "TAINT": [
+    "Noun",
+    "Verb"
+  ],
+  "TAKEN": [
+    "Adjective",
+    "Verb"
+  ],
+  "TAKER": [
+    "Noun"
+  ],
+  "TALLY": [
+    "Noun",
+    "Verb"
+  ],
+  "TALON": [
+    "Noun"
+  ],
+  "TAMER": [
+    "Adjective",
+    "Noun"
+  ],
+  "TANGO": [
+    "Noun",
+    "Verb"
+  ],
+  "TANGY": [
+    "Adjective"
+  ],
+  "TAPER": [
+    "Noun",
+    "Verb"
+  ],
+  "TAPIR": [
+    "Noun"
+  ],
+  "TARDY": [
+    "Adjective"
+  ],
+  "TAROT": [
+    "Noun"
+  ],
+  "TASER": [
+    "Noun",
+    "Verb"
+  ],
+  "TASTE": [
+    "Noun",
+    "Verb"
+  ],
+  "TASTY": [
+    "Adjective"
+  ],
+  "TATTY": [
+    "Adjective"
+  ],
+  "TAUNT": [
+    "Noun",
+    "Verb"
+  ],
+  "TAWNY": [
+    "Adjective"
+  ],
+  "TEACH": [
+    "Noun",
+    "Verb"
+  ],
+  "TEARY": [
+    "Adjective"
+  ],
+  "TEASE": [
+    "Noun",
+    "Verb"
+  ],
+  "TEDDY": [
+    "Noun"
+  ],
+  "TEETH": [
+    "Noun"
+  ],
+  "TEMPO": [
+    "Noun"
+  ],
+  "TENET": [
+    "Noun"
+  ],
+  "TENOR": [
+    "Adjective",
+    "Noun"
+  ],
+  "TENSE": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "TENTH": [
+    "Adjective",
+    "Noun"
+  ],
+  "TEPEE": [
+    "Noun"
+  ],
+  "TEPID": [
+    "Adjective"
+  ],
+  "TERRA": [
+    "Noun"
+  ],
+  "TERSE": [
+    "Adjective"
+  ],
+  "TESTY": [
+    "Adjective"
+  ],
+  "THANK": [
+    "Verb"
+  ],
+  "THEFT": [
+    "Noun"
+  ],
+  "THEIR": [
+    "Determiner"
+  ],
+  "THEME": [
+    "Noun",
+    "Verb"
+  ],
+  "THERE": [
+    "Adverb",
+    "Noun"
+  ],
+  "THESE": [
+    "Determiner",
+    "Pronoun"
+  ],
+  "THETA": [
+    "Noun"
+  ],
+  "THICK": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "THIEF": [
+    "Noun"
+  ],
+  "THIGH": [
+    "Noun"
+  ],
+  "THING": [
+    "Noun"
+  ],
+  "THINK": [
+    "Noun",
+    "Verb"
+  ],
+  "THIRD": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "THONG": [
+    "Noun"
+  ],
+  "THORN": [
+    "Noun"
+  ],
+  "THOSE": [
+    "Determiner",
+    "Pronoun"
+  ],
+  "THREE": [
+    "Adjective",
+    "Noun"
+  ],
+  "THREW": [
+    "Verb"
+  ],
+  "THROB": [
+    "Noun",
+    "Verb"
+  ],
+  "THROW": [
+    "Noun",
+    "Verb"
+  ],
+  "THRUM": [
+    "Noun",
+    "Verb"
+  ],
+  "THUMB": [
+    "Noun",
+    "Verb"
+  ],
+  "THUMP": [
+    "Noun",
+    "Verb"
+  ],
+  "THYME": [
+    "Noun"
+  ],
+  "TIARA": [
+    "Noun"
+  ],
+  "TIBIA": [
+    "Noun"
+  ],
+  "TIDAL": [
+    "Adjective"
+  ],
+  "TIGER": [
+    "Noun"
+  ],
+  "TIGHT": [
+    "Adjective",
+    "Adverb"
+  ],
+  "TILDE": [
+    "Noun"
+  ],
+  "TIMER": [
+    "Noun"
+  ],
+  "TIMES": [
+    "Noun",
+    "Verb"
+  ],
+  "TIMID": [
+    "Adjective",
+    "Noun"
+  ],
+  "TIPSY": [
+    "Adjective"
+  ],
+  "TIRED": [
+    "Adjective",
+    "Verb"
+  ],
+  "TITAN": [
+    "Noun"
+  ],
+  "TITHE": [
+    "Noun",
+    "Verb"
+  ],
+  "TITLE": [
+    "Noun",
+    "Verb"
+  ],
+  "TOAST": [
+    "Noun",
+    "Verb"
+  ],
+  "TODAY": [
+    "Adverb",
+    "Noun"
+  ],
+  "TODDY": [
+    "Noun"
+  ],
+  "TOKEN": [
+    "Adjective",
+    "Noun"
+  ],
+  "TONAL": [
+    "Adjective"
+  ],
+  "TONGA": [
+    "Noun"
+  ],
+  "TONIC": [
+    "Adjective",
+    "Noun"
+  ],
+  "TOOTH": [
+    "Noun"
+  ],
+  "TOPAZ": [
+    "Noun"
+  ],
+  "TOPIC": [
+    "Noun"
+  ],
+  "TORCH": [
+    "Noun",
+    "Verb"
+  ],
+  "TORSO": [
+    "Noun"
+  ],
+  "TORUS": [
+    "Noun"
+  ],
+  "TOTAL": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "TOTEM": [
+    "Noun"
+  ],
+  "TOUCH": [
+    "Noun",
+    "Verb"
+  ],
+  "TOUGH": [
+    "Adjective",
+    "Noun"
+  ],
+  "TOWEL": [
+    "Noun",
+    "Verb"
+  ],
+  "TOWER": [
+    "Noun",
+    "Verb"
+  ],
+  "TOXIC": [
+    "Adjective"
+  ],
+  "TOXIN": [
+    "Noun"
+  ],
+  "TRACE": [
+    "Noun",
+    "Verb"
+  ],
+  "TRACK": [
+    "Noun",
+    "Verb"
+  ],
+  "TRACT": [
+    "Noun"
+  ],
+  "TRADE": [
+    "Noun",
+    "Verb"
+  ],
+  "TRAIL": [
+    "Noun",
+    "Verb"
+  ],
+  "TRAIN": [
+    "Noun",
+    "Verb"
+  ],
+  "TRAIT": [
+    "Noun"
+  ],
+  "TRAMP": [
+    "Noun",
+    "Verb"
+  ],
+  "TRASH": [
+    "Noun",
+    "Verb"
+  ],
+  "TRAWL": [
+    "Noun",
+    "Verb"
+  ],
+  "TREAD": [
+    "Noun",
+    "Verb"
+  ],
+  "TREAT": [
+    "Noun",
+    "Verb"
+  ],
+  "TREND": [
+    "Noun",
+    "Verb"
+  ],
+  "TRIAD": [
+    "Noun"
+  ],
+  "TRIAL": [
+    "Noun"
+  ],
+  "TRIBE": [
+    "Noun"
+  ],
+  "TRICE": [
+    "Noun",
+    "Verb"
+  ],
+  "TRICK": [
+    "Noun",
+    "Verb"
+  ],
+  "TRIED": [
+    "Adjective",
+    "Verb"
+  ],
+  "TRIPE": [
+    "Noun"
+  ],
+  "TRITE": [
+    "Adjective"
+  ],
+  "TROLL": [
+    "Noun",
+    "Verb"
+  ],
+  "TROOP": [
+    "Noun",
+    "Verb"
+  ],
+  "TROPE": [
+    "Noun"
+  ],
+  "TROUT": [
+    "Noun"
+  ],
+  "TROVE": [
+    "Noun"
+  ],
+  "TRUCE": [
+    "Noun"
+  ],
+  "TRUCK": [
+    "Noun",
+    "Verb"
+  ],
+  "TRUER": [
+    "Adjective"
+  ],
+  "TRULY": [
+    "Adverb"
+  ],
+  "TRUMP": [
+    "Noun",
+    "Verb"
+  ],
+  "TRUNK": [
+    "Noun"
+  ],
+  "TRUSS": [
+    "Noun",
+    "Verb"
+  ],
+  "TRUST": [
+    "Noun",
+    "Verb"
+  ],
+  "TRUTH": [
+    "Noun"
+  ],
+  "TRYST": [
+    "Noun"
+  ],
+  "TUBAL": [
+    "Adjective"
+  ],
+  "TUBER": [
+    "Noun"
+  ],
+  "TULIP": [
+    "Noun"
+  ],
+  "TULLE": [
+    "Noun"
+  ],
+  "TUMOR": [
+    "Noun"
+  ],
+  "TUNIC": [
+    "Noun"
+  ],
+  "TURBO": [
+    "Adjective",
+    "Noun"
+  ],
+  "TUTOR": [
+    "Noun",
+    "Verb"
+  ],
+  "TWANG": [
+    "Noun",
+    "Verb"
+  ],
+  "TWEAK": [
+    "Noun",
+    "Verb"
+  ],
+  "TWEED": [
+    "Noun"
+  ],
+  "TWEET": [
+    "Noun",
+    "Verb"
+  ],
+  "TWICE": [
+    "Adverb"
+  ],
+  "TWINE": [
+    "Noun",
+    "Verb"
+  ],
+  "TWIRL": [
+    "Noun",
+    "Verb"
+  ],
+  "TWIST": [
+    "Noun",
+    "Verb"
+  ],
+  "TWIXT": [
+    "Preposition"
+  ],
+  "TYING": [
+    "Noun",
+    "Verb"
+  ],
+  "UDDER": [
+    "Noun"
+  ],
+  "ULCER": [
+    "Noun"
+  ],
+  "ULTRA": [
+    "Adjective"
+  ],
+  "UMBRA": [
+    "Noun"
+  ],
+  "UNCLE": [
+    "Noun"
+  ],
+  "UNCUT": [
+    "Adjective"
+  ],
+  "UNDER": [
+    "Adjective",
+    "Adverb"
+  ],
+  "UNDID": [
+    "Verb"
+  ],
+  "UNDUE": [
+    "Adjective"
+  ],
+  "UNFED": [
+    "Adjective"
+  ],
+  "UNFIT": [
+    "Adjective",
+    "Verb"
+  ],
+  "UNIFY": [
+    "Verb"
+  ],
+  "UNION": [
+    "Adjective",
+    "Noun"
+  ],
+  "UNITE": [
+    "Verb"
+  ],
+  "UNITY": [
+    "Noun"
+  ],
+  "UNLIT": [
+    "Adjective"
+  ],
+  "UNMET": [
+    "Adjective"
+  ],
+  "UNSET": [
+    "Adjective",
+    "Verb"
+  ],
+  "UNTIE": [
+    "Verb"
+  ],
+  "UNTIL": [
+    "Conjunction",
+    "Preposition"
+  ],
+  "UNWED": [
+    "Adjective"
+  ],
+  "UNZIP": [
+    "Verb"
+  ],
+  "UPPER": [
+    "Adjective",
+    "Noun"
+  ],
+  "UPSET": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "URBAN": [
+    "Adjective"
+  ],
+  "URINE": [
+    "Noun"
+  ],
+  "USAGE": [
+    "Noun"
+  ],
+  "USHER": [
+    "Noun",
+    "Verb"
+  ],
+  "USING": [
+    "Noun",
+    "Verb"
+  ],
+  "USUAL": [
+    "Adjective"
+  ],
+  "USURP": [
+    "Verb"
+  ],
+  "UTILE": [
+    "Adjective"
+  ],
+  "UTTER": [
+    "Adjective",
+    "Verb"
+  ],
+  "VAGUE": [
+    "Adjective"
+  ],
+  "VALET": [
+    "Noun",
+    "Verb"
+  ],
+  "VALID": [
+    "Adjective"
+  ],
+  "VALOR": [
+    "Noun"
+  ],
+  "VALUE": [
+    "Noun",
+    "Verb"
+  ],
+  "VALVE": [
+    "Noun"
+  ],
+  "VAPID": [
+    "Adjective"
+  ],
+  "VAPOR": [
+    "Noun"
+  ],
+  "VAULT": [
+    "Noun",
+    "Verb"
+  ],
+  "VAUNT": [
+    "Noun",
+    "Verb"
+  ],
+  "VEGAN": [
+    "Noun"
+  ],
+  "VENOM": [
+    "Noun"
+  ],
+  "VENUE": [
+    "Noun"
+  ],
+  "VERGE": [
+    "Noun",
+    "Verb"
+  ],
+  "VERSE": [
+    "Noun",
+    "Verb"
+  ],
+  "VERSO": [
+    "Noun"
+  ],
+  "VERVE": [
+    "Noun"
+  ],
+  "VICAR": [
+    "Noun"
+  ],
+  "VIDEO": [
+    "Noun"
+  ],
+  "VIGIL": [
+    "Noun"
+  ],
+  "VIGOR": [
+    "Noun"
+  ],
+  "VILLA": [
+    "Noun"
+  ],
+  "VINYL": [
+    "Noun"
+  ],
+  "VIOLA": [
+    "Noun"
+  ],
+  "VIPER": [
+    "Noun"
+  ],
+  "VIRAL": [
+    "Adjective"
+  ],
+  "VIRUS": [
+    "Noun"
+  ],
+  "VISIT": [
+    "Noun",
+    "Verb"
+  ],
+  "VISOR": [
+    "Noun"
+  ],
+  "VISTA": [
+    "Noun"
+  ],
+  "VITAL": [
+    "Adjective"
+  ],
+  "VIVID": [
+    "Adjective"
+  ],
+  "VIXEN": [
+    "Noun"
+  ],
+  "VOCAL": [
+    "Adjective",
+    "Noun"
+  ],
+  "VODKA": [
+    "Noun"
+  ],
+  "VOGUE": [
+    "Noun"
+  ],
+  "VOICE": [
+    "Noun",
+    "Verb"
+  ],
+  "VOILA": [
+    "Interjection"
+  ],
+  "VOMIT": [
+    "Noun",
+    "Verb"
+  ],
+  "VOTER": [
+    "Noun"
+  ],
+  "VOUCH": [
+    "Verb"
+  ],
+  "VOWEL": [
+    "Noun"
+  ],
+  "VYING": [
+    "Verb"
+  ],
+  "WACKY": [
+    "Adjective"
+  ],
+  "WAFER": [
+    "Noun"
+  ],
+  "WAGER": [
+    "Noun",
+    "Verb"
+  ],
+  "WAGON": [
+    "Noun"
+  ],
+  "WAIST": [
+    "Noun"
+  ],
+  "WAIVE": [
+    "Verb"
+  ],
+  "WALTZ": [
+    "Noun",
+    "Verb"
+  ],
+  "WARTY": [
+    "Adjective"
+  ],
+  "WASTE": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "WATCH": [
+    "Noun",
+    "Verb"
+  ],
+  "WATER": [
+    "Noun",
+    "Verb"
+  ],
+  "WAVER": [
+    "Noun",
+    "Verb"
+  ],
+  "WAXEN": [
+    "Adjective"
+  ],
+  "WEARY": [
+    "Adjective",
+    "Verb"
+  ],
+  "WEAVE": [
+    "Noun",
+    "Verb"
+  ],
+  "WEDGE": [
+    "Noun",
+    "Verb"
+  ],
+  "WEEDY": [
+    "Adjective"
+  ],
+  "WEIGH": [
+    "Verb"
+  ],
+  "WEIRD": [
+    "Adjective",
+    "Noun"
+  ],
+  "WELCH": [
+    "Verb"
+  ],
+  "WELSH": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "WENCH": [
+    "Noun",
+    "Verb"
+  ],
+  "WHACK": [
+    "Noun",
+    "Verb"
+  ],
+  "WHALE": [
+    "Noun",
+    "Verb"
+  ],
+  "WHARF": [
+    "Noun",
+    "Verb"
+  ],
+  "WHEAT": [
+    "Noun"
+  ],
+  "WHEEL": [
+    "Noun",
+    "Verb"
+  ],
+  "WHELP": [
+    "Noun",
+    "Verb"
+  ],
+  "WHERE": [
+    "Adverb",
+    "Conjunction"
+  ],
+  "WHICH": [
+    "Determiner",
+    "Pronoun"
+  ],
+  "WHIFF": [
+    "Noun",
+    "Verb"
+  ],
+  "WHILE": [
+    "Noun"
+  ],
+  "WHINE": [
+    "Noun",
+    "Verb"
+  ],
+  "WHINY": [
+    "Adjective"
+  ],
+  "WHIRL": [
+    "Noun",
+    "Verb"
+  ],
+  "WHISK": [
+    "Noun",
+    "Verb"
+  ],
+  "WHITE": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "WHOLE": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "WHOOP": [
+    "Noun",
+    "Verb"
+  ],
+  "WHOSE": [
+    "Determiner",
+    "Pronoun"
+  ],
+  "WIDEN": [
+    "Verb"
+  ],
+  "WIDER": [
+    "Adjective"
+  ],
+  "WIDOW": [
+    "Noun",
+    "Verb"
+  ],
+  "WIDTH": [
+    "Noun"
+  ],
+  "WIELD": [
+    "Verb"
+  ],
+  "WIGHT": [
+    "Noun"
+  ],
+  "WILLY": [
+    "Noun"
+  ],
+  "WIMPY": [
+    "Adjective"
+  ],
+  "WINCE": [
+    "Noun",
+    "Verb"
+  ],
+  "WINCH": [
+    "Noun",
+    "Verb"
+  ],
+  "WINDY": [
+    "Adjective"
+  ],
+  "WISER": [
+    "Adjective"
+  ],
+  "WISPY": [
+    "Adjective"
+  ],
+  "WITCH": [
+    "Noun",
+    "Verb"
+  ],
+  "WITTY": [
+    "Adjective"
+  ],
+  "WOKEN": [
+    "Verb"
+  ],
+  "WOMAN": [
+    "Noun"
+  ],
+  "WOMEN": [
+    "Noun"
+  ],
+  "WOODY": [
+    "Adjective"
+  ],
+  "WOOER": [
+    "Noun"
+  ],
+  "WOOLY": [
+    "Adjective"
+  ],
+  "WOOZY": [
+    "Adjective"
+  ],
+  "WORDY": [
+    "Adjective"
+  ],
+  "WORLD": [
+    "Adjective",
+    "Noun"
+  ],
+  "WORRY": [
+    "Noun",
+    "Verb"
+  ],
+  "WORSE": [
+    "Adjective",
+    "Adverb",
+    "Noun"
+  ],
+  "WORST": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "WORTH": [
+    "Adjective",
+    "Noun"
+  ],
+  "WOULD": [
+    "Verb"
+  ],
+  "WOUND": [
+    "Adjective",
+    "Noun",
+    "Verb"
+  ],
+  "WOVEN": [
+    "Adjective",
+    "Verb"
+  ],
+  "WRACK": [
+    "Noun",
+    "Verb"
+  ],
+  "WRATH": [
+    "Noun"
+  ],
+  "WREAK": [
+    "Verb"
+  ],
+  "WRECK": [
+    "Noun",
+    "Verb"
+  ],
+  "WREST": [
+    "Verb"
+  ],
+  "WRING": [
+    "Noun",
+    "Verb"
+  ],
+  "WRIST": [
+    "Noun"
+  ],
+  "WRITE": [
+    "Verb"
+  ],
+  "WRONG": [
+    "Adjective",
+    "Adverb",
+    "Noun",
+    "Verb"
+  ],
+  "WROTE": [
+    "Verb"
+  ],
+  "WRUNG": [
+    "Verb"
+  ],
+  "WRYLY": [
+    "Adverb"
+  ],
+  "YACHT": [
+    "Noun",
+    "Verb"
+  ],
+  "YEARN": [
+    "Verb"
+  ],
+  "YEAST": [
+    "Noun"
+  ],
+  "YIELD": [
+    "Noun",
+    "Verb"
+  ],
+  "YOUNG": [
+    "Adjective",
+    "Noun"
+  ],
+  "YOUTH": [
+    "Noun"
+  ],
+  "ZEBRA": [
+    "Noun"
+  ],
+  "ZESTY": [
+    "Adjective"
+  ],
+  "ZONAL": [
+    "Adjective"
+  ]
+}

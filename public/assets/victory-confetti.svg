@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title">
+  <title id="title">Party popper and colorful confetti</title>
+  <rect width="640" height="420" rx="28" fill="#eef7f8"/>
+  <g fill="none" stroke-linecap="round" stroke-width="16">
+    <path d="M310 173c-17-48 5-87 49-104" stroke="#0b6f9f"/>
+    <path d="M356 188c37-47 91-55 134-30" stroke="#c99732"/>
+    <path d="M281 150c-22-36-64-47-101-28" stroke="#d95757"/>
+  </g>
+  <g fill="#0b6f9f"><circle cx="398" cy="74" r="13"/><circle cx="494" cy="104" r="11"/><circle cx="175" cy="75" r="12"/></g>
+  <g fill="#c99732"><rect x="441" y="212" width="25" height="25" transform="rotate(25 453 224)"/><rect x="233" y="63" width="24" height="24" transform="rotate(18 245 75)"/></g>
+  <g fill="#d95757"><path d="m522 196 15 28-31-2z"/><path d="m126 163 15 28-31-2z"/></g>
+  <path d="m160 341 117-178 126 138-187 87z" fill="#c99732" stroke="#1e1b18" stroke-width="13" stroke-linejoin="round"/>
+  <path d="m277 163 126 138" stroke="#fff7d5" stroke-width="20"/>
+</svg>

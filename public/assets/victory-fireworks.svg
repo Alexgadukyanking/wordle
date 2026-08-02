@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title">
+  <title id="title">Blue and gold fireworks</title>
+  <rect width="640" height="420" rx="28" fill="#172532"/>
+  <g fill="none" stroke-linecap="round" stroke-width="12">
+    <g stroke="#c99732"><path d="M210 150v-92M210 150l65-65M210 150h92M210 150l65 65M210 150v92M210 150l-65 65M210 150h-92M210 150l-65-65"/></g>
+    <g stroke="#49a5ce"><path d="M440 205v-78M440 205l55-55M440 205h78M440 205l55 55M440 205v78M440 205l-55 55M440 205h-78M440 205l-55-55"/></g>
+  </g>
+  <path d="M320 385c0-97 20-144 70-194M320 385c0-84-25-143-80-207" fill="none" stroke="#f8f3e9" stroke-width="10" stroke-linecap="round"/>
+  <g fill="#f8f3e9"><circle cx="92" cy="64" r="6"/><circle cx="554" cy="86" r="7"/><circle cx="570" cy="300" r="5"/><circle cx="105" cy="303" r="6"/></g>
+</svg>

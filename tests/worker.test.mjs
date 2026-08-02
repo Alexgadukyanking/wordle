@@ -6,6 +6,7 @@ import {
   ANSWER_SET,
   WORD_SET,
   chooseAnswer,
+  computeHint,
   publicStatistics,
   requireGameAccess,
   scoreAgainst,
@@ -26,6 +27,16 @@ test("the curated answer pool is non-empty, unique, and accepted as guesses", ()
     assert.ok(!ANSWER_SET.has(guess), `${guess} should not be selected as an answer`);
   }
   assert.ok(ANSWER_SET.has(chooseAnswer()));
+});
+
+test("every answer has local part-of-speech metadata", () => {
+  for (const answer of ANSWER_SET) {
+    assert.match(computeHint("part-of-speech", answer), /^[A-Za-z]+(?: \/ [A-Za-z]+)*$/);
+  }
+  assert.match(computeHint("part-of-speech", "BADLY"), /Adverb/);
+  assert.match(computeHint("part-of-speech", "THEIR"), /Determiner/);
+  assert.match(computeHint("part-of-speech", "GEEKY"), /Adjective/);
+  assert.match(computeHint("part-of-speech", "BEGAN"), /Verb/);
 });
 
 test("duplicate letters are scored only as often as they appear in the answer", () => {

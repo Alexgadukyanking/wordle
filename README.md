@@ -9,6 +9,9 @@ A browser-based five-letter word game hosted on Cloudflare Workers.
   curated answer pool from which the Worker chooses answers. The pool has a
   1,500-word minimum and currently contains 2,332 words. Both files are loaded
   only by the Worker and are not shipped in the browser build.
+- `data/word-metadata.json` supplies server-side part-of-speech hints for every
+  answer. `npm run words:metadata` regenerates it from the bundled WordNet data
+  plus a small reviewed override list; no live dictionary request is required.
 - `src/worker.mjs` is the server-authoritative Cloudflare Worker API.
 - `migrations/` contains the D1 database schema history.
 - `src/dev/` contains development-only browser tools.
@@ -73,6 +76,8 @@ valid Cloudflare Access JWT whose issuer and audience match `TEAM_DOMAIN` and
 `POLICY_AUD`; otherwise the admin APIs reject it. Production returns `404`.
 
 The browser owns presentation, keyboard input, and local visual customization.
+Victory artwork is bundled in `public/assets/`, so winning never sends the
+player's browser to a meme API or third-party image host.
 
 ## Backend API
 
@@ -87,7 +92,7 @@ The browser owns presentation, keyboard input, and local visual customization.
 - `GET /api/games/:id`
 - `PUT /api/games/:id/mode`
 - `POST /api/games/:id/guesses`
-- `GET /api/games/:id/hints/:type`
+- `POST /api/games/:id/hints/:type`
 - `GET /api/health`
 
 Development builds additionally expose `GET /api/dev/games/:id` for the debug
@@ -134,8 +139,10 @@ npm run check
 ```
 
 The test suite covers duplicate-letter scoring, hardcore constraints, answer-
-pool integrity, anonymous game authorization, every D1 migration, and regular
-versus no-hint statistics. GitHub Actions runs the tests and verifies both build
+pool and part-of-speech metadata integrity, anonymous game authorization,
+state-changing hint requests, concurrent and retried guesses, expired security
+row cleanup, every D1 migration, development-route isolation, and regular versus
+no-hint statistics. GitHub Actions runs the tests and verifies both build
 variants on pushes and pull requests.
 
 ## Deployment prerequisites

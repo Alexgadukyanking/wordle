@@ -1,32 +1,27 @@
 import { updateInputText } from "./src/input-logic.mjs";
 
-const VICTORY_REACTION_SPECS = [
+const victoryReactions = [
   {
-    name: "Success Kid",
-    fallback: "https://i.imgflip.com/1bhk.jpg"
+    name: "Trophy",
+    image: "/assets/victory-trophy.svg"
   },
   {
-    name: "Leonardo Dicaprio Cheers",
-    fallback: "https://i.imgflip.com/39t1o.jpg"
+    name: "Confetti",
+    image: "/assets/victory-confetti.svg"
   },
   {
-    name: "Oprah You Get A",
-    fallback: "https://i.imgflip.com/gtj5t.jpg"
+    name: "Star",
+    image: "/assets/victory-star.svg"
   },
   {
-    name: "Third World Success Kid",
-    fallback: "https://i.imgflip.com/265j.jpg"
+    name: "Fireworks",
+    image: "/assets/victory-fireworks.svg"
   },
   {
-    name: "Laughing Leo",
-    fallback: "https://i.imgflip.com/4acd7j.jpg"
+    name: "Crown",
+    image: "/assets/victory-crown.svg"
   }
 ];
-
-let victoryReactions = VICTORY_REACTION_SPECS.map((reaction) => ({
-  ...reaction,
-  image: reaction.fallback
-}));
 
 const KEY_ROWS = [
   ["Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"],
@@ -218,22 +213,6 @@ function stopCamera() {
   cameraStatus.textContent = "Camera is off";
 }
 
-async function loadVictoryReactions() {
-  try {
-    const response = await fetch("https://api.imgflip.com/get_memes");
-    const payload = await response.json();
-    const popular = payload?.data?.memes;
-    if (!Array.isArray(popular)) return;
-
-    victoryReactions = VICTORY_REACTION_SPECS.map((reaction) => {
-      const current = popular.find((meme) => meme.name === reaction.name);
-      return { ...reaction, image: current?.url || reaction.fallback };
-    });
-  } catch {
-    // The curated fallback URLs remain available when the live list is blocked.
-  }
-}
-
 function closeHints() {
   document
     .querySelectorAll(".hints-panel details")
@@ -379,7 +358,8 @@ async function revealHint(details) {
   value.textContent = "Loading…";
   try {
     const payload = await requestGameJson(
-      `/api/games/${encodeURIComponent(gameId)}/hints/${details.dataset.hintType}`
+      `/api/games/${encodeURIComponent(gameId)}/hints/${details.dataset.hintType}`,
+      { method: "POST", body: "{}" }
     );
     value.textContent = payload.value;
     value.dataset.loadedFor = gameId;
@@ -745,7 +725,10 @@ async function submitGuess() {
       : `/api/games/${encodeURIComponent(gameId)}/guesses`;
     const payload = await requestGameJson(
       guessEndpoint,
-      { method: "POST", body: JSON.stringify({ guess: submittedGuess }) }
+      {
+        method: "POST",
+        body: JSON.stringify({ guess: submittedGuess, attempt: guesses.length + 1 })
+      }
     );
     const result = payload.result;
     current = "";
@@ -985,7 +968,6 @@ async function initializeGame() {
   await loadCurrentUser();
   await startGame();
   startCamera();
-  loadVictoryReactions();
   initializeBackground();
 }
 
