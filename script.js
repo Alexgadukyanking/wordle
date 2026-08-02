@@ -1,7 +1,4 @@
-import WORDS from "./data/words.json";
 import { updateInputText } from "./src/input-logic.mjs";
-
-const validWords = new Set(WORDS);
 
 const VICTORY_REACTION_SPECS = [
   {
@@ -68,7 +65,6 @@ const deleteAccountForm = document.querySelector("#delete-account-form");
 const hardcoreButton = document.querySelector("#hardcore-button");
 const hardcoreLabel = document.querySelector("#hardcore-label");
 const hardcoreNote = document.querySelector("#hardcore-note");
-const possibleCount = document.querySelector("#possible-count");
 const cameraCard = document.querySelector(".camera-card");
 const cameraVideo = document.querySelector("#camera-video");
 const cameraButton = document.querySelector("#camera-button");
@@ -604,7 +600,6 @@ async function startGame(reset = false) {
     buildKeyboard();
     renderSavedGame();
     updateHardcoreControl();
-    updatePossibleWords();
     saveGame();
   } catch (error) {
     message.textContent = `Game server unavailable: ${error.message}`;
@@ -629,47 +624,6 @@ function updateCurrentRow() {
     renderLetter(tile, current[index]);
     tile.classList.toggle("filled", Boolean(current[index]));
   });
-}
-
-function scoreAgainst(guess, target) {
-  const result = Array(5).fill("absent");
-  const remaining = target.split("");
-
-  guess.split("").forEach((letter, index) => {
-    if (letter === target[index]) {
-      result[index] = "correct";
-      remaining[index] = null;
-    }
-  });
-
-  guess.split("").forEach((letter, index) => {
-    if (result[index] === "correct") return;
-    const match = remaining.indexOf(letter);
-    if (match !== -1) {
-      result[index] = "present";
-      remaining[match] = null;
-    }
-  });
-
-  return result;
-}
-
-function updatePossibleWords() {
-  if (guesses.length === 0) {
-    possibleCount.textContent = WORDS.length.toLocaleString();
-    return;
-  }
-
-  const cluePatterns = guessResults.map((result) => result.join(","));
-  const remaining = WORDS.reduce((count, candidate) => {
-    const matchesEveryClue = guesses.every(
-      (guess, index) =>
-        scoreAgainst(guess, candidate).join(",") === cluePatterns[index]
-    );
-    return count + Number(matchesEveryClue);
-  }, 0);
-
-  possibleCount.textContent = remaining.toLocaleString();
 }
 
 function updateKey(letter, status) {
@@ -776,11 +730,6 @@ async function submitGuess() {
     shakeRow();
     return;
   }
-  if (!validWords.has(current) && !(__DEV_BUILD__ && allowAnyGuess)) {
-    showMessage("Not in word list");
-    shakeRow();
-    return;
-  }
   const hardcoreError = validateHardcoreGuess(current);
   if (hardcoreError) {
     showMessage(hardcoreError);
@@ -809,7 +758,6 @@ async function submitGuess() {
     });
 
     updateHardcoreControl();
-    updatePossibleWords();
     if (gameStatus === "won") {
       window.setTimeout(() => { message.textContent = "You got it!"; }, 650);
       window.setTimeout(showVictory, 850);
@@ -1034,11 +982,6 @@ window.addEventListener("pagehide", () => {
 });
 
 async function initializeGame() {
-  if (WORDS.length === 0) {
-    message.textContent = "Word database could not be loaded";
-    keyboard.setAttribute("aria-disabled", "true");
-    return;
-  }
   await loadCurrentUser();
   await startGame();
   startCamera();

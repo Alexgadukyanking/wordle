@@ -5,8 +5,9 @@ A browser-based five-letter word game hosted on Cloudflare Workers.
 ## Project structure
 
 - `index.html`, `style.css`, `script.js`, and `public/assets/` are the frontend.
-- `data/words.json` contains accepted guesses; `data/answers.json` is the smaller,
-  curated pool from which the Worker chooses answers.
+- `data/words.json` contains accepted guesses; `data/answers.json` contains the
+  curated 1,500-word pool from which the Worker chooses answers. Both are loaded
+  only by the Worker and are not shipped in the browser build.
 - `src/worker.mjs` is the server-authoritative Cloudflare Worker API.
 - `migrations/` contains the D1 database schema history.
 - `src/dev/` contains development-only browser tools.
@@ -70,8 +71,7 @@ Localhost is trusted for development. A remote development deployment requires a
 valid Cloudflare Access JWT whose issuer and audience match `TEAM_DOMAIN` and
 `POLICY_AUD`; otherwise the admin APIs reject it. Production returns `404`.
 
-The browser owns presentation, keyboard input, the non-authoritative possible-
-word counter, and local visual customization.
+The browser owns presentation, keyboard input, and local visual customization.
 
 ## Backend API
 

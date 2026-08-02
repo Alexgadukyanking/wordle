@@ -45,6 +45,7 @@ const files = await collectFiles(distDirectory);
 const relativeFiles = files.map((file) => path.relative(distDirectory, file));
 const debugNamedFiles = relativeFiles.filter((file) => /debug|dev-panel/i.test(file));
 const markerMatches = [];
+const serverWordListLeaks = [];
 
 for (const file of files) {
   if (!textExtensions.has(path.extname(file))) continue;
@@ -54,6 +55,15 @@ for (const file of files) {
       markerMatches.push(`${path.relative(distDirectory, file)}: ${marker}`);
     }
   }
+  if (["AAHED", "AALII", "AARGH"].every((word) => contents.includes(word))) {
+    serverWordListLeaks.push(path.relative(distDirectory, file));
+  }
+}
+
+if (serverWordListLeaks.length) {
+  throw new Error(
+    `Server-side word list leaked into browser output:\n${serverWordListLeaks.join("\n")}`
+  );
 }
 
 const hasDebugOutput = debugNamedFiles.length > 0 && markerMatches.length > 0;

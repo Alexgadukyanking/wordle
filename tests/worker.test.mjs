@@ -13,7 +13,7 @@ import {
 } from "../src/worker.mjs";
 
 test("the curated answer pool is non-empty, unique, and accepted as guesses", () => {
-  assert.ok(ANSWER_SET.size >= 400);
+  assert.equal(ANSWER_SET.size, 1500);
   for (const answer of ANSWER_SET) {
     assert.match(answer, /^[A-Z]{5}$/);
     assert.ok(WORD_SET.has(answer), `${answer} is missing from the accepted word list`);

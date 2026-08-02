@@ -211,28 +211,6 @@ main {
   gap: 9px;
 }
 
-.possible-counter {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 4px;
-  border-left: 1px solid var(--line);
-  padding-left: 9px;
-  color: #746d64;
-  white-space: nowrap;
-}
-
-.possible-counter strong {
-  color: var(--correct);
-  font-size: 13px;
-}
-
-.possible-counter span {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
 .hardcore-button {
   border: 1px solid #b8afa3;
   border-radius: 999px;
