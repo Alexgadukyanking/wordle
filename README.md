@@ -11,7 +11,8 @@ A browser-based five-letter word game hosted on Cloudflare Workers.
 - `migrations/` contains the D1 database schema history.
 - `src/dev/` contains development-only browser tools.
 - `wrangler.jsonc` defines separate development and production Workers and D1 bindings.
-- Vite generates `dist/`; Cloudflare publishes only that generated directory.
+- Vite generates isolated `dist/dev/` and `dist/production/` directories.
+  Cloudflare publishes the directory matching the selected Worker environment.
 
 ## Server-authoritative games
 
@@ -120,6 +121,10 @@ npm run verify:prod
 
 Production verification fails if a debug filename, selector, or UI marker is
 found in the generated artifact.
+
+Development and production outputs are deliberately separate. Running a
+production verification while the local development Worker is open cannot
+replace its CSS/JavaScript asset manifest or break the localhost page.
 
 Run the complete local and CI verification with:
 

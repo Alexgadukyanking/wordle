@@ -9,7 +9,7 @@ export default defineConfig(({ mode }) => {
     },
     publicDir: "public",
     build: {
-      outDir: "dist",
+      outDir: developmentBuild ? "dist/dev" : "dist/production",
       emptyOutDir: true,
       rollupOptions: {
         input: {

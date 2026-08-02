@@ -8,7 +8,11 @@ if (!new Set(["dev", "production"]).has(mode)) {
 }
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const distDirectory = path.join(projectRoot, "dist");
+const distDirectory = path.join(
+  projectRoot,
+  "dist",
+  mode === "dev" ? "dev" : "production"
+);
 const textExtensions = new Set([".css", ".html", ".js", ".json", ".txt"]);
 const debugMarkers = [
   "Development build",
