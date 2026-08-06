@@ -10,6 +10,7 @@
     {
       "binding": "DB",
       "database_name": "wordle-production",
+      "database_id": "547883f2-acea-4e4e-b6e3-6b4e007445a9",
       "migrations_dir": "migrations"
     }
   ],
